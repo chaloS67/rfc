@@ -1,45 +1,40 @@
 {% extends "web/base.html" %}
-
-{% block title %}Inicio | Club de Combate{% endblock %}
+{% load static %}
 
 {% block content %}
 
-<header class="hero">
-    <h1>Club social y deportivo gregorianos</h1>
-    <p>Disciplina, respeto y fuerza</p>
-    <a href="#" class="btn-primary">Entrená con nosotros</a>
-</header>
+<section class="hero">
 
-<section class="about">
-    <h2>Quiénes somos</h2>
-    <p>
-        Somos un club dedicado a la formación en deportes de contacto,
-        enfocado en el desarrollo físico y mental de nuestros atletas.
-    </p>
-</section>
+    <div class="logo-principal">
+        <img src="{% static 'web/img/logo.jpg' %}" alt="RFC Logo">
+    </div>
 
-<section class="sports">
-    <h2>Disciplinas</h2>
-    <ul>
-        <li>Boxeo</li>
-        <li>Kickboxing</li>
-        <li>Muay Thai</li>
-        <li>MMA</li>
-    </ul>
-</section>
 
-<section class="schedule">
-    <h2>Horarios</h2>
-    <ul>
-        <li>Lunes a Viernes: 18:00 a 22:00</li>
-        <li>Sábados: 10:00 a 13:00</li>
-    </ul>
-</section>
+<section class="carrusel-container">
 
-<section class="contact">
-    <h2>Contacto</h2>
-    <a href="#">Instagram</a>
-    <a href="#">WhatsApp</a>
+    <div class="slide activo">
+        <img src="{% static 'web/img/antonela.jpeg' %}" alt="">
+
+    </div>
+
+    <div class="slide">
+        <img src="{% static 'web/img/charly.jpeg' %}" alt="">
+
+    </div>
+
+     <div class="slide">
+        <img src="{% static 'web/img/luciano.jpeg' %}" alt="">
+
+    </div>
+
+    <div class="slide">
+        <img src="{% static 'web/img/julio.jpeg' %}" alt="">
+
+    </div>
+
+    <button class="flecha izquierda">&#10094;</button>
+    <button class="flecha derecha">&#10095;</button>
+
 </section>
 
 {% endblock %}

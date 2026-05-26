@@ -1,100 +1,206 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* BASE */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #0d0d0d;
-    color: #f2f2f2;
-    line-height: 1.6;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111;
+    color:white;
+    overflow-x:hidden;
 }
 
-/* HERO */
-.hero {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #000, #111);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
+.hero{
+    width:100%;
+    height:calc(100vh - 70px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+
+    overflow:visible;
+    background:#0f0f0f;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.logo-principal{
+    margin:0;
 }
 
-.hero p {
-    margin: 20px 0;
-    font-size: 1.2rem;
-    opacity: 0.9;
+.logo-principal img{
+    width:110px;
 }
 
-/* BOTÓN */
-.btn-primary {
-    margin-top: 20px;
-    padding: 14px 36px;
-    background-color: #b30000;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: background 0.3s ease;
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:black;
+    padding:20px 40px;
 }
 
-.btn-primary:hover {
-    background-color: #e60000;
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:red;
 }
 
-/* SECCIONES */
-section {
-    max-width: 900px;
-    margin: auto;
-    padding: 70px 20px;
+.menu{
+    display:flex;
+    flex-direction:row;
+    gap:30px;
+    list-style:none;
 }
 
-section h2 {
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #b30000;
-    display: inline-block;
-    padding-bottom: 6px;
-}
-
-/* LISTAS */
-ul {
+.menu li{
     list-style: none;
 }
 
-.sports li,
-.schedule li {
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
+.menu a{
+    color:rgb(255, 116, 2);
+    text-decoration:none;
+    font-weight:bold;
 }
 
-/* CONTACTO */
-.contact a {
-    display: inline-block;
-    margin-right: 20px;
-    margin-top: 10px;
-    color: #b30000;
-    text-decoration: none;
-    font-weight: bold;
+/* PRESENTACION */
+
+.presentacion{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#222;
+
+    background-image:url("/static/web/img/logo.jpg");
+    background-size: contain;
+    
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
-/* FOOTER */
-footer {
-    background-color: #000;
-    text-align: center;
-    padding: 25px;
-    font-size: 0.9rem;
-    opacity: 0.8;
+.presentacion h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.presentacion p{
+    font-size:22px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* CARRUSEL */
+
+.carrusel-container{
+    width:100%;
+    height:380px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:visible;
+}
+
+.slide{
+    position:absolute;
+    width:460px;
+    height:469px;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.5s ease;
+    opacity:0;
+    z-index:1;
+}
+
+.slide.activo{
+    opacity:1;
+    transform:translateX(0);
+    z-index:3;
+}
+
+.slide.anterior{
+    opacity:0.35;
+    transform:translateX(-260px);
+    z-index:2;
+}
+
+.slide.siguiente{
+    opacity:0.35;
+    transform:translateX(260px);
+    z-index:2;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.info{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:20px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,0.9)
+    );
+}
+
+.info h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.info p{
+    font-size:18px;
+}
+
+footer{
+    display:none;
+}
+
+.flecha{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,0.7);
+
+    color:white;
+    font-size:30px;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+.flecha:hover{
+    background:rgba(255, 116, 2, 0.8);
+}
+
+.izquierda{
+    left:20px;
+}
+
+.derecha{
+    right:20px;
 }

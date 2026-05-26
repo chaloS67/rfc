@@ -8,14 +8,34 @@
 
     <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
 </head>
+
 <body>
 
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="default.asp">Principal</a></li>
+            <li><a href="news.asp">Noticias</a></li>
+            <li><a href="contact.asp">Contactos</a></li>
+            <li><a href="about.asp">About</a></li>
+        </ul>
+    </nav>
     {% block content %}
+
+    
+
+    <section class="presentacion">
+        <h1>Club de Deportes de Contacto RFC</h1>
+        <p>Entrenamientos de boxeo, kickboxing y preparación física.</p>
+    </section>
+
+
     {% endblock %}
 
     <footer>
         <p>© Club de Combate – Todos los derechos reservados</p>
     </footer>
+
+<script src="{% static 'web/js/script.js' %}"></script>
 
 </body>
 </html>
