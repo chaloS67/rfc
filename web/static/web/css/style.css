@@ -1,0 +1,100 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASE */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0d0d0d;
+    color: #f2f2f2;
+    line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #000, #111);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* BOTÓN */
+.btn-primary {
+    margin-top: 20px;
+    padding: 14px 36px;
+    background-color: #b30000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e60000;
+}
+
+/* SECCIONES */
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 70px 20px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #b30000;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+/* LISTAS */
+ul {
+    list-style: none;
+}
+
+.sports li,
+.schedule li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+/* CONTACTO */
+.contact a {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 10px;
+    color: #b30000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
