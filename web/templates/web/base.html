@@ -13,10 +13,10 @@
 
     <nav class="navbar">
         <ul class="menu">
-            <li><a href="default.asp">Principal</a></li>
-            <li><a href="news.asp">Noticias</a></li>
-            <li><a href="contact.asp">Contactos</a></li>
-            <li><a href="about.asp">About</a></li>
+            <li><a href="{% url 'home'%}">Inicio</a></li>
+            <li><a href="{% url 'profesores' %}"> Profesores</a></li>
+             <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
+            <li><a href="{% url 'contactos' %}">Contacto</a></li>
         </ul>
     </nav>
     {% block content %}

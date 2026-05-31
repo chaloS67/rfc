@@ -1,0 +1,36 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+
+
+<section class="carrusel-container">
+
+    <div class="slide activo">
+        <img src="{% static 'web/img/antonela.jpeg' %}" alt="">
+
+    </div>
+
+    <div class="slide">
+        <img src="{% static 'web/img/charly.jpeg' %}" alt="">
+
+    </div>
+
+     <div class="slide">
+        <img src="{% static 'web/img/luciano.jpeg' %}" alt="">
+
+    </div>
+
+    <div class="slide">
+        <img src="{% static 'web/img/julio.jpeg' %}" alt="">
+
+    </div>
+
+    <button class="flecha izquierda">&#10094;</button>
+    <button class="flecha derecha">&#10095;</button>
+
+</section>
+
+{% endblock %}

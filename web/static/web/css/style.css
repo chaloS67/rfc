@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -11,7 +12,9 @@ body{
     overflow-x:hidden;
 }
 
-.hero{
+/* CARRUSEL */
+
+.hero{ 
     width:100%;
     height:calc(100vh - 70px);
 
@@ -23,14 +26,6 @@ body{
 
     overflow:visible;
     background:#0f0f0f;
-}
-
-.logo-principal{
-    margin:0;
-}
-
-.logo-principal img{
-    width:110px;
 }
 
 /* NAVBAR */
@@ -75,13 +70,13 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    background:#222;
+    background:#111;
 
-    background-image:url("/static/web/img/logo.jpg");
-    background-size: contain;
-    
-    background-position:center;
-    background-repeat:no-repeat;
+}
+
+.presentacion img{
+    width: 450px;
+    margin-bottom: 20px;
 }
 
 .presentacion h1{
@@ -203,4 +198,56 @@ footer{
 
 .derecha{
     right:20px;
+}
+
+/* SECCION CONOCENOS */
+
+.conocenos{
+    max-width:900px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.conocenos h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:50px;
+}
+
+.intro{
+    text-align:center;
+    font-size:20px;
+    margin-bottom:40px;
+    color:#ccc;
+}
+
+.card-info{
+    background:#1a1a1a;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:15px;
+}
+
+.card-info h2{
+    color:rgb(255,116,2);
+    margin-bottom:15px;
+}
+
+.card-info ul{
+    list-style:none;
+}
+
+.card-info li{
+    margin-bottom:10px;
+}
+
+.btn-mapa{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 24px;
+    background:rgb(255,116,2);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
 }
