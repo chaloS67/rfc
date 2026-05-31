@@ -125,13 +125,13 @@ ul {
 
 .slide.anterior{
     opacity:0.35;
-    transform:translateX(-260px);
+    transform:translateX(-350px);
     z-index:2;
 }
 
 .slide.siguiente{
     opacity:0.35;
-    transform:translateX(260px);
+    transform:translateX(350px);
     z-index:2;
 }
 
@@ -250,4 +250,135 @@ footer{
     text-decoration:none;
     border-radius:8px;
     font-weight:bold;
+}
+
+.galeria{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.grid-galeria{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.grid-galeria img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.btn-menu{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:32px;
+    cursor:pointer;
+}
+
+@media (max-width: 768px){
+
+     .navbar{
+        position:relative;
+        flex-direction:row;
+    }
+
+    .btn-menu{
+        display:block;
+    }
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:black;
+        flex-direction:column;
+        align-items:center;
+        padding:20px 0;
+        gap:15px;
+        z-index:100;
+    }
+
+    .menu.activo{
+        display:flex;
+    }
+
+    .menu{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    .presentacion{
+        height:auto;
+        min-height:100vh;
+        padding:30px 20px;
+    }
+
+    .presentacion img{
+        width:280px;
+    }
+
+    .presentacion p{
+        font-size:18px;
+    }
+
+    .carrusel-container{
+        height:320px;
+    }
+
+    .slide{
+        width:280px;
+        height:300px;
+    }
+
+    .slide.anterior{
+        transform:translateX(-120px);
+        opacity:0.25;
+    }
+
+    .slide.siguiente{
+        transform:translateX(120px);
+        opacity:0.25;
+    }
+
+    .flecha{
+        width:40px;
+        height:40px;
+        font-size:24px;
+    }
+
+    .izquierda{
+        left:5px;
+    }
+
+    .derecha{
+        right:5px;
+    }
+
+    .grid-galeria{
+        grid-template-columns:1fr;
+    }
+
+    .grid-galeria img{
+        height:220px;
+    }
+
+    .conocenos{
+        padding:30px 15px;
+    }
+
+    .conocenos h1{
+        font-size:36px;
+    }
 }

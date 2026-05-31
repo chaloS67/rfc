@@ -1,58 +1,44 @@
 let index = 0;
 
 const slides = document.querySelectorAll(".slide");
+const btnDerecha = document.querySelector(".derecha");
+const btnIzquierda = document.querySelector(".izquierda");
 
-function actualizarCarrusel(){
+if(slides.length > 0 && btnDerecha && btnIzquierda){
 
-    slides.forEach(slide => {
+    function actualizarCarrusel(){
 
-        slide.classList.remove(
-            "activo",
-            "anterior",
-            "siguiente"
-        );
+        slides.forEach(slide => {
+            slide.classList.remove("activo", "anterior", "siguiente");
+        });
 
+        slides[index].classList.add("activo");
+
+        const anterior = (index - 1 + slides.length) % slides.length;
+        const siguiente = (index + 1) % slides.length;
+
+        slides[anterior].classList.add("anterior");
+        slides[siguiente].classList.add("siguiente");
+    }
+
+    btnDerecha.addEventListener("click", () => {
+        index = (index + 1) % slides.length;
+        actualizarCarrusel();
     });
 
-    slides[index].classList.add("activo");
+    btnIzquierda.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        actualizarCarrusel();
+    });
 
-    const anterior =
-        (index - 1 + slides.length)
-        % slides.length;
-
-    const siguiente =
-        (index + 1)
-        % slides.length;
-
-    slides[anterior].classList.add("anterior");
-
-    slides[siguiente].classList.add("siguiente");
+    actualizarCarrusel();
 }
 
-document
-.querySelector(".derecha")
-.addEventListener("click", () => {
+const btnMenu = document.getElementById("btn-menu");
+const menu = document.getElementById("menu");
 
-    index++;
-
-    if(index >= slides.length){
-        index = 0;
-    }
-
-    actualizarCarrusel();
-});
-
-document
-.querySelector(".izquierda")
-.addEventListener("click", () => {
-
-    index--;
-
-    if(index < 0){
-        index = slides.length - 1;
-    }
-
-    actualizarCarrusel();
-});
-
-actualizarCarrusel();
+if(btnMenu && menu){
+    btnMenu.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+    });
+}
