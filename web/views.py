@@ -12,5 +12,37 @@ def profesores(request):
 def conocenos(request):
     return render(request, "web/conocenos.html")
 
-def contactos(request):
-    return render(request, "web/contactos.html")
+def galeria(request):
+    return render(request, "web/galeria.html")
+
+def profesores(request):
+
+    profesores = [
+        "abrham.jpeg",
+        "antonella.jpeg",
+        "charly.jpeg",
+        "enzo.jpeg",
+        "felipe.jpeg",
+        "julio.jpeg",
+        "marino.jpeg",
+        "maxi.jpeg",
+        "melisa.jpeg",
+        "omar_lucha.jpeg",
+        "omar_mma.jpeg",
+        "proboste.jpeg"
+
+    ]
+    return render(request, "web/profesores.html",{"profesores": profesores}) 
+
+def galeria(request):    
+
+    fotos = [
+        "img1.jpeg",
+        "img2.jpeg",
+        "img3.jpeg",
+        "img4.jpeg",
+        "img5.jpeg"
+        
+    ]
+    return render(request, "web/galeria.html",{"fotos": fotos}) 
+

@@ -12,8 +12,9 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">RFC</div>
-
+        <div class="logo">
+        <img src="{% static 'web/img/logos/logoS.png' %}" alt="RFC">
+        </div>
         <button class="btn-menu" id="btn-menu">
             ☰
         </button>
@@ -21,7 +22,7 @@
         <ul class="menu" id="menu">
             <li><a href="{% url 'home' %}">Inicio</a></li>
             <li><a href="{% url 'profesores' %}">Profesores</a></li>
-            <li><a href="{% url 'contactos' %}">Galería</a></li>
+            <li><a href="{% url 'galeria' %}">Galería</a></li>
             <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
         </ul>
     </nav>

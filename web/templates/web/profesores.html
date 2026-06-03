@@ -6,31 +6,25 @@
 <section class="hero">
 
 
-<section class="carrusel-container">
+    <section class="carrusel-container">
 
-    <div class="slide activo">
-        <img src="{% static 'web/img/antonela.jpeg' %}" alt="">
+        {% for profesor in profesores %}
 
-    </div>
+            <div class="slide {% if forloop.first %}activo{% endif %}">
+                        <img  class="foto-profesor"
+                              src="{% static 'web/img/profesores/'|add:profesor %}" 
+                              alt="">
+            </div>
+            
+            <div id="modal" class="modal">
+                <span class="cerrar">&times;</span>
+                <img id="imagen-modal">
+            </div>
+        {% endfor %}
 
-    <div class="slide">
-        <img src="{% static 'web/img/charly.jpeg' %}" alt="">
-
-    </div>
-
-     <div class="slide">
-        <img src="{% static 'web/img/luciano.jpeg' %}" alt="">
-
-    </div>
-
-    <div class="slide">
-        <img src="{% static 'web/img/julio.jpeg' %}" alt="">
-
-    </div>
-
-    <button class="flecha izquierda">&#10094;</button>
-    <button class="flecha derecha">&#10095;</button>
-
-</section>
+            <button class="flecha izquierda">&#10094;</button>
+            <button class="flecha derecha">&#10095;</button>
+    </section>
+ </section>   
 
 {% endblock %}

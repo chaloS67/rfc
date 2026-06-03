@@ -42,3 +42,31 @@ if(btnMenu && menu){
         menu.classList.toggle("activo");
     });
 }
+
+const fotos = document.querySelectorAll(".foto-profesor");
+const modal = document.getElementById("modal");
+const imagenModal = document.getElementById("imagen-modal");
+const cerrar = document.querySelector(".cerrar");
+
+fotos.forEach(foto => {
+
+    foto.addEventListener("click", () => {
+
+        modal.style.display = "flex";
+        imagenModal.src = foto.src;
+
+    });
+
+});
+
+cerrar.addEventListener("click", () => {
+
+    modal.style.display = "none";
+
+});
+
+modal.addEventListener("click", () => {
+
+    modal.style.display = "none";
+
+}); 
