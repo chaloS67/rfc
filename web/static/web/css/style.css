@@ -30,11 +30,32 @@ body{
 
 /* NAVBAR */
 
+
+
 .navbar{
     display:flex;
     align-items:center;
-    background:black;
-    padding:15px 30px;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.social{
+    margin-left:700px;
+    display:flex;
+    gap:15px;
+}
+
+.social a{
+    color:white;
+    font-size:24px;
+}
+
+.social a:hover{
+    color:rgb(255,116,2);
 }
 
 .logo{
@@ -66,7 +87,7 @@ body{
 /* PRESENTACION */
 
 .presentacion{
-    height:90vh;
+    height:calc(100vh - 70px - 60px);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -166,8 +187,18 @@ ul {
 }
 
 footer{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+}
+
+.redes-footer{
     display:none;
 }
+
+
 
 .flecha{
     position:absolute;
@@ -315,18 +346,49 @@ footer{
 
 @media (max-width: 768px){
 
+    
      .navbar{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:10px 20px;
         position:relative;
-        flex-direction:row;
     }
 
-    .btn-menu{
-        display:block;
+   .btn-menu{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:40px;
+        height:40px;
+        margin-left:auto;
     }
 
     .logo img{
-    height:20px;
+    height:40px;
     width:auto;
+}
+
+
+.social{
+        display:none;
+    }
+
+.redes-footer{
+    margin-top:10px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.redes-footer a{
+    color:white;
+    font-size:30px;
+    transition:0.3s;
+}
+
+.redes a:hover{
+    color:rgb(255,116,2);
 }
 
     .menu{

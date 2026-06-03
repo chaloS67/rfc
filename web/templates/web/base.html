@@ -5,27 +5,39 @@
     <meta charset="UTF-8">
     <title>{% block title %}Club de Combate{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-        <img src="{% static 'web/img/logos/logoS.png' %}" alt="RFC">
-        </div>
-        <button class="btn-menu" id="btn-menu">
-            ☰
-        </button>
+   <nav class="navbar">
 
-        <ul class="menu" id="menu">
-            <li><a href="{% url 'home' %}">Inicio</a></li>
-            <li><a href="{% url 'profesores' %}">Profesores</a></li>
-            <li><a href="{% url 'galeria' %}">Galería</a></li>
-            <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
-        </ul>
-    </nav>
+    <div class="logo">
+        <img src="{% static 'web/img/logos/logoS.png' %}" alt="RFC">
+    </div>
+
+    <ul class="menu" id="menu">
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'profesores' %}">Profesores</a></li>
+        <li><a href="{% url 'galeria' %}">Galería</a></li>
+        <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
+    </ul>
+
+    <div class="social">
+        <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+
+    <button class="btn-menu" id="btn-menu">☰</button>
+
+</nav>
     {% block content %}
 
     
@@ -35,12 +47,24 @@
         <p>Entrenamientos de boxeo, kickboxing y preparación física.</p>
     </section>
 
-
-    {% endblock %}
+     {% endblock %}
 
     <footer>
-        <p>© Club de Combate – Todos los derechos reservados</p>
-    </footer>
+
+    <p>© Rawson Fight Club</p>
+
+    <div class="redes-footer">
+        <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+
+
+</footer>
 
 <script src="{% static 'web/js/script.js' %}"></script>
 
