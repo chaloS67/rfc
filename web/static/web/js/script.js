@@ -43,30 +43,35 @@ if(btnMenu && menu){
     });
 }
 
-const fotos = document.querySelectorAll(".foto-profesor");
+const imagenes = document.querySelectorAll(
+    ".foto-galeria, .foto-profesor"
+);
+
 const modal = document.getElementById("modal");
 const imagenModal = document.getElementById("imagen-modal");
 const cerrar = document.querySelector(".cerrar");
 
-fotos.forEach(foto => {
+if(modal && imagenModal && cerrar){
 
-    foto.addEventListener("click", () => {
+    imagenes.forEach(imagen => {
 
-        modal.style.display = "flex";
-        imagenModal.src = foto.src;
+        imagen.addEventListener("click", () => {
+
+            modal.style.display = "flex";
+            imagenModal.src = imagen.src;
+
+        });
 
     });
 
-});
+    cerrar.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
 
-cerrar.addEventListener("click", () => {
+    modal.addEventListener("click", (e) => {
+        if(e.target === modal){
+            modal.style.display = "none";
+        }
+    });
 
-    modal.style.display = "none";
-
-});
-
-modal.addEventListener("click", () => {
-
-    modal.style.display = "none";
-
-}); 
+}

@@ -10,9 +10,14 @@
 
     <div class="grid-galeria">
         {% for foto in fotos%}
-        <img src="{% static 'web/img/galeria/'|add:foto  %}" alt="">
-        {% endfor %}
-        
+         <div class="card-galeria">
+            <img
+                class="foto-galeria"
+                src="{% static 'web/img/galeria/'|add:foto %}"
+                alt=""
+            >
+        </div>
+     {% endfor %}
     </div>
 </section>
 

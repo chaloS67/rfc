@@ -286,24 +286,39 @@ footer{
 }
 
 .galeria{
-    padding:50px 20px;
+    padding:40px 20px;
     text-align:center;
 }
 
+.galeria h1{
+    font-size:36px;
+    margin-bottom:35px;
+}
+
 .grid-galeria{
+    max-width:1100px;
+    margin:0 auto;
+
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-    margin-top:30px;
+    gap:25px;
 }
 
-.grid-galeria img{
+.card-galeria{
+    height:260px;
+    background:#1a1a1a;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.card-galeria img{
     width:100%;
-    height:250px;
+    height:100%;
     object-fit:cover;
-    border-radius:15px;
+    display:block;
+    cursor:pointer;
 }
-
 
 
 .btn-menu{
@@ -466,12 +481,12 @@ footer{
         right:5px;
     }
 
-    .grid-galeria{
+   .grid-galeria{
         grid-template-columns:1fr;
     }
 
-    .grid-galeria img{
-        height:220px;
+    .card-galeria{
+        height:240px;
     }
 
     .conocenos{
