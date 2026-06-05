@@ -41,7 +41,9 @@ def galeria(request):
         "img2.jpeg",
         "img3.jpeg",
         "img4.jpeg",
-        "img5.jpeg"
+        "img5.jpeg",
+        "img6.jpeg",
+        "img7.jpeg"
         
     ]
     return render(request, "web/galeria.html",{"fotos": fotos}) 
