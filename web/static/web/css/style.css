@@ -119,6 +119,14 @@ ul {
 
 /* CARRUSEL */
 
+.profesores{
+    min-height: calc(100vh - 110px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f0f0f;
+}
+
 .carrusel-container{
     width:100%;
     height:380px;
@@ -404,29 +412,28 @@ footer{
     .logo img{
     height:40px;
     width:auto;
-}
-
-
-.social{
-        display:none;
     }
 
-.redes-footer{
-    margin-top:10px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-}
+    .social{
+            display:none;
+        }
 
-.redes-footer a{
-    color:white;
-    font-size:30px;
-    transition:0.3s;
-}
+    .redes-footer{
+        margin-top:10px;
+        display:flex;
+        justify-content:center;
+        gap:20px;
+    }
 
-.redes a:hover{
-    color:rgb(255,116,2);
-}
+    .redes-footer a{
+        color:white;
+        font-size:30px;
+        transition:0.3s;
+    }
+
+    .redes a:hover{
+        color:rgb(255,116,2);
+    }
 
     .menu{
         display:none;
@@ -447,9 +454,7 @@ footer{
     }
 
     .menu{
-        flex-direction:column;
-        align-items:center;
-        gap:10px;
+        top:60px;
     }
 
     .logo{
@@ -457,10 +462,17 @@ footer{
     }
 
     .presentacion{
-        height:auto;
-        min-height:100vh;
-        padding:30px 20px;
+       
+        min-height:auto;
+        padding:30px 20px 30px;
     }
+
+    .hero{
+        height:auto;
+        padding:20px 0 30px;
+        gap:10px;
+    }
+
 
     .presentacion img{
         width:280px;
@@ -474,34 +486,34 @@ footer{
     width:100%;
     height:420px;
     overflow:hidden;
-}
+    }   
 
-.slide{
-    width:220px;
-    height:380px;
-}
+    .slide{
+        width:220px;
+        height:380px;
+    }
 
-.slide.activo{
-    opacity:1;
-    transform:translateX(0) scale(1);
-    z-index:3;
-}
+    .slide.activo{
+        opacity:1;
+        transform:translateX(0) scale(1);
+        z-index:3;
+    }
 
-.slide.anterior{
-    opacity:0.25;
-    transform:translateX(-130px) scale(0.85);
-    z-index:2;
-}
+    .slide.anterior{
+        opacity:0.25;
+        transform:translateX(-130px) scale(0.85);
+        z-index:2;
+    }
 
-.slide.siguiente{
-    opacity:0.25;
-    transform:translateX(130px) scale(0.85);
-    z-index:2;
-}
+    .slide.siguiente{
+        opacity:0.25;
+        transform:translateX(130px) scale(0.85);
+        z-index:2;
+    }
 
-.slide img{
-    object-fit:contain;
-}
+    .slide img{
+        object-fit:contain;
+    }
 
 
     .flecha{
@@ -527,10 +539,33 @@ footer{
     }
 
     .conocenos{
-        padding:30px 15px;
+        padding:20px 15px;
     }
 
     .conocenos h1{
         font-size:36px;
     }
+
+     .profesores{
+         height: calc(100dvh - 150px);
+        min-height: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .profesores .carrusel-container{
+        height: 75vh;
+    }
+
+    .profesores .slide{
+        width: 240px;
+        height: 420px;
+    }
+
+    footer{
+        padding:20px;
+    }
+
 }
