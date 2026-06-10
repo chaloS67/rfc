@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1",
 "localhost",
-"rawsonfigthclub.pythonanywhere.com"
+"rawsonfigthclub.pythonanywhere.com",
+"reluctant-rover-suitor.ngrok-free.dev"
 ]
 
 
