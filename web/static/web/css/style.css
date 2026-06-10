@@ -98,7 +98,7 @@ body{
 }
 
 .presentacion img{
-    width: 450px;
+    width: 300px;
     margin-bottom: 20px;
 }
 
@@ -387,6 +387,45 @@ footer{
 .sponsors img:hover{
     filter: grayscale(0%);
     transform: scale(1.05);
+}
+
+.lema-conocenos{
+    text-align:center;
+    color:rgb(255,116,2);
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:35px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.historia-principal{
+    border-left:4px solid rgb(255,116,2);
+}
+
+.grid-conocenos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.frase-final{
+    text-align:center;
+    margin-top:40px;
+    font-size:28px;
+    font-weight:bold;
+    color:rgb(255,116,2);
+}
+
+@media(max-width:768px){
+    .grid-conocenos{
+        grid-template-columns:1fr;
+    }
+
+    .lema-conocenos,
+    .frase-final{
+        font-size:22px;
+    }
 }
 
 @media (max-width: 768px){
