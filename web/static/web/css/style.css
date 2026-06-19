@@ -1,4 +1,11 @@
 
+:root {
+    --color-primario: rgb(255, 116, 2);
+    --color-fondo: #111;
+    --color-fondo-oscuro: #0f0f0f;
+    --color-card: #1a1a1a;
+}
+
 *{
     margin:0;
     padding:0;
@@ -7,12 +14,12 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#111;
+    background:var(--color-fondo);
     color:white;
     overflow-x:hidden;
 }
 
-/* CARRUSEL */
+/* HERO */
 
 .hero{ 
     width:100%;
@@ -25,41 +32,19 @@ body{
     gap:20px;
 
     overflow:visible;
-    background:#0f0f0f;
+    background:var(--color-fondo-oscuro);
 }
 
 /* NAVBAR */
 
-
-
 .navbar{
     display:flex;
     align-items:center;
-}
-
-.menu{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
-
-.social{
-    margin-left:700px;
-    display:flex;
-    gap:15px;
-}
-
-.social a{
-    color:white;
-    font-size:24px;
-}
-
-.social a:hover{
-    color:rgb(255,116,2);
+    padding:0 20px;
 }
 
 .logo{
-    margin-right: 40px;
+    margin-right:40px;
 }
 
 .logo img{
@@ -75,13 +60,28 @@ body{
 }
 
 .menu li{
-    list-style: none;
+    list-style:none;
 }
 
 .menu a{
-    color:rgb(255, 116, 2);
+    color:var(--color-primario);
     text-decoration:none;
     font-weight:bold;
+}
+
+.social{
+    margin-left:auto;
+    display:flex;
+    gap:15px;
+}
+
+.social a{
+    color:white;
+    font-size:24px;
+}
+
+.social a:hover{
+    color:var(--color-primario);
 }
 
 /* PRESENTACION */
@@ -124,7 +124,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0f0f0f;
+    background: var(--color-fondo-oscuro);
 }
 
 .carrusel-container{
@@ -231,9 +231,7 @@ footer{
 
 .flecha:hover{
     background:rgba(255, 116, 2, 0.8);
-}
-
-.izquierda{
+}.izquierda{
     left:20px;
 }
 
@@ -263,14 +261,14 @@ footer{
 }
 
 .card-info{
-    background:#1a1a1a;
+    background:var(--color-card);
     padding:25px;
     margin-bottom:25px;
     border-radius:15px;
 }
 
 .card-info h2{
-    color:rgb(255,116,2);
+    color:var(--color-primario);
     margin-bottom:15px;
 }
 
@@ -286,7 +284,7 @@ footer{
     display:inline-block;
     margin-top:15px;
     padding:12px 24px;
-    background:rgb(255,116,2);
+    background:var(--color-primario);
     color:white;
     text-decoration:none;
     border-radius:8px;
@@ -314,7 +312,7 @@ footer{
 
 .card-galeria{
     height:260px;
-    background:#1a1a1a;
+    background:var(--color-card);
     border-radius:16px;
     overflow:hidden;
     box-shadow:0 0 15px rgba(0,0,0,0.5);
@@ -391,7 +389,7 @@ footer{
 
 .lema-conocenos{
     text-align:center;
-    color:rgb(255,116,2);
+    color:var(--color-primario);
     font-size:28px;
     font-weight:bold;
     margin-bottom:35px;
@@ -400,7 +398,7 @@ footer{
 }
 
 .historia-principal{
-    border-left:4px solid rgb(255,116,2);
+    border-left:4px solid var(--color-primario);
 }
 
 .grid-conocenos{
@@ -414,7 +412,7 @@ footer{
     margin-top:40px;
     font-size:28px;
     font-weight:bold;
-    color:rgb(255,116,2);
+    color:var(--color-primario);
 }
 
 .mapa{
@@ -490,7 +488,7 @@ footer{
     }
 
     .redes a:hover{
-        color:rgb(255,116,2);
+        color:var(--color-primario);
     }
 
     .menu{

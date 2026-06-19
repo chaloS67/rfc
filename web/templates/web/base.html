@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Club de Combate{% endblock %}</title>
+    <title>{% block title %}RFC - Rawson Fight Club{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -12,65 +12,55 @@
 
 <body>
 
-   <nav class="navbar">
+    <nav class="navbar">
 
-    <div class="logo">
-        <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
-    </div>
+        <div class="logo">
+            <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
+        </div>
 
-    <ul class="menu" id="menu">
-        <li><a href="{% url 'home' %}">Inicio</a></li>
-        <li><a href="{% url 'profesores' %}">Profesores</a></li>
-        <li><a href="{% url 'galeria' %}">Galería</a></li>
-        <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
-    </ul>
+        <ul class="menu" id="menu">
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'profesores' %}">Profesores</a></li>
+            <li><a href="{% url 'galeria' %}">Galería</a></li>
+            <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
+        </ul>
 
-    <div class="social">
-        <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
+        <div class="social">
+            <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
 
-        <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
-            <i class="fab fa-facebook"></i>
-        </a>
-    </div>
+        <button class="btn-menu" id="btn-menu">☰</button>
 
-    <button class="btn-menu" id="btn-menu">☰</button>
+    </nav>
 
-</nav>
-    {% block content %}
-
-    
-
-    <section class="presentacion">
-        <h1>Club de Deportes de Contacto RFC</h1>
-        <p>Entrenamientos de boxeo, kickboxing y preparación física.</p>
-    </section>
-
-     {% endblock %}
+    {% block content %}{% endblock %}
 
     <footer>
 
-    <p>© Rawson Fight Club</p>
+        <p>© Rawson Fight Club</p>
 
-    <div class="redes-footer">
-        <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
+        <div class="redes-footer">
+            <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
 
-        <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
-            <i class="fab fa-facebook"></i>
-        </a>
-    </div>
-
-
-</footer>
+    </footer>
 
     <div id="modal" class="modal">
         <span class="cerrar">&times;</span>
-        <img id="imagen-modal" src="" alt="">
+        <img id="imagen-modal" src="" alt="Imagen ampliada">
     </div>
-<script src="{% static 'web/js/script.js' %}"></script>
+
+    <script src="{% static 'web/js/script.js' %}"></script>
 
 </body>
 </html>

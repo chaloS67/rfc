@@ -1,22 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
-from django.shortcuts import render 
 
 def home(request):
-    return render (request, "web/home.html")
+    return render(request, "web/home.html")
+
 
 def profesores(request):
-    return render(request, "web/profesores.html")
-
-def conocenos(request):
-    return render(request, "web/conocenos.html")
-
-def galeria(request):
-    return render(request, "web/galeria.html")
-
-def profesores(request):
-
     profesores = [
         "abrham.jpeg",
         "antonella.jpeg",
@@ -29,13 +18,12 @@ def profesores(request):
         "melisa.jpeg",
         "omar_lucha.jpeg",
         "omar_mma.jpeg",
-        "proboste.jpeg"
-
+        "proboste.jpeg",
     ]
-    return render(request, "web/profesores.html",{"profesores": profesores}) 
+    return render(request, "web/profesores.html", {"profesores": profesores})
 
-def galeria(request):    
 
+def galeria(request):
     fotos = [
         "img1.jpeg",
         "img2.jpeg",
@@ -43,8 +31,10 @@ def galeria(request):
         "img4.jpeg",
         "img5.jpeg",
         "img6.jpeg",
-        "img7.jpeg"
-        
+        "img7.jpeg",
     ]
-    return render(request, "web/galeria.html",{"fotos": fotos}) 
+    return render(request, "web/galeria.html", {"fotos": fotos})
 
+
+def conocenos(request):
+    return render(request, "web/conocenos.html")
