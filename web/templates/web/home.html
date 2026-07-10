@@ -3,14 +3,111 @@
 
 {% block content %}
 
-<section class="presentacion">
+<section class="hero">
 
     <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
 
+    <a href="#descubri" class="btn-hero">
+            Descubrí el RFC
+    </a>
+</section>
+
+    <section id="descubri" class="inicio-info">
+
+    <h2>Descubrí el RFC</h2>
+
     <p>
-        Boxeo · Kickboxing · MMA · Jiu Jitsu · Muay Thai
+        Conocé nuestra historia, nuestras actividades y la comunidad
+        que hace del Rawson Fight Club un lugar único.
     </p>
 
+    <div class="cards-home">
+
+        <!-- Historia -->
+
+        <div class="card-home historia">
+
+            <div class="card-overlay">
+
+                <h3>Historia</h3>
+
+                <p>
+                    Más de una década formando personas a través
+                    de los deportes de combate.
+                </p>
+
+                <a href="{% url 'historia' %}">
+                    Leer historia
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Actividades -->
+
+        <div class="card-home actividades">
+
+            <div class="card-overlay">
+
+                <h3>Actividades</h3>
+
+                <p>
+                    Kickboxing, MMA, Lucha Olímpica,
+                    Boxeo y mucho más.
+                </p>
+
+                <a href="{% url 'profesores' %}">
+                    Ver actividades
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Galería -->
+
+        <div class="card-home galeria">
+
+            <div class="card-overlay">
+
+                <h3>Galería</h3>
+
+                <p>
+                    Reviví momentos únicos del club.
+                </p>
+
+                <a href="{% url 'galeria' %}">
+                    Ver galería
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Sponsors -->
+
+        <div class="card-home sponsors">
+
+            <div class="card-overlay">
+
+                <h3>Sponsors</h3>
+
+                <p>
+                    Empresas que acompañan nuestro crecimiento.
+                </p>
+
+                <a href="#">
+                    Próximamente
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
 
 {% endblock %}

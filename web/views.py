@@ -36,5 +36,5 @@ def galeria(request):
     return render(request, "web/galeria.html", {"fotos": fotos})
 
 
-def conocenos(request):
-    return render(request, "web/conocenos.html")
+def historia(request):
+    return render(request, "web/historia.html")

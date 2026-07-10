@@ -6,6 +6,8 @@
     --color-card: #1a1a1a;
 }
 
+
+
 *{
     margin:0;
     padding:0;
@@ -19,21 +21,349 @@ body{
     overflow-x:hidden;
 }
 
-/* HERO */
+/*======================================
+SCROLL
+======================================*/
 
-.hero{ 
-    width:100%;
-    height:calc(100vh - 70px);
+html{
+    scroll-behavior:smooth;
+}
+
+/*======================================
+HERO
+======================================*/
+
+.hero{
+
+    min-height:calc(100vh - 70px);
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:20px;
 
-    overflow:visible;
-    background:var(--color-fondo-oscuro);
+    text-align:center;
+
+    padding:40px 20px;
+
 }
+
+.hero img{
+
+    width:430px;
+    max-width:90%;
+
+}
+
+.hero h1{
+
+    font-size:58px;
+    margin:25px 0 15px;
+
+}
+
+.hero p{
+
+    max-width:700px;
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:35px;
+
+}
+
+/*======================================
+BOTON HERO
+======================================*/
+
+.btn-hero{
+
+    display:inline-block;
+
+    padding:15px 38px;
+
+    border-radius:50px;
+
+    background:#ff7402;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-hero:hover{
+
+    transform:translateY(-2px);
+
+    background:white;
+
+    color:black;
+
+}
+
+/*======================================
+SECCION DESCUBRI
+======================================*/
+
+.inicio-info{
+
+    width:min(1200px,92%);
+
+    margin:90px auto;
+
+}
+
+.inicio-info h2{
+
+    text-align:center;
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.inicio-info>p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    margin-bottom:60px;
+
+    text-align:center;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/*======================================
+GRID
+======================================*/
+
+.cards-home{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+/*======================================
+CARD
+======================================*/
+
+.card-home{
+
+    position:relative;
+
+    min-height:360px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background-size:cover;
+
+    background-position:center;
+
+    transition:.35s;
+
+}
+
+.card-home:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/*======================================
+HISTORIA Y SPONSORS GRANDES
+======================================*/
+
+.card-historia,
+.card-sponsors{
+
+    grid-column:1/3;
+
+}
+
+/*======================================
+OVERLAY
+======================================*/
+
+.card-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:45px;
+
+    transition:.35s;
+
+}
+
+.card-home:hover .card-overlay{
+
+    background:rgba(0,0,0,.45);
+
+}
+
+/*======================================
+TEXTOS
+======================================*/
+
+.card-overlay h3{
+
+    font-size:44px;
+
+    margin-bottom:20px;
+
+}
+
+.card-overlay p{
+
+    max-width:650px;
+
+    line-height:1.7;
+
+    font-size:18px;
+
+    margin-bottom:28px;
+
+}
+
+/*======================================
+BOTONES CARD
+======================================*/
+
+.card-overlay a{
+
+    display:inline-block;
+
+    padding:12px 30px;
+
+    border-radius:40px;
+
+    border:2px solid #ff7402;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.card-overlay a:hover{
+
+    background:#ff7402;
+
+}
+
+/*======================================
+FONDOS
+======================================*/
+
+.card-historia{
+
+    background-image:url("../img/home/historia.jpg");
+
+}
+
+.card-actividades{
+
+    background-image:url("../img/home/actividades.jpg");
+
+}
+
+.card-galeria{
+
+    background-image:url("../img/home/galeria.jpg");
+
+}
+
+.card-sponsors{
+
+    background-image:url("../img/home/sponsors.jpg");
+
+}
+
+/*======================================
+RESPONSIVE
+======================================*/
+
+@media(max-width:768px){
+
+.cards-home{
+
+    grid-template-columns:1fr;
+
+}
+
+.card-historia,
+.card-sponsors{
+
+    grid-column:auto;
+
+}
+
+.card-home{
+
+    min-height:280px;
+
+}
+
+.hero h1{
+
+    font-size:40px;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+.inicio-info h2{
+
+    font-size:38px;
+
+}
+
+.card-overlay h3{
+
+    font-size:34px;
+
+}
+
+}
+
+
 
 /* NAVBAR */
 
@@ -239,204 +569,389 @@ footer{
     right:20px;
 }
 
-/* SECCION CONOCENOS */
+/* HISTORIA */
 
-.conocenos{
-    max-width:900px;
-    margin:auto;
-    padding:50px 20px;
-}
+/*======================================
+HERO
+======================================*/
 
-.conocenos h1{
-    text-align:center;
-    margin-bottom:30px;
-    font-size:50px;
-}
+.hero{
 
-.intro{
-    text-align:center;
-    font-size:20px;
-    margin-bottom:40px;
-    color:#ccc;
-}
+    min-height:100vh;
 
-.card-info{
-    background:var(--color-card);
-    padding:25px;
-    margin-bottom:25px;
-    border-radius:15px;
-}
-
-.card-info h2{
-    color:var(--color-primario);
-    margin-bottom:15px;
-}
-
-.card-info ul{
-    list-style:none;
-}
-
-.card-info li{
-    margin-bottom:10px;
-}
-
-.btn-mapa{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 24px;
-    background:var(--color-primario);
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.galeria{
-    padding:40px 20px;
-    text-align:center;
-}
-
-.galeria h1{
-    font-size:36px;
-    margin-bottom:35px;
-}
-
-.grid-galeria{
-    max-width:1100px;
-    margin:0 auto;
-
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:25px;
-}
-
-.card-galeria{
-    height:260px;
-    background:var(--color-card);
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 0 15px rgba(0,0,0,0.5);
-}
-
-.card-galeria img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    cursor:pointer;
-}
-
-
-.btn-menu{
-    display:none;
-    background:none;
-    border:none;
-    color:white;
-    font-size:32px;
-    cursor:pointer;
-}
-
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    z-index:9999;
-
+    display:flex;
     justify-content:center;
     align-items:center;
-}
 
-.modal img{
-    max-width:90%;
-    max-height:90%;
-    border-radius:10px;
-}
-
-.cerrar{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:50px;
-    color:white;
-    cursor:pointer;
-}
-
-.sponsors{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.sponsors img{
-    width: 140px;
-    height: 80px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: 0.3s;
-}
-
-.sponsors img:hover{
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-.lema-conocenos{
     text-align:center;
-    color:var(--color-primario);
-    font-size:28px;
-    font-weight:bold;
-    margin-bottom:35px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
 
-.historia-principal{
-    border-left:4px solid var(--color-primario);
-}
+    background-size:cover;
+    background-position:center;
 
-.grid-conocenos{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
+    position:relative;
 
-.frase-final{
-    text-align:center;
-    margin-top:40px;
-    font-size:28px;
-    font-weight:bold;
-    color:var(--color-primario);
-}
-
-.mapa{
-    margin-top:20px;
-    border-radius:15px;
     overflow:hidden;
+
 }
 
-.mapa iframe{
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.hero-historia{
+
+    background-image:url("../img/historia/hero.jpg");
+
+}
+
+.hero-overlay h1{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+    color:white;
+
+}
+
+.hero-overlay p{
+
+    font-size:22px;
+
+    max-width:750px;
+
+    line-height:1.7;
+
+    color:#ddd;
+
+}
+
+/*======================================
+SECCIONES
+======================================*/
+
+.historia-section{
+
+    padding:90px 8%;
+
+}
+
+.oscuro{
+
+    background:#181818;
+
+}
+
+/*======================================
+DOS COLUMNAS
+======================================*/
+
+.historia-contenido{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.invertido{
+
+    direction:rtl;
+
+}
+
+.invertido>*{
+
+    direction:ltr;
+
+}
+
+/*======================================
+IMAGENES
+======================================*/
+
+.historia-imagen img{
+
     width:100%;
-    height:350px;
-    border:0;
+
     display:block;
+
+    border-radius:18px;
+
+    transition:.35s;
+
 }
 
-@media(max-width:768px){
-    .grid-conocenos{
-        grid-template-columns:1fr;
-    }
+.historia-imagen img:hover{
 
-    .lema-conocenos,
-    .frase-final{
-        font-size:22px;
-    }
+    transform:scale(1.03);
+
+}
+
+/*======================================
+TEXTOS
+======================================*/
+
+.historia-texto h2{
+
+    font-size:42px;
+
+    color:#ff7402;
+
+    margin-bottom:25px;
+
+}
+
+.historia-texto p{
+
+    font-size:18px;
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+
+}
+
+/*======================================
+LOGROS
+======================================*/
+
+.historia-logros{
+
+    padding:100px 8%;
+
+    text-align:center;
+
+}
+
+.historia-logros h2{
+
+    font-size:48px;
+
+    margin-bottom:60px;
+
+}
+
+.grid-logros{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+.logro{
+
+    background:#1b1b1b;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    transition:.35s;
+
+}
+
+.logro:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.logro img{
+
+    width:140px;
+
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
+
+}
+
+.logro h3{
+
+    color:#ff7402;
+
+    margin-bottom:15px;
+
+}
+
+.logro p{
+
+    color:#ddd;
+
+    line-height:1.7;
+
+}
+
+/*======================================
+SEDE
+======================================*/
+
+.historia-sede{
+
+    padding:90px 8%;
+
+    text-align:center;
+
+}
+
+.historia-sede h2{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+.historia-sede p{
+
+    color:#ddd;
+
+    margin-bottom:40px;
+
+}
+
+.foto-sede img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    margin-bottom:35px;
+
+}
+
+/*======================================
+FINAL
+======================================*/
+
+.historia-final{
+
+    position:relative;
+
+    height:80vh;
+
+}
+
+.historia-final img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.historia-final .hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.historia-final h2{
+
+    color:white;
+
+    font-size:55px;
+
+    margin:12px 0;
+
+}
+
+/*======================================
+RESPONSIVE
+======================================*/
+
+@media(max-width:900px){
+
+.hero-overlay h1{
+
+    font-size:46px;
+
+}
+
+.hero-overlay p{
+
+    font-size:18px;
+
+}
+
+.historia-contenido{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+
+}
+
+.invertido{
+
+    direction:ltr;
+
+}
+
+.grid-logros{
+
+    grid-template-columns:1fr;
+
+}
+
+.historia-texto h2{
+
+    font-size:34px;
+
+}
+
+.hero-final{
+
+    min-height:80vh;
+
+    background-image:
+        linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+        url("../img/historia/final.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
 }
 
 @media (max-width: 768px){
