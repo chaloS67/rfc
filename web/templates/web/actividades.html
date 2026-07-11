@@ -1,0 +1,32 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="actividades">
+
+
+    <section class="actividades-carousel">
+
+        {% for actividad in actividades %}
+
+            <div class="actividades-slide {% if forloop.first %}activo{% endif %}">
+                        <img  class="actividades-img"
+                              src="{% static 'web/img/actividades/'|add:actividad %}" 
+                              alt="">
+            </div>
+            
+           
+        {% endfor %}
+            
+             <div id="modal" class="modal">
+                <span class="cerrar">&times;</span>
+                <img id="imagen-modal">
+            </div>
+
+            <button class="carousel-btn left">&#10094;</button>
+            <button class="carousel-btn right">&#10095;</button>
+    </section>
+ </section>   
+
+{% endblock %}

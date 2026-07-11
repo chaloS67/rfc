@@ -1,8 +1,8 @@
 let index = 0;
 
-const slides = document.querySelectorAll(".slide");
-const btnDerecha = document.querySelector(".derecha");
-const btnIzquierda = document.querySelector(".izquierda");
+const slides = document.querySelectorAll(".actividades-slide");
+const btnDerecha = document.querySelector(".carousel-btn.right");
+const btnIzquierda = document.querySelector(".carousel-btn.left");
 
 if(slides.length > 0 && btnDerecha && btnIzquierda){
 
@@ -44,7 +44,7 @@ if(btnMenu && menu){
 }
 
 const imagenes = document.querySelectorAll(
-    ".foto-galeria, .foto-profesor"
+    ".foto-galeria, .actividades-img"
 );
 
 const modal = document.getElementById("modal");

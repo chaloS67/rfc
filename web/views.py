@@ -5,8 +5,8 @@ def home(request):
     return render(request, "web/home.html")
 
 
-def profesores(request):
-    profesores = [
+def actividades(request):
+    actividades = [
         "abrham.jpeg",
         "antonella.jpeg",
         "charly.jpeg",
@@ -20,7 +20,7 @@ def profesores(request):
         "omar_mma.jpeg",
         "proboste.jpeg",
     ]
-    return render(request, "web/profesores.html", {"profesores": profesores})
+    return render(request, "web/actividades.html", {"actividades": actividades})
 
 
 def galeria(request):

@@ -1,18 +1,25 @@
 {% extends "web/base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/css/home.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<section class="hero">
+<section class="hero hero-home">
 
-    <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
+    <div class = "hero-content">
+        <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
 
-    <a href="#descubri" class="btn-hero">
-            Descubrí el RFC
-    </a>
+        <a href="#descubri" class="btn btn-primary">
+                Descubrí el RFC
+        </a>
+    </div>
+    
 </section>
 
-    <section id="descubri" class="inicio-info">
+    <section id="descubri" class="section home-intro">
 
     <h2>Descubrí el RFC</h2>
 
@@ -21,13 +28,13 @@
         que hace del Rawson Fight Club un lugar único.
     </p>
 
-    <div class="cards-home">
+    <div class="home-grid">
 
         <!-- Historia -->
 
-        <div class="card-home historia">
+        <div class="home-card card-historia">
 
-            <div class="card-overlay">
+            <div class="home-card-overlay">
 
                 <h3>Historia</h3>
 
@@ -36,7 +43,7 @@
                     de los deportes de combate.
                 </p>
 
-                <a href="{% url 'historia' %}">
+                <a href="{% url 'historia' %}" class="btn btn-outline">
                     Leer historia
                 </a>
 
@@ -46,9 +53,9 @@
 
         <!-- Actividades -->
 
-        <div class="card-home actividades">
+        <div class="home-card card-actividades">
 
-            <div class="card-overlay">
+            <div class="home-card-overlay">
 
                 <h3>Actividades</h3>
 
@@ -57,7 +64,7 @@
                     Boxeo y mucho más.
                 </p>
 
-                <a href="{% url 'profesores' %}">
+                <a href="{% url 'profesores' %}" class="btn btn-outline">
                     Ver actividades
                 </a>
 
@@ -67,9 +74,9 @@
 
         <!-- Galería -->
 
-        <div class="card-home galeria">
+        <div class="home-card card-galeria">
 
-            <div class="card-overlay">
+            <div class="home-card-overlay">
 
                 <h3>Galería</h3>
 
@@ -77,7 +84,7 @@
                     Reviví momentos únicos del club.
                 </p>
 
-                <a href="{% url 'galeria' %}">
+                <a href="{% url 'galeria' %}" class="btn btn-outline">
                     Ver galería
                 </a>
 
@@ -87,9 +94,9 @@
 
         <!-- Sponsors -->
 
-        <div class="card-home sponsors">
+        <div class="home-card card-sponsors">
 
-            <div class="card-overlay">
+            <div class="home-card-overlay">
 
                 <h3>Sponsors</h3>
 
@@ -97,7 +104,7 @@
                     Empresas que acompañan nuestro crecimiento.
                 </p>
 
-                <a href="#">
+                <a href="#"  class="btn btn-outline">
                     Próximamente
                 </a>
 
