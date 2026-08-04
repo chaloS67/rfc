@@ -79,3 +79,85 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/* BOTÓN MENÚ MÓVIL */
+
+.btn-menu{
+    display:none;
+
+    margin-left:15px;
+
+    background:none;
+    border:none;
+
+    color:white;
+    font-size:30px;
+    line-height:1;
+
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        position:relative;
+        min-height:70px;
+    }
+
+    .menu{
+        display:none;
+
+        position:absolute;
+        top:70px;
+        left:0;
+
+        width:100%;
+
+        flex-direction:column;
+        align-items:center;
+
+        gap:0;
+
+        padding:20px 0;
+
+        background:#111;
+
+        z-index:1000;
+    }
+
+    .menu.activo{
+        display:flex;
+    }
+
+    .menu li{
+        width:100%;
+        text-align:center;
+    }
+
+    .menu a{
+        display:block;
+        width:100%;
+
+        padding:15px 20px;
+
+        color:white;
+    }
+
+    .social{
+        display:none;
+    }
+
+    .btn-menu{
+        display:block;
+        margin-left:auto;
+    }
+
+    .logo{
+        margin-right:0;
+    }
+
+    .logo img{
+        height:50px;
+    }
+
+}

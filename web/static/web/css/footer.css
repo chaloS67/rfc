@@ -9,3 +9,34 @@ footer{
 .redes-footer{
     display:none;
 }
+
+
+@media(max-width:768px){
+
+footer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+
+    padding:25px 20px;
+
+    background:#111;
+}
+
+.redes-footer{
+    display:flex;
+    gap:15px;
+}
+
+.redes-footer a{
+    color:white;
+    font-size:24px;
+    transition:.3s;
+}
+
+.redes-footer a:hover{
+    color:var(--color-primario);
+}
+
+}
