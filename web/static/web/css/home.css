@@ -3,262 +3,239 @@ HERO HOME
 ======================================*/
 
 .hero-home{
-
     background:var(--color-fondo);
-
 }
 
 .hero-home img{
-
     width:420px;
     max-width:90%;
-
     margin:0 auto 30px;
-
 }
 
 .hero-home h1{
-
     margin-bottom:20px;
-
 }
 
 .hero-home p{
-
     margin-bottom:40px;
-
 }
+
 
 /*======================================
 SCROLL
 ======================================*/
 
 .scroll-down{
-
     display:block;
-
-    margin-top:40px;
+    margin-top:35px;
 
     color:white;
-
     font-size:34px;
+    text-decoration:none;
 
     opacity:.6;
 
     transition:.3s;
-
     animation:scroll 2s infinite;
-
 }
 
 .scroll-down:hover{
-
     color:var(--color-principal);
-
     opacity:1;
-
 }
 
 @keyframes scroll{
-
     0%{
-
         transform:translateY(0);
-
     }
 
     50%{
-
         transform:translateY(10px);
-
     }
 
     100%{
-
         transform:translateY(0);
-
     }
-
 }
+
 
 /*======================================
 HOME INTRO
 ======================================*/
 
 .home-intro{
+    min-height:calc(100vh - 70px);
 
-    padding:100px 0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 
+    padding:40px 0;
 }
 
 .home-intro h2{
-
     text-align:center;
-
-    margin-bottom:20px;
-
+    margin-bottom:12px;
 }
 
-.home-intro p{
-
+.home-intro > p{
     max-width:700px;
 
-    margin:0 auto 60px;
+    margin:0 auto 30px;
 
     text-align:center;
-
-    line-height:1.8;
+    line-height:1.6;
 
     color:var(--color-texto-secundario);
-
 }
+
+
+/*======================================
+GRID HOME
+======================================*/
+
+.home-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    grid-template-rows:repeat(2, 1fr);
+
+    gap:20px;
+
+    width:min(1100px, 92%);
+    margin:0 auto;
+}
+
 
 /*======================================
 CARD HOME
 ======================================*/
 
 .home-card{
-
     position:relative;
 
-    min-height:350px;
+    min-height:230px;
 
     border-radius:20px;
-
     overflow:hidden;
 
     background-size:cover;
-
     background-position:center;
 
-    transition:.35s;
-
+    transition:transform .35s ease;
 }
 
 .home-card:hover{
-
-    transform:translateY(-8px);
-
+    transform:translateY(-6px);
 }
+
+
 /*======================================
-OVERLAY
+CARD OVERLAY
 ======================================*/
 
-.home-card-overlay{
-
+.card-overlay{
     position:absolute;
-
     inset:0;
 
-    background:rgba(0,0,0,.55);
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
+
+    padding:28px;
 
     text-align:center;
 
-    padding:40px;
+    background:rgba(0,0,0,.58);
 
-    transition:.3s;
-
+    transition:background .35s ease;
 }
 
-.home-card:hover .home-card-overlay{
-
-    background:rgba(0,0,0,.35);
-
+.home-card:hover .card-overlay{
+    background:rgba(0,0,0,.42);
 }
 
-/*======================================
-OVERLAY
-======================================*/
-
-.home-card-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:rgba(0,0,0,.55);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px;
-
-    transition:.3s;
-
+.card-overlay h3{
+    font-size:32px;
+    margin-bottom:12px;
 }
 
-.home-card:hover .home-card-overlay{
+.card-overlay p{
+    width:100%;
+    max-width:360px;
 
-    background:rgba(0,0,0,.35);
+    min-height:54px;
 
+    margin-bottom:18px;
+
+    font-size:16px;
+    line-height:1.5;
+
+    color:var(--color-texto-secundario);
+}
+
+.card-overlay .btn{
+    margin-top:0;
 }
 
 
-.home-card .btn{
-
-    margin-top:10px;
-
-}
 /*======================================
 FONDOS
 ======================================*/
 
 .card-historia{
-
     background-image:url("../img/home/historia.jpg");
-
 }
 
 .card-actividades{
-
     background-image:url("../img/home/actividades.jpg");
-
 }
 
 .card-galeria{
-
     background-image:url("../img/home/galeria.jpg");
-
 }
 
 .card-sponsors{
-
     background-image:url("../img/home/sponsors.jpg");
-
 }
+
+
+/*======================================
+RESPONSIVE
+======================================*/
+
 @media(max-width:768px){
 
-.home-grid{
+    .hero-home img{
+        width:260px;
+    }
 
-    grid-template-columns:1fr;
+    .home-intro{
+        min-height:auto;
+        padding:60px 0;
+    }
 
-}
+    .home-intro > p{
+        width:90%;
+        margin-bottom:30px;
+    }
 
-.home-card{
+    .home-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:auto;
+        gap:20px;
+    }
 
-    min-height:280px;
+    .home-card{
+        min-height:280px;
+    }
 
-}
+    .card-overlay h3{
+        font-size:30px;
+    }
 
-.hero-home img{
-
-    width:260px;
-
-}
-
+    .card-overlay p{
+        min-height:auto;
+        font-size:16px;
+    }
 }

@@ -3,22 +3,34 @@
 
 {% block content %}
 
+<section class="section galeria">
 
-<section class="galeria">
-  
-    <h1>Galería RFC</h1>
+    <div class="container">
 
-    <div class="grid-galeria">
-        {% for foto in fotos%}
-         <div class="card-galeria">
-            <img
-                class="foto-galeria"
-                src="{% static 'web/img/galeria/'|add:foto %}"
-                alt=""
-            >
+        <h1>Galería RFC</h1>
+
+
+        <div class="galeria-grid">
+
+            {% for foto in fotos %}
+
+                <div class="galeria-card">
+
+                    <img
+                        class="foto-galeria"
+                        src="{% static 'web/img/galeria/'|add:foto %}"
+                        alt="Galería RFC">
+
+                </div>
+
+            {% endfor %}
+
         </div>
-     {% endfor %}
+
     </div>
+
 </section>
+
+
 
 {% endblock %}

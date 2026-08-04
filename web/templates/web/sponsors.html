@@ -1,0 +1,59 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="section sponsors-page">
+
+    <div class="container">
+
+        <div class="sponsors-header">
+            <h1>Nuestros Sponsors</h1>
+
+            <p>
+                Gracias a las empresas y emprendimientos que acompañan
+                el crecimiento del RFC.
+            </p>
+        </div>
+
+        <div class="sponsors-strip">
+
+    {% for sponsor in sponsors %}
+
+        <a href="{{ sponsor.link }}"
+           class="sponsor-item"
+           aria-label="{{ sponsor.nombre }}"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <img
+                src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
+                alt="{{ sponsor.nombre }}">
+
+        </a>
+
+    {% endfor %}
+
+</div>
+
+        <div class="sponsors-contacto">
+
+            <h2>¿Querés acompañar al RFC?</h2>
+
+            <p>
+                Sumá tu marca a una comunidad que genera oportunidades
+                a través del deporte.
+            </p>
+
+            <a href="#" class="btn btn-primary">
+                Contactanos
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
