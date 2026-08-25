@@ -4,34 +4,97 @@ from django.shortcuts import render
 SPONSORS = [
 
         {
-            "nombre":"Team Agüero",
-            "logo":"teamaguero.png",
-            "link":"https://instagram.com/af_team_aguero"
+            "nombre":"morpho",
+            "logo":"morpho.png",
+            "link":"#"
         },
 
         {
-            "nombre":"Deporte Capital",
-            "logo":"deportecapital.png",
-            "link":"https://instagram.com/"
-        },
-
-        {
-            "nombre":"Colombia Barber Shop",
-            "logo":"colombia.png",
-            "link":"https://instagram.com/"
+            "nombre":"Red textil",
+            "logo":"redtextil.svg",
+            "link":"#"
         },
 
         {
             "nombre":"Monkey",
-            "logo":"monkey.png",
-            "link":"https://instagram.com/"
+            "logo":"monkeyS.svg",
+            "link":"#"
+        },
+
+        {
+            "nombre":"Travesuras",
+            "logo":"travesuras.svg",
+             "link":"#"
+        },
+
+        {
+            "nombre":"ingenio",
+            "logo":"ingenio.png",
+            "link":"#"
+        },
+
+        {
+            "nombre":"Sugar",
+            "logo":"sugar.svg",
+            "link":"#"
         }
 
 ]
 
+slides_home = [
+    {
+        "fondo": "homecarrusel1.png",
+        "overlay": "textobanda.svg",
+    },
+    {
+        "fondo": "homecarrusel2.png",
+        "overlay": "textocomunidad.svg",
+    },
+    {
+        "fondo": "homecarrusel3.png",
+        "overlay": "textofamilia.svg",
+    },
+]
 
 def home(request):
-    return render(request, "web/home.html",{"sponsors" : SPONSORS})
+
+    entrenadores = [
+        {
+            "nombre": "Abraham Agüero",
+            "imagen": "abraham.svg",
+            "disciplina": "Kickboxing",
+        },
+        {
+            "nombre": "Antonella Muñoz",
+            "imagen": "anto.svg",
+            "disciplina": "MMA femenino",
+        },
+        {
+            "nombre": "Omar Gutiérrez",
+            "imagen": "omar.svg",
+            "disciplina": "MMA / Wrestling",
+        },
+    ]
+
+    fotos = [
+        "img1.jpeg",
+        "img2.jpeg",
+        "img3.jpeg",
+        "img4.jpeg",
+        "img5.jpeg",
+        "img6.jpeg",
+    ]
+
+    return render(
+        request,
+        "web/home.html",
+        {
+            "entrenadores": entrenadores,
+            "fotos": fotos,
+            "sponsors": SPONSORS,
+            "slides_home": slides_home,
+        }
+    )
 
 
 def actividades(request):

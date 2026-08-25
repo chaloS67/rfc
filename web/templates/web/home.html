@@ -7,62 +7,56 @@
 
 {% block content %}
 
-<section class="hero hero-home">
+<main>
 
-    <div class = "hero-content">
-        <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
+    <!-- ======================================
+    HERO
+    ======================================= -->
 
-        <a href="#descubri" class="btn btn-primary">
-                Descubrí el RFC
-        </a>
-    </div>
-    
-</section>
+    <section id="inicio" class="home-hero">
 
+    <div class="hero-carousel">
 
-    <section class="home-sponsors">
+        <img
+            class="home-hero-logo-fijo"
+            src="{% static 'web/img/branding/logo-rfc.svg' %}"
+            alt="Rawson Fight Club">
 
-    <div class="container">
+         <img
+            class="home-hero-recuadro"
+            src="{% static 'web/img/home/recuadro.svg' %}"
+            alt="Rawson Fight Club">
 
-        <h2>Nos acompañan</h2>
+        {% for slide in slides_home %}
 
-        <div class="sponsors-marquee">
+            <div class="hero-slide {% if forloop.first %}activo{% endif %}">
 
-            <div class="sponsors-track">
+                <img
+                    class="hero-slide-bg"
+                    src="{% static 'web/img/home/' %}{{ slide.fondo }}"
+                    alt="Rawson Fight Club">
 
-                {% for sponsor in sponsors %}
-
-                    <a
-                        href="{{ sponsor.link }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="home-sponsor-item">
-
-                        <img
-                            src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
-                            alt="{{ sponsor.nombre }}">
-
-                    </a>
-
-                {% endfor %}
-
-                {% for sponsor in sponsors %}
-
-                    <a
-                        href="{{ sponsor.link }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="home-sponsor-item">
-
-                        <img
-                            src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
-                            alt="{{ sponsor.nombre }}">
-
-                    </a>
-
-                {% endfor %}
+                <img
+                    class="hero-slide-texto"
+                    src="{% static 'web/img/home/' %}{{ slide.overlay }}"
+                    alt="Mensaje Rawson Fight Club">
 
             </div>
+
+        {% endfor %}
+
+        <div class="hero-indicadores">
+
+            {% for slide in slides_home %}
+
+                <button
+                    type="button"
+                    class="hero-indicador {% if forloop.first %}activo{% endif %}"
+                    data-index="{{ forloop.counter0 }}"
+                    aria-label="Ir al slide {{ forloop.counter }}">
+                </button>
+
+            {% endfor %}
 
         </div>
 
@@ -70,81 +64,221 @@
 
 </section>
 
+    <!-- ======================================
+    HISTORIA
+    ======================================= -->
 
+    <section id="historia" class="home-historia">
 
-    <section id="descubri" class="section home-intro">
+        <div class="container">
 
-    
+            <div class="section-title">
+                <h2>Nuestros comienzos</h2>
+            </div>
 
-    <div class="home-grid">
-
-        <!-- Historia -->
-
-        <div class="home-card card-historia">
-
-            <div class="card-overlay">
-
-                <h3>Historia</h3>
+            <div class="home-historia-contenido">
 
                 <p>
-                    Más de una década formando personas a través
-                    de los deportes de combate.
+                    El Club Social y Deportivo Gregoriano nació hace más de una década
+                    en el corazón del barrio Gregorio Mayo.
                 </p>
 
-                <a href="{% url 'historia' %}" class="btn btn-outline">
-                    Leer historia
-                </a>
+                <p>
+                    Su fundador, Omar Gutiérrez, inició este proyecto con el objetivo
+                    de difundir los deportes de lucha y brindar nuevas oportunidades
+                    a niños y jóvenes.
+                </p>
+
+                <p>
+                    Con esfuerzo, compromiso y pasión, el proyecto comenzó
+                    a crecer y hacerse conocido en toda la región.
+                </p>
 
             </div>
 
         </div>
-
-        <!-- Actividades -->
-
-        <div class="home-card card-actividades">
-
-            <div class="card-overlay">
-
-                <h3>Actividades</h3>
-
-                <p>
-                    Kickboxing, MMA, Lucha Olímpica,
-                    Boxeo y mucho más.
-                </p>
-
-                <a href="{% url 'profesores' %}" class="btn btn-outline">
-                    Ver actividades
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- Galería -->
-
-        <div class="home-card card-galeria">
-
-            <div class="card-overlay">
-
-                <h3>Galería</h3>
-
-                <p>
-                    Reviví momentos únicos del club.
-                </p>
-
-                <a href="{% url 'galeria' %}" class="btn btn-outline">
-                    Ver galería
-                </a>
-
-            </div>
-
-        </div>
-
-        
-    </div>
 
     </section>
 
 
+    <!-- ======================================
+    ENTRENADORES
+    ======================================= -->
+
+    <section id="entrenadores" class="home-entrenadores">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Entrenadores</h2>
+            </div>
+
+            <div class="entrenadores-carousel">
+
+                {% for entrenador in entrenadores %}
+
+                    <article class="entrenador-card">
+
+                        <img
+                            src="{% static 'web/img/entrenadores/' %}{{ entrenador.imagen }}"
+                            alt="{{ entrenador.nombre }}">
+
+                        <div class="entrenador-info">
+
+                            <h3>{{ entrenador.nombre }}</h3>
+
+                            <p>{{ entrenador.disciplina }}</p>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+    REFERENTES
+    ======================================= -->
+
+    <section id="referentes" class="home-referentes">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Referentes</h2>
+            </div>
+
+            <article class="referente-destacado">
+
+                <img
+                    src="{% static 'web/img/entrenadores/rafa.svg' %}"
+                    alt="Rafa Proboste">
+
+                <div class="referente-info">
+
+                    <h3>Rafa Proboste</h3>
+
+                    <p>Campeón Sudamericano</p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+    GALERIA
+    ======================================= -->
+
+    <section id="galeria" class="home-galeria">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Galería</h2>
+            </div>
+
+            <div class="home-galeria-grid">
+
+                {% for foto in fotos %}
+
+                    <div class="home-galeria-item">
+
+                        <img
+                            class="foto-galeria"
+                            src="{% static 'web/img/galeria/'|add:foto %}"
+                            alt="Galería Rawson Fight Club">
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+    SPONSORS
+    ======================================= -->
+
+    <section id="sponsors" class="home-sponsors">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Sponsors</h2>
+            </div>
+
+            <div class="home-sponsors-track">
+
+                {% for sponsor in sponsors %}
+
+                    <a
+                        href="{{ sponsor.link }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="home-sponsor-item">
+
+                        <img
+                            src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
+                            alt="{{ sponsor.nombre }}">
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+    CTA FINAL
+    ======================================= -->
+
+    <section class="home-cta">
+
+        <div class="container">
+
+            <div class="home-cta-contenido">
+
+                <img
+                    src="{% static 'web/img/branding/logo-rfc.svg' %}"
+                    alt="Rawson Fight Club"
+                    class="home-cta-logo">
+
+                <div class="home-cta-texto">
+
+                    <h2>Sumate con nosotros</h2>
+
+                    <p>Somos comunidad</p>
+
+                    <a href="#" class="btn btn-primary">
+                        Quiero sumarme
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
 
 {% endblock %}

@@ -1,257 +1,582 @@
 /*======================================
-HERO HOME
+HOME
 ======================================*/
 
-.hero-home{
-    background:var(--color-fondo);
-}
-
-.hero-home img{
-    width:420px;
-    max-width:90%;
-    margin:0 auto 30px;
-}
-
-.hero-home h1{
-    margin-bottom:20px;
-}
-
-.hero-home p{
-    margin-bottom:40px;
+.home-hero,
+.home-historia,
+.home-entrenadores,
+.home-referentes,
+.home-galeria,
+.home-sponsors,
+.home-cta{
+    width:100%;
 }
 
 
 /*======================================
-SCROLL
+HERO - CARRUSEL
 ======================================*/
 
-.scroll-down{
-    display:block;
-    margin-top:35px;
+.home-hero-logo-fijo{
+    position:absolute;
 
-    color:white;
-    font-size:34px;
-    text-decoration:none;
+    left:8%;
+    top:50%;
 
-    opacity:.6;
+    transform:translateY(-50%);
 
-    transition:.3s;
-    animation:scroll 2s infinite;
+    width:160px;
+    max-width:20vw;
+
+    height:auto;
+
+    z-index:10;
+
+    pointer-events:none;
 }
 
-.scroll-down:hover{
-    color:var(--color-principal);
-    opacity:1;
-}
-
-@keyframes scroll{
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(10px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
-
-
-/*======================================
-HOME INTRO
-======================================*/
-
-.home-intro{
-    min-height:calc(100vh - 70px);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    padding:40px 0;
-}
-
-.home-intro h2{
-    text-align:center;
-    margin-bottom:12px;
-}
-
-.home-intro > p{
-    max-width:700px;
-
-    margin:0 auto 30px;
-
-    text-align:center;
-    line-height:1.6;
-
-    color:var(--color-texto-secundario);
-}
-
-
-/*======================================
-GRID HOME
-======================================*/
-
-.home-grid{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    grid-template-rows:repeat(2, 1fr);
-
-    gap:20px;
-
-    width:min(1100px, 92%);
-    margin:0 auto;
-}
-
-
-/*======================================
-CARD HOME
-======================================*/
-
-.home-card{
+.hero-carousel{
     position:relative;
 
-    min-height:230px;
-
-    border-radius:20px;
-    overflow:hidden;
-
-    background-size:cover;
-    background-position:center;
-
-    transition:transform .35s ease;
-}
-
-.home-card:hover{
-    transform:translateY(-6px);
+    width:100%;
+    min-height:calc(100vh - 70px);
 }
 
 
 /*======================================
-CARD OVERLAY
+SLIDES
 ======================================*/
 
-.card-overlay{
+.hero-slide{
     position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+.hero-slide.activo{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/*======================================
+FONDO HERO
+======================================*/
+
+.hero-slide-bg{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    display:block;
+}
+
+
+/* capa oscura para mejorar lectura */
+
+.hero-slide::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.80) 0%,
+            rgba(0,0,0,.55) 40%,
+            rgba(0,0,0,.15) 75%,
+            rgba(0,0,0,.30) 100%
+        );
+
+    z-index:1;
+}
+
+
+/*======================================
+CONTENIDO HERO
+======================================*/
+
+.hero-slide-overlay{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    min-height:calc(100vh - 70px);
+}
+
+
+/*======================================
+LOGO HERO
+======================================*/
+
+.home-hero-logo{
+    position:absolute;
+
+    left:8%;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:180px;
+    max-width:25vw;
+
+    height:auto;
+}
+
+
+/*======================================
+TEXTO GRAFICO HERO
+======================================*/
+
+.hero-slide-texto{
+    position:absolute;
+
+    left:55%;
+    top:50%;
+
+    transform:translate(-50%, -50%);
+
+    width:520px;
+    max-width:45vw;
+
+    height:auto;
+
+    z-index:5;
+    pointer-events:none;
+}
+
+.home-hero-recuadro{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center;
+
+    z-index:4;
+
+    pointer-events:none;
+}
+
+/*======================================
+INDICADORES HERO
+======================================*/
+
+.hero-indicadores{
+    position:absolute;
+
+    left:8%;
+    bottom:35px;
+
+    z-index:10;
+
+    display:flex;
+    gap:10px;
+}
+
+.hero-indicador{
+    width:10px;
+    height:10px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.45);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.hero-indicador.activo{
+    width:28px;
+
+    border-radius:20px;
+
+    background:var(--color-principal);
+}
+
+
+/*======================================
+TITULOS DE SECCION
+======================================*/
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:clamp(2.3rem, 5vw, 4.3rem);
+
+    line-height:1;
+
+    text-transform:uppercase;
+
+    color:white;
+
+    margin:0;
+}
+
+.section-title h2::after{
+    content:"";
+
+    display:block;
+
+    width:80px;
+    height:4px;
+
+    margin:18px auto 0;
+
+    border-radius:30px;
+
+    background:var(--color-principal);
+}
+
+
+/*======================================
+HISTORIA
+======================================*/
+
+.home-historia{
+    padding:100px 0;
+
+    background:
+        url("../img/backgrounds/bg-plata-angulo.png")
+        center / cover no-repeat;
+}
+
+.home-historia-contenido{
+    max-width:900px;
+
+    margin:0 auto;
+
+    padding:45px;
+
+    background:rgba(0,0,0,.75);
+
+    border-left:5px solid var(--color-principal);
+
+    border-radius:18px;
+}
+
+.home-historia-contenido p{
+    margin-bottom:20px;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#ddd;
+}
+
+.home-historia-contenido p:last-child{
+    margin-bottom:0;
+}
+
+
+/*======================================
+ENTRENADORES
+======================================*/
+
+.home-entrenadores{
+    padding:100px 0;
+
+    overflow:hidden;
+
+    background:
+        url("../img/backgrounds/bg-black.png")
+        center / cover no-repeat;
+}
+
+
+/* carrusel horizontal */
+
+.entrenadores-carousel{
+    display:flex;
+
+    align-items:stretch;
+
+    gap:25px;
+
+    overflow-x:auto;
+
+    padding:15px 5px 30px;
+
+    scroll-snap-type:x mandatory;
+
+    scrollbar-width:none;
+}
+
+.entrenadores-carousel::-webkit-scrollbar{
+    display:none;
+}
+
+
+/*======================================
+CARD ENTRENADOR
+======================================*/
+
+.entrenador-card{
+    position:relative;
+
+    flex:0 0 260px;
+
+    min-height:390px;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:#191919;
+
+    scroll-snap-align:center;
+
+    transition:.35s;
+}
+
+.entrenador-card:hover{
+    transform:translateY(-8px);
+}
+
+.entrenador-card > img{
+    width:100%;
+    height:100%;
+
+    min-height:390px;
+
+    object-fit:cover;
+    object-position:top center;
+
+    display:block;
+}
+
+
+/* información sobre foto */
+
+.entrenador-info{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:45px 20px 22px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.95)
+        );
+}
+
+.entrenador-info h3{
+    margin-bottom:6px;
+
+    font-size:24px;
+
+    color:white;
+}
+
+.entrenador-info p{
+    margin:0;
+
+    font-size:15px;
+
+    color:var(--color-principal);
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+
+/*======================================
+REFERENTES
+======================================*/
+
+.home-referentes{
+    padding:100px 0;
+
+    background:
+        url("../img/backgrounds/bg-dark.png")
+        center / cover no-repeat;
+}
+
+.referente-destacado{
+    position:relative;
+
+    max-width:1100px;
+    min-height:480px;
+
+    margin:0 auto;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#111;
+}
+
+.referente-destacado > img{
+    width:100%;
+    height:100%;
+
+    min-height:480px;
+
+    object-fit:cover;
+    object-position:center top;
+
+    display:block;
+}
+
+.referente-info{
+    position:absolute;
+
     inset:0;
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
 
-    padding:28px;
+    justify-content:flex-end;
 
-    text-align:center;
+    padding:50px;
 
-    background:rgba(0,0,0,.58);
-
-    transition:background .35s ease;
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0,0,0,.92)
+        );
 }
 
-.home-card:hover .card-overlay{
-    background:rgba(0,0,0,.42);
+.referente-info h3{
+    margin-bottom:8px;
+
+    font-size:clamp(2.5rem, 6vw, 5rem);
+
+    color:white;
+
+    text-transform:uppercase;
 }
 
-.card-overlay h3{
-    font-size:32px;
-    margin-bottom:12px;
-}
+.referente-info p{
+    margin:0;
 
-.card-overlay p{
-    width:100%;
-    max-width:360px;
+    font-size:20px;
 
-    min-height:54px;
+    color:var(--color-principal);
 
-    margin-bottom:18px;
+    text-transform:uppercase;
 
-    font-size:16px;
-    line-height:1.5;
-
-    color:var(--color-texto-secundario);
-}
-
-.card-overlay .btn{
-    margin-top:0;
+    letter-spacing:2px;
 }
 
 
 /*======================================
-FONDOS
+GALERIA HOME
 ======================================*/
 
-.card-historia{
-    background-image:url("../img/home/historia.jpg");
+.home-galeria{
+    padding:100px 0;
+
+    background:#111;
 }
 
-.card-actividades{
-    background-image:url("../img/home/actividades.jpg");
+.home-galeria-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3, 1fr);
+
+    gap:18px;
 }
 
-.card-galeria{
-    background-image:url("../img/home/galeria.jpg");
+.home-galeria-item{
+    min-height:260px;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    background:#222;
 }
 
-.card-sponsors{
-    background-image:url("../img/home/sponsors.jpg");
+.home-galeria-item img{
+    width:100%;
+    height:100%;
+
+    min-height:260px;
+
+    object-fit:cover;
+
+    display:block;
+
+    cursor:pointer;
+
+    transition:.35s;
 }
+
+.home-galeria-item:hover img{
+    transform:scale(1.05);
+}
+
 
 /*======================================
 SPONSORS HOME
 ======================================*/
 
 .home-sponsors{
-    padding:60px 0;
+    padding:75px 0;
 
-    text-align:center;
-
-    overflow:hidden;
-}
-
-.home-sponsors h2{
-    margin-bottom:35px;
+    background:
+        url("../img/backgrounds/bg-plata.png")
+        center / cover no-repeat;
 }
 
 
-/*======================================
-MARQUEE
-======================================*/
+/* fila de sponsors */
 
-.sponsors-marquee{
-    width:100%;
-
-    overflow:hidden;
-}
-
-.sponsors-track{
+.home-sponsors-track{
     display:flex;
 
-    width:max-content;
-
-    align-items:center;
-
-    gap:50px;
-
-    animation:sponsors-scroll 25s linear infinite;
-}
-
-
-/*======================================
-LOGOS
-======================================*/
-
-.home-sponsor-item{
-    width:180px;
-    height:110px;
-
-    flex-shrink:0;
-
-    display:flex;
     justify-content:center;
     align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:45px;
+}
+
+.home-sponsor-item{
+    width:150px;
+    height:90px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:10px;
+
+    text-decoration:none;
 }
 
 .home-sponsor-item img{
@@ -259,6 +584,8 @@ LOGOS
     height:100%;
 
     object-fit:contain;
+
+    display:block;
 
     transition:.3s;
 }
@@ -269,93 +596,330 @@ LOGOS
 
 
 /*======================================
-PAUSA
+CTA FINAL
 ======================================*/
 
-.sponsors-marquee:hover .sponsors-track{
-    animation-play-state:paused;
+.home-cta{
+    padding:100px 0;
+
+    background:
+        url("../img/backgrounds/bg-black.png")
+        center / cover no-repeat;
+}
+
+.home-cta-contenido{
+    min-height:350px;
+
+    display:grid;
+
+    grid-template-columns:320px 1fr;
+
+    align-items:center;
+
+    gap:70px;
+
+    padding:60px;
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,.60);
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.home-cta-logo{
+    width:100%;
+    max-width:300px;
+
+    height:auto;
+
+    display:block;
+
+    margin:auto;
+}
+
+.home-cta-texto h2{
+    margin-bottom:10px;
+
+    font-size:clamp(2.5rem, 5vw, 4.5rem);
+
+    text-transform:uppercase;
+
+    color:white;
+}
+
+.home-cta-texto p{
+    margin-bottom:30px;
+
+    font-size:26px;
+
+    color:var(--color-principal);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
 }
 
 
 /*======================================
-ANIMACION
+TABLET
 ======================================*/
 
-@keyframes sponsors-scroll{
+@media(max-width:900px){
 
-    from{
-        transform:translateX(0);
+    /* HERO */
+
+    .hero-slide-overlay{
+        padding:70px 6%;
     }
 
-    to{
-        transform:translateX(-50%);
+    .home-hero-logo{
+        width:230px;
+    }
+
+    .hero-slide-texto{
+        width:380px;
+    }
+
+
+    /* GALERIA */
+
+    .home-galeria-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+
+    /* CTA */
+
+    .home-cta-contenido{
+        grid-template-columns:220px 1fr;
+
+        gap:40px;
+
+        padding:45px;
     }
 
 }
 
 
 /*======================================
-RESPONSIVE
+MOBILE
 ======================================*/
 
 @media(max-width:600px){
 
-    .home-sponsors{
-        padding:45px 0;
+    /*==================================
+    HERO
+    ==================================*/
+
+    .home-hero,
+    .hero-carousel,
+    .hero-slide-overlay{
+        min-height:75vh;
     }
 
-    .home-sponsor-item{
-        width:130px;
-        height:85px;
+    .hero-slide-bg{
+        object-position:center;
     }
 
-    .sponsors-track{
-        gap:30px;
-
-        animation-duration:20s;
+    .hero-slide::after{
+        background:
+            linear-gradient(
+                rgba(0,0,0,.48),
+                rgba(0,0,0,.82)
+            );
     }
 
-}
+    .hero-slide-overlay{
+        justify-content:flex-end;
 
+        align-items:center;
 
-/*======================================
-RESPONSIVE
-======================================*/
+        text-align:center;
 
-@media(max-width:768px){
-
-    .hero-home img{
-        width:260px;
+        padding:
+            60px
+            20px
+            90px;
     }
 
-    .home-intro{
-        min-height:auto;
-        padding:60px 0;
+    .home-hero-logo{
+        width:180px;
+        max-width:70vw;
+
+        margin-bottom:20px;
     }
 
-    .home-intro > p{
-        width:90%;
-        margin-bottom:30px;
+    .hero-slide-texto{
+        width:280px;
+        max-width:85vw;
     }
 
-    .home-grid{
-        grid-template-columns:1fr;
-        grid-template-rows:auto;
-        gap:20px;
+    .hero-indicadores{
+        left:50%;
+        bottom:35px;
+
+        transform:translateX(-50%);
     }
 
-    .home-card{
-        min-height:280px;
+
+    /*==================================
+    TITULOS
+    ==================================*/
+
+    .section-title{
+        margin-bottom:35px;
     }
 
-    .card-overlay h3{
-        font-size:30px;
+    .section-title h2{
+        font-size:36px;
     }
 
-    .card-overlay p{
-        min-height:auto;
+
+    /*==================================
+    HISTORIA
+    ==================================*/
+
+    .home-historia{
+        padding:65px 0;
+    }
+
+    .home-historia-contenido{
+        margin:0 15px;
+
+        padding:28px 22px;
+    }
+
+    .home-historia-contenido p{
         font-size:16px;
     }
 
+
+    /*==================================
+    ENTRENADORES
+    ==================================*/
+
+    .home-entrenadores{
+        padding:65px 0;
+    }
+
+    .entrenadores-carousel{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .entrenador-card{
+        flex-basis:78vw;
+
+        max-width:300px;
+
+        min-height:390px;
+    }
+
+
+    /*==================================
+    REFERENTES
+    ==================================*/
+
+    .home-referentes{
+        padding:65px 0;
+    }
+
+    .referente-destacado{
+        margin:0 15px;
+
+        min-height:390px;
+    }
+
+    .referente-destacado > img{
+        min-height:390px;
+    }
+
+    .referente-info{
+        padding:30px 22px;
+    }
+
+    .referente-info h3{
+        font-size:40px;
+    }
+
+    .referente-info p{
+        font-size:16px;
+    }
+
+
+    /*==================================
+    GALERIA
+    ==================================*/
+
+    .home-galeria{
+        padding:65px 0;
+    }
+
+    .home-galeria-grid{
+        grid-template-columns:1fr;
+
+        padding:0 15px;
+    }
+
+    .home-galeria-item{
+        min-height:auto;
+    }
+
+    .home-galeria-item img{
+        height:auto;
+        min-height:0;
+    }
+
+
+    /*==================================
+    SPONSORS
+    ==================================*/
+
+    .home-sponsors{
+        padding:55px 0;
+    }
+
+    .home-sponsors-track{
+        gap:20px;
+    }
+
+    .home-sponsor-item{
+        width:120px;
+        height:75px;
+    }
+
+
+    /*==================================
+    CTA
+    ==================================*/
+
+    .home-cta{
+        padding:60px 15px;
+    }
+
+    .home-cta-contenido{
+        min-height:auto;
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+        padding:40px 22px;
+
+        text-align:center;
+    }
+
+    .home-cta-logo{
+        max-width:190px;
+    }
+
+    .home-cta-texto h2{
+        font-size:36px;
+    }
+
+    .home-cta-texto p{
+        font-size:18px;
+    }
 
 }
