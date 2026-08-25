@@ -19,6 +19,59 @@
     
 </section>
 
+
+    <section class="home-sponsors">
+
+    <div class="container">
+
+        <h2>Nos acompañan</h2>
+
+        <div class="sponsors-marquee">
+
+            <div class="sponsors-track">
+
+                {% for sponsor in sponsors %}
+
+                    <a
+                        href="{{ sponsor.link }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="home-sponsor-item">
+
+                        <img
+                            src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
+                            alt="{{ sponsor.nombre }}">
+
+                    </a>
+
+                {% endfor %}
+
+                {% for sponsor in sponsors %}
+
+                    <a
+                        href="{{ sponsor.link }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="home-sponsor-item">
+
+                        <img
+                            src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
+                            alt="{{ sponsor.nombre }}">
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
     <section id="descubri" class="section home-intro">
 
     
@@ -87,30 +140,11 @@
 
         </div>
 
-        <!-- Sponsors -->
-
-        <div class="home-card card-sponsors">
-
-            <div class="card-overlay">
-
-
-                <h3>Sponsors</h3>
-
-                <p>
-                    Empresas que acompañan nuestro crecimiento.
-                </p>
-
-                <a href= "{% url 'sponsors' %}"  class="btn btn-outline">
-                    Ver Sponsors
-                </a>
-
-            </div>
-
-        </div>
-
+        
     </div>
 
-</section>
+    </section>
+
 
 
 {% endblock %}

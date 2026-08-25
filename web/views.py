@@ -1,8 +1,37 @@
 from django.shortcuts import render
 
 
+SPONSORS = [
+
+        {
+            "nombre":"Team Agüero",
+            "logo":"teamaguero.png",
+            "link":"https://instagram.com/af_team_aguero"
+        },
+
+        {
+            "nombre":"Deporte Capital",
+            "logo":"deportecapital.png",
+            "link":"https://instagram.com/"
+        },
+
+        {
+            "nombre":"Colombia Barber Shop",
+            "logo":"colombia.png",
+            "link":"https://instagram.com/"
+        },
+
+        {
+            "nombre":"Monkey",
+            "logo":"monkey.png",
+            "link":"https://instagram.com/"
+        }
+
+]
+
+
 def home(request):
-    return render(request, "web/home.html")
+    return render(request, "web/home.html",{"sponsors" : SPONSORS})
 
 
 def actividades(request):
@@ -39,41 +68,10 @@ def galeria(request):
 def historia(request):
     return render(request, "web/historia.html")
 
-def sponsors (request):
-
-    from django.shortcuts import render
-
 def sponsors(request):
 
-    sponsors = [
-
-        {
-            "nombre":"Team Agüero",
-            "logo":"teamaguero.png",
-            "link":"https://instagram.com/af_team_aguero"
-        },
-
-        {
-            "nombre":"Deporte Capital",
-            "logo":"deportecapital.png",
-            "link":"https://instagram.com/"
-        },
-
-        {
-            "nombre":"Colombia Barber Shop",
-            "logo":"colombia.png",
-            "link":"https://instagram.com/"
-        },
-
-        {
-            "nombre":"Monkey",
-            "logo":"monkey.png",
-            "link":"https://instagram.com/"
-        }
-
-    ]
-
     return render(request,"web/sponsors.html",{
-        "sponsors": sponsors
-    })
+        "sponsors": SPONSORS
+    }
+)
  

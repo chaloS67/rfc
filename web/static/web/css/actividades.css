@@ -120,3 +120,70 @@
     right:20px;
 
 }
+
+/*======================================
+RESPONSIVE ACTIVIDADES
+======================================*/
+
+@media (max-width: 600px){
+
+    .actividades{
+        min-height:calc(100vh - 70px);
+
+        padding:40px 0;
+
+        overflow:hidden;
+    }
+
+    .actividades-carousel{
+        width:100%;
+        height:420px;
+
+        overflow:hidden;
+    }
+
+    .actividades-slide{
+        width:82vw;
+        max-width:330px;
+        height:400px;
+    }
+
+    .actividades-slide.activo{
+        opacity:1;
+        transform:translateX(0);
+        z-index:3;
+    }
+
+    .actividades-slide.anterior{
+        opacity:0;
+        transform:translateX(-100vw);
+    }
+
+    .actividades-slide.siguiente{
+        opacity:0;
+        transform:translateX(100vw);
+    }
+
+    .actividades-slide img{
+        width:100%;
+        height:100%;
+
+        object-fit:contain;
+    }
+
+    .carousel-btn{
+        width:42px;
+        height:42px;
+
+        font-size:24px;
+    }
+
+    .carousel-btn.left{
+        left:8px;
+    }
+
+    .carousel-btn.right{
+        right:8px;
+    }
+
+}
