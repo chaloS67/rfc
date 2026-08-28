@@ -29,7 +29,9 @@
 
         {% for slide in slides_home %}
 
-            <div class="hero-slide {% if forloop.first %}activo{% endif %}">
+          <div class="hero-slide 
+            {% if forloop.first %}activo{% endif %}
+            {% if forloop.last %}ultimo-slide{% endif %}">
 
                 <img
                     class="hero-slide-bg"

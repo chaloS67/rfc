@@ -44,17 +44,14 @@ VARIABLES
 
 :root{
 
-    --color-principal:#ff7402;
-    --color-fondo:#111111;
-    --color-fondo-secundario:#1b1b1b;
-    --color-texto:#ffffff;
-    --color-texto-secundario:#d4d4d4;
-
-    --radio:20px;
-
-    --transicion:.3s;
-
+   
+    --negro-rfc: #111111;
+    --naranja-rfc: #E9521D;
+    --naranja-claro-rfc: #EE7417;
+    --dorado-rfc: #AE8034;
+    --blanco-rfc: #FFFFFF;
 }
+
 
 /*======================================
 CONTENEDOR

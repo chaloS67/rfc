@@ -8,44 +8,26 @@
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{% static 'web/css/base.css' %}">
-     <link rel="stylesheet" href="{% static 'web/css/navbar.css' %}">
+     <link rel="stylesheet" href="{% static 'web/css/components/navbar.css' %}">
+     <link rel="stylesheet" href="{% static 'web/css/components/topbar.css' %}">
      <link rel="stylesheet" href="{% static 'web/css/footer.css' %}">
      <link rel="stylesheet" href="{% static 'web/css/actividades.css' %}">
      <link rel="stylesheet" href="{% static 'web/css/galeria.css' %}">
      <link rel="stylesheet" href="{% static 'web/css/historia.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/sponsors.css' %}">
-    
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <nav class="navbar">
+   {% include "web/components/topbar.html" %}
 
-        <div class="logo">
-            <img src="{% static 'web/img/logos/logo1.png' %}" alt="RFC">
-        </div>
-
-        <ul class="menu" id="menu">
-            <li><a href="{% url 'home' %}">Inicio</a></li>
-            <li><a href="{% url 'profesores' %}">Profesores</a></li>
-            <li><a href="{% url 'galeria' %}">Galería</a></li>
-            <li><a href="{% url 'historia' %}">Historia</a></li>
-        </ul>
-
-        <div class="social">
-            <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
-                <i class="fab fa-facebook"></i>
-            </a>
-        </div>
-
-        <button class="btn-menu" id="btn-menu">☰</button>
-
-    </nav>
+   {% include "web/components/navbar.html" %}
 
     {% block content %}{% endblock %}
 

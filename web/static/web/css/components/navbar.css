@@ -1,0 +1,189 @@
+.navbar{
+    min-height:80px;
+    background:#111;
+}
+
+.navbar-contenido{
+    min-height:80px;
+
+    display:flex;
+    align-items:center;
+
+    width:100%;
+}
+
+.logo{
+    flex-shrink:0;
+    margin-left:20px;
+    margin-right:35px;
+
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    width:120px;
+    height:auto;
+
+    display:block;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+
+    gap:30px;
+
+    margin:0;
+    padding:0;
+
+    list-style:none;
+}
+
+.menu a{
+    color: var(--naranja-claro-rfc);
+    text-decoration:none;
+
+    font-family:"Inter", sans-serif;
+    font-size:15px;
+    font-weight:400;
+
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.social{
+    margin-left:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left: auto;
+    margin-right: 20px;
+
+    gap:20px;
+    
+    font-size:24px;
+}
+
+.social a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:32px;
+    height:32px;
+
+    color:var(--naranja-claro-rfc);
+    font-size:1000 px;
+
+    text-decoration:none;
+}
+
+.social a:hover{
+    color:var(--naranja-rfc);
+}
+
+.btn-menu{
+    display:none;
+}
+
+@media (max-width:768px){
+
+    .navbar{
+        position:relative;
+        min-height:70px;
+    }
+
+    .navbar-contenido{
+        position:relative;
+
+        min-height:70px;
+
+        display:flex;
+        align-items:center;
+
+        padding:0 20px;
+    }
+
+    /* LOGO */
+
+    .logo{
+        margin:0;
+    }
+
+    .logo img{
+        width:90px;
+        height:auto;
+    }
+
+    /* MENÚ DESPLEGABLE */
+
+    .menu{
+        display:none;
+
+        position:absolute;
+
+        top:70px;
+        left:0;
+
+        width:100%;
+
+        flex-direction:column;
+
+        gap:0;
+
+        margin:0;
+        padding:10px 0;
+
+        background:#111;
+
+        z-index:1000;
+    }
+
+    .menu.activo{
+        display:flex;
+    }
+
+    .menu li{
+        width:100%;
+        text-align:center;
+    }
+
+    .menu a{
+        display:block;
+
+        width:100%;
+        padding:15px 20px;
+
+        color:var(--naranja-rfc);
+
+        font-size:15px;
+    }
+
+    /* REDES */
+
+    .social{
+        display:none;
+    }
+
+    /* HAMBURGUESA */
+
+    .btn-menu{
+        display:block;
+
+        margin-left:auto;
+
+        padding:5px;
+
+        background:none;
+        border:none;
+
+        color:var(--naranja-rfc);
+
+        font-size:30px;
+        line-height:1;
+
+        cursor:pointer;
+    }
+}

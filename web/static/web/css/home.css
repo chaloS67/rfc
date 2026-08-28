@@ -706,220 +706,26 @@ TABLET
 MOBILE
 ======================================*/
 
-@media(max-width:600px){
+@media(max-width:900px){
 
-    /*==================================
-    HERO
-    ==================================*/
-
-    .home-hero,
-    .hero-carousel,
-    .hero-slide-overlay{
-        min-height:75vh;
-    }
-
-    .hero-slide-bg{
-        object-position:center;
-    }
-
-    .hero-slide::after{
-        background:
-            linear-gradient(
-                rgba(0,0,0,.48),
-                rgba(0,0,0,.82)
-            );
-    }
-
-    .hero-slide-overlay{
-        justify-content:flex-end;
-
-        align-items:center;
-
-        text-align:center;
-
-        padding:
-            60px
-            20px
-            90px;
-    }
-
-    .home-hero-logo{
-        width:180px;
-        max-width:70vw;
-
-        margin-bottom:20px;
+    .home-hero-logo-fijo{
+        display: none;
     }
 
     .hero-slide-texto{
-        width:280px;
-        max-width:85vw;
+        width:380px;
+        max-width:48vw;
     }
 
-    .hero-indicadores{
-        left:50%;
-        bottom:35px;
-
-        transform:translateX(-50%);
+    .home-hero-recuadro{
+       display: none;
     }
 
 
-    /*==================================
-    TITULOS
-    ==================================*/
 
-    .section-title{
-        margin-bottom:35px;
-    }
-
-    .section-title h2{
-        font-size:36px;
-    }
-
-
-    /*==================================
-    HISTORIA
-    ==================================*/
-
-    .home-historia{
-        padding:65px 0;
-    }
-
-    .home-historia-contenido{
-        margin:0 15px;
-
-        padding:28px 22px;
-    }
-
-    .home-historia-contenido p{
-        font-size:16px;
-    }
-
-
-    /*==================================
-    ENTRENADORES
-    ==================================*/
-
-    .home-entrenadores{
-        padding:65px 0;
-    }
-
-    .entrenadores-carousel{
-        padding-left:20px;
-        padding-right:20px;
-    }
-
-    .entrenador-card{
-        flex-basis:78vw;
-
-        max-width:300px;
-
-        min-height:390px;
-    }
-
-
-    /*==================================
-    REFERENTES
-    ==================================*/
-
-    .home-referentes{
-        padding:65px 0;
-    }
-
-    .referente-destacado{
-        margin:0 15px;
-
-        min-height:390px;
-    }
-
-    .referente-destacado > img{
-        min-height:390px;
-    }
-
-    .referente-info{
-        padding:30px 22px;
-    }
-
-    .referente-info h3{
-        font-size:40px;
-    }
-
-    .referente-info p{
-        font-size:16px;
-    }
-
-
-    /*==================================
-    GALERIA
-    ==================================*/
-
-    .home-galeria{
-        padding:65px 0;
-    }
-
-    .home-galeria-grid{
-        grid-template-columns:1fr;
-
-        padding:0 15px;
-    }
-
-    .home-galeria-item{
-        min-height:auto;
-    }
-
-    .home-galeria-item img{
-        height:auto;
-        min-height:0;
-    }
-
-
-    /*==================================
-    SPONSORS
-    ==================================*/
-
-    .home-sponsors{
-        padding:55px 0;
-    }
-
-    .home-sponsors-track{
-        gap:20px;
-    }
-
-    .home-sponsor-item{
-        width:120px;
-        height:75px;
-    }
-
-
-    /*==================================
-    CTA
-    ==================================*/
-
-    .home-cta{
-        padding:60px 15px;
-    }
-
-    .home-cta-contenido{
-        min-height:auto;
-
-        grid-template-columns:1fr;
-
-        gap:30px;
-
-        padding:40px 22px;
-
-        text-align:center;
-    }
-
-    .home-cta-logo{
-        max-width:190px;
-    }
-
-    .home-cta-texto h2{
-        font-size:36px;
-    }
-
-    .home-cta-texto p{
-        font-size:18px;
+    .ultimo-slide .hero-slide-bg{
+        object-fit:contain;
+        object-position:70% center;
     }
 
 }
