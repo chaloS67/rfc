@@ -1,10 +1,10 @@
 .navbar{
-    min-height:80px;
+    min-height:50px;
     background:#111;
 }
 
 .navbar-contenido{
-    min-height:80px;
+    min-height:65px;
 
     display:flex;
     align-items:center;

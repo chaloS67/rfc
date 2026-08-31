@@ -156,3 +156,32 @@ if(heroSlides.length > 0){
     iniciarHeroCarrusel();
 
 }
+
+const comienzosSlides = document.querySelectorAll(".comienzos-slide");
+const comienzosIndicadores = document.querySelectorAll(".comienzos-indicador");
+
+let comienzosIndex = 0;
+
+function mostrarComienzosSlide(index){
+
+    comienzosSlides.forEach(slide => {
+        slide.classList.remove("activo");
+    });
+
+    comienzosIndicadores.forEach(indicador => {
+        indicador.classList.remove("activo");
+    });
+
+    comienzosSlides[index].classList.add("activo");
+    comienzosIndicadores[index].classList.add("activo");
+
+    comienzosIndex = index;
+}
+
+comienzosIndicadores.forEach((indicador, index) => {
+
+    indicador.addEventListener("click", () => {
+        mostrarComienzosSlide(index);
+    });
+
+});

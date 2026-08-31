@@ -3,11 +3,12 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'web/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'web/css/home/nuestros-comienzos.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<main>
+<main>  
 
     <!-- ======================================
     HERO
@@ -70,38 +71,7 @@
     HISTORIA
     ======================================= -->
 
-    <section id="historia" class="home-historia">
-
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Nuestros comienzos</h2>
-            </div>
-
-            <div class="home-historia-contenido">
-
-                <p>
-                    El Club Social y Deportivo Gregoriano nació hace más de una década
-                    en el corazón del barrio Gregorio Mayo.
-                </p>
-
-                <p>
-                    Su fundador, Omar Gutiérrez, inició este proyecto con el objetivo
-                    de difundir los deportes de lucha y brindar nuevas oportunidades
-                    a niños y jóvenes.
-                </p>
-
-                <p>
-                    Con esfuerzo, compromiso y pasión, el proyecto comenzó
-                    a crecer y hacerse conocido en toda la región.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
+   {% include "web/home/comienzos.html" %}
 
     <!-- ======================================
     ENTRENADORES
