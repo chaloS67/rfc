@@ -1,0 +1,54 @@
+ {% load static %}
+ 
+    <section id="inicio" class="home-hero">
+
+    <div class="hero-carousel">
+
+        <img
+            class="home-hero-logo-fijo"
+            src="{% static 'web/img/branding/logo-rfc.svg' %}"
+            alt="Rawson Fight Club">
+
+         <img
+            class="home-hero-recuadro"
+            src="{% static 'web/img/home/recuadro.svg' %}"
+            alt="Rawson Fight Club">
+
+        {% for slide in slides_home %}
+
+          <div class="hero-slide 
+            {% if forloop.first %}activo{% endif %}
+            {% if forloop.last %}ultimo-slide{% endif %}">
+
+                <img
+                    class="hero-slide-bg"
+                    src="{% static 'web/img/home/' %}{{ slide.fondo }}"
+                    alt="Rawson Fight Club">
+
+                <img
+                    class="hero-slide-texto"
+                    src="{% static 'web/img/home/' %}{{ slide.overlay }}"
+                    alt="Mensaje Rawson Fight Club">
+
+            </div>
+
+        {% endfor %}
+
+        <div class="hero-indicadores">
+
+            {% for slide in slides_home %}
+
+                <button
+                    type="button"
+                    class="hero-indicador {% if forloop.first %}activo{% endif %}"
+                    data-index="{{ forloop.counter0 }}"
+                    aria-label="Ir al slide {{ forloop.counter }}">
+                </button>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,89 @@
+{% load static %}
+
+<section id="sponsors" class="home-sponsors">
+
+    <div class="sponsors-etiqueta">
+        <span>SPONSORS</span>
+    </div>
+
+    <!-- FRANJA SUPERIOR DE LOGOS -->
+    <div class="sponsors-marquee">
+
+        <div class="sponsors-track">
+
+            {% for sponsor in sponsors %}
+                <a
+                    href="{{ sponsor.link }}"
+                    class="sponsor-slide"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <img
+                        src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
+                        alt="{{ sponsor.nombre }}">
+                </a>
+            {% endfor %}
+
+            {% for sponsor in sponsors %}
+                <a
+                    href="{{ sponsor.link }}"
+                    class="sponsor-slide"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <img
+                        src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
+                        alt="{{ sponsor.nombre }}">
+                </a>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- BLOQUE CTA -->
+
+    
+
+    <div class="sponsors-cta">
+
+
+        <img
+        class="sponsors-linea"
+        src="{% static 'web/img/elementos/rfcline.png' %}"
+        alt="">
+
+
+        <div class="sponsors-cta-logo">
+            <img
+                src="{% static 'web/img/branding/escudorfc.png' %}"
+                alt="Rawson Fight Club">
+        </div>
+
+        <div class="sponsors-cta-texto">
+            <h2>SUMATE COMO<br>SPONSOR</h2>
+            <p>Y VOLVETE PARTE DE NUESTRO EQUIPO</p>
+        </div>
+
+    </div>
+
+    <!-- FRANJA FINAL -->
+   <div class="sponsors-footer">
+
+    <img
+        class="sponsors-footer-logo"
+        src="{% static 'web/img/elementos/gimnaciorawson.png' %}"
+        alt="Gimnasio Rawson Fight Club">
+
+    <div class="sponsors-footer-direccion">
+
+        <img
+            class="sponsors-footer-direccion-img"
+            src="{% static 'web/img/elementos/direccion.png' %}"
+            alt="Maestro Martini 577">
+
+    </div>
+
+</div>
+
+</section>

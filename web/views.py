@@ -35,7 +35,7 @@ SPONSORS = [
 
         {
             "nombre":"Sugar",
-            "logo":"sugar.svg",
+            "logo":"sugara.svg",
             "link":"#"
         }
 

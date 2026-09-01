@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'web/css/home.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/home/nuestros-comienzos.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/home/entrenadores.css' %}">
+<link rel="stylesheet" href="{% static 'web/css/home/sponsors.css' %}">
 
 {% endblock %}
 
@@ -12,73 +13,19 @@
 
 <main>  
 
-    <!-- ======================================
-    HERO
-    ======================================= -->
-
-    <section id="inicio" class="home-hero">
-
-    <div class="hero-carousel">
-
-        <img
-            class="home-hero-logo-fijo"
-            src="{% static 'web/img/branding/logo-rfc.svg' %}"
-            alt="Rawson Fight Club">
-
-         <img
-            class="home-hero-recuadro"
-            src="{% static 'web/img/home/recuadro.svg' %}"
-            alt="Rawson Fight Club">
-
-        {% for slide in slides_home %}
-
-          <div class="hero-slide 
-            {% if forloop.first %}activo{% endif %}
-            {% if forloop.last %}ultimo-slide{% endif %}">
-
-                <img
-                    class="hero-slide-bg"
-                    src="{% static 'web/img/home/' %}{{ slide.fondo }}"
-                    alt="Rawson Fight Club">
-
-                <img
-                    class="hero-slide-texto"
-                    src="{% static 'web/img/home/' %}{{ slide.overlay }}"
-                    alt="Mensaje Rawson Fight Club">
-
-            </div>
-
-        {% endfor %}
-
-        <div class="hero-indicadores">
-
-            {% for slide in slides_home %}
-
-                <button
-                    type="button"
-                    class="hero-indicador {% if forloop.first %}activo{% endif %}"
-                    data-index="{{ forloop.counter0 }}"
-                    aria-label="Ir al slide {{ forloop.counter }}">
-                </button>
-
-            {% endfor %}
-
-        </div>
-
-    </div>
-
-</section>
-
-    <!-- ======================================
-    HISTORIA
-    ======================================= -->
+   {% include "web/home/home.html" %}
 
    {% include "web/home/comienzos.html" %}
 
-    <!-- ======================================
-    ENTRENADORES
-    ======================================= -->
-    {% include "web/home/entrenadores.html" %}
+   {% include "web/home/entrenadores.html" %}
+
+   {% include "web/home/galeria-home.html" %}
+
+   {% include "web/home/sponsors.html" %}
+
+
+
+    
    
     <!-- ======================================
     REFERENTES
@@ -113,110 +60,5 @@
     </section>
 
 
-    <!-- ======================================
-    GALERIA
-    ======================================= -->
-
-    <section id="galeria" class="home-galeria">
-
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Galería</h2>
-            </div>
-
-            <div class="home-galeria-grid">
-
-                {% for foto in fotos %}
-
-                    <div class="home-galeria-item">
-
-                        <img
-                            class="foto-galeria"
-                            src="{% static 'web/img/galeria/'|add:foto %}"
-                            alt="Galería Rawson Fight Club">
-
-                    </div>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ======================================
-    SPONSORS
-    ======================================= -->
-
-    <section id="sponsors" class="home-sponsors">
-
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Sponsors</h2>
-            </div>
-
-            <div class="home-sponsors-track">
-
-                {% for sponsor in sponsors %}
-
-                    <a
-                        href="{{ sponsor.link }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="home-sponsor-item">
-
-                        <img
-                            src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
-                            alt="{{ sponsor.nombre }}">
-
-                    </a>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ======================================
-    CTA FINAL
-    ======================================= -->
-
-    <section class="home-cta">
-
-        <div class="container">
-
-            <div class="home-cta-contenido">
-
-                <img
-                    src="{% static 'web/img/branding/logo-rfc.svg' %}"
-                    alt="Rawson Fight Club"
-                    class="home-cta-logo">
-
-                <div class="home-cta-texto">
-
-                    <h2>Sumate con nosotros</h2>
-
-                    <p>Somos comunidad</p>
-
-                    <a href="#" class="btn btn-primary">
-                        Quiero sumarme
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-</main>
 
 {% endblock %}

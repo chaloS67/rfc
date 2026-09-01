@@ -1,0 +1,485 @@
+/* ======================================
+SPONSORS HOME
+====================================== */
+
+.home-sponsors{
+    position:relative;
+
+    width:100%;
+
+    padding:0;
+    margin:0;
+
+    overflow:hidden;
+
+    background:#fff;
+}
+
+
+/* ======================================
+ETIQUETA SUPERIOR
+====================================== */
+
+.sponsors-etiqueta{
+    position:absolute;
+
+    top:22px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+}
+
+.sponsors-etiqueta span{
+    display:inline-block;
+
+    padding:14px 42px;
+
+    border-radius:0 0 28px 28px;
+
+    background:#b8842f;
+
+    color:white;
+
+    font-family:"Inter", sans-serif;
+    font-size:22px;
+    font-weight:800;
+
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+
+/* ======================================
+FRANJA SUPERIOR - CARRUSEL DE LOGOS
+====================================== */
+
+.sponsors-marquee{
+    width:100%;
+    height:42vh;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.90),
+            rgba(255,255,255,.90)
+        ),
+        url("../../img/backgrounds/bg-plata.png")
+        center / cover no-repeat;
+}
+
+.sponsors-track{
+    display:flex;
+    align-items:center;
+
+    width:max-content;
+
+    gap:70px;
+
+    animation:sponsorsScroll 35s linear infinite;
+}
+
+.sponsor-slide{
+    flex:0 0 220px;
+
+    width:220px;
+    height:150px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+}
+
+.sponsor-slide img{
+    width:auto;
+    height:auto;
+
+    max-width:220px;
+    max-height:150px;
+
+    display:block;
+
+    object-fit:contain;
+}
+
+.sponsors-marquee:hover .sponsors-track{
+    animation-play-state:paused;
+}
+
+
+/* ======================================
+BLOQUE CENTRAL - SUMATE COMO SPONSOR
+====================================== */
+
+.sponsors-cta{
+    position:relative;
+
+    width:100%;
+    min-height:38vh;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111 0%,
+            #111 36%,
+            #2a1b14 55%,
+            var(--naranja-rfc) 100%
+        );
+}
+
+
+/* LINEA RFC DECORATIVA */
+
+.sponsors-linea{
+    position:absolute;
+
+    left:80%;
+    top:50%;
+
+    transform:translate(-50%, -50%);
+
+    width:50%;
+    height:auto;
+
+    opacity:.85;
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+
+/* LOGO RFC */
+
+.sponsors-cta-logo{
+    position:relative;
+
+    z-index:2;
+
+    width:35%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+}
+
+.sponsors-cta-logo img{
+    width:260px;
+    max-width:80%;
+
+    height:auto;
+
+    display:block;
+}
+
+
+/* TEXTO CTA */
+
+.sponsors-cta-texto{
+    position:relative;
+
+    z-index:2;
+
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:40px 60px;
+
+    background:transparent;
+}
+
+.sponsors-cta-copy{
+    position:relative;
+
+    z-index:2;
+}
+
+.sponsors-cta-texto h2{
+    margin:0 0 18px;
+
+    color:white;
+
+    font-family:"League Spartan", sans-serif;
+    font-size:clamp(2.7rem, 5vw, 5.5rem);
+    font-weight:800;
+
+    line-height:.88;
+    letter-spacing:-1px;
+
+    text-transform:uppercase;
+}
+
+.sponsors-cta-texto p{
+    margin:0;
+
+    color:#e8d7cf;
+
+    font-family:"Inter", sans-serif;
+    font-size:clamp(1rem, 1.6vw, 1.8rem);
+    font-weight:700;
+
+    text-transform:uppercase;
+}
+
+/* ======================================
+FRANJA FINAL
+====================================== */
+
+.sponsors-footer{
+    width:100%;
+    min-height:20vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:40px;
+
+    padding:30px 8%;
+
+    background:#050505;
+
+    overflow:hidden;
+}
+
+
+/* IMAGEN GIMNASIO RAWSON */
+
+.sponsors-footer-logo{
+    width:190px;
+    height:auto;
+
+    display:block;
+
+    flex-shrink:0;
+}
+
+
+/* DIRECCION */
+
+.sponsors-footer-direccion{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+
+.sponsors-footer-direccion-img{
+    width:220px;
+    height:auto;
+
+    display:block;
+}
+
+
+/* ======================================
+ANIMACION CARRUSEL
+====================================== */
+
+@keyframes sponsorsScroll{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+
+/* ======================================
+TABLET / MOBILE
+====================================== */
+
+@media(max-width:900px){
+
+    /* LOGOS */
+
+    .sponsors-marquee{
+        height:34vh;
+    }
+
+    .sponsors-track{
+        gap:45px;
+    }
+
+    .sponsor-slide{
+        flex-basis:170px;
+
+        width:170px;
+        height:110px;
+    }
+
+    .sponsor-slide img{
+        max-width:170px;
+        max-height:110px;
+    }
+
+
+    /* CTA */
+
+    .sponsors-cta{
+        min-height:auto;
+
+        flex-direction:column;
+
+        padding:50px 20px;
+    }
+
+    .sponsors-cta-logo{
+        width:100%;
+
+        padding:20px;
+    }
+
+    .sponsors-cta-logo img{
+        width:190px;
+    }
+
+    .sponsors-cta-texto{
+        width:100%;
+
+        padding:30px 20px;
+
+        text-align:center;
+    }
+
+    .sponsors-linea{
+        left:50%;
+        top:72%;
+
+        width:80%;
+
+        opacity:.4;
+    }
+
+
+    /* FOOTER SPONSORS */
+
+    .sponsors-footer{
+        flex-direction:column;
+
+        justify-content:center;
+
+        gap:25px;
+
+        padding:35px 20px;
+
+        text-align:center;
+    }
+
+    .sponsors-footer-logo{
+        width:165px;
+    }
+
+    .sponsors-footer-direccion{
+        justify-content:center;
+    }
+
+    .sponsors-footer-direccion-img{
+        width:190px;
+    }
+
+}
+
+
+/* ======================================
+MOBILE
+====================================== */
+
+@media(max-width:600px){
+
+    .sponsors-etiqueta{
+        top:15px;
+    }
+
+    .sponsors-etiqueta span{
+        padding:10px 28px;
+
+        font-size:16px;
+    }
+
+
+    /* LOGOS */
+
+    .sponsors-marquee{
+        height:28vh;
+    }
+
+    .sponsors-track{
+        gap:35px;
+
+        animation-duration:30s;
+    }
+
+    .sponsor-slide{
+        flex-basis:135px;
+
+        width:135px;
+        height:90px;
+    }
+
+    .sponsor-slide img{
+        max-width:135px;
+        max-height:90px;
+    }
+
+
+    /* CTA */
+
+    .sponsors-cta{
+        padding:40px 15px;
+    }
+
+    .sponsors-cta-logo img{
+        width:155px;
+    }
+
+    .sponsors-cta-texto{
+        padding:20px 10px;
+    }
+
+    .sponsors-cta-texto h2{
+        font-size:clamp(2rem, 11vw, 3.2rem);
+    }
+
+    .sponsors-cta-texto p{
+        font-size:14px;
+    }
+
+
+    /* FRANJA FINAL */
+
+    .sponsors-footer{
+        min-height:auto;
+
+        padding:30px 20px;
+    }
+
+    .sponsors-footer-logo{
+        width:145px;
+    }
+
+    .sponsors-footer-direccion-img{
+        width:170px;
+    }
+
+}

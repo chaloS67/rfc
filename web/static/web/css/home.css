@@ -539,60 +539,7 @@ GALERIA HOME
 }
 
 
-/*======================================
-SPONSORS HOME
-======================================*/
 
-.home-sponsors{
-    padding:75px 0;
-
-    background:
-        url("../img/backgrounds/bg-plata.png")
-        center / cover no-repeat;
-}
-
-
-/* fila de sponsors */
-
-.home-sponsors-track{
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:45px;
-}
-
-.home-sponsor-item{
-    width:150px;
-    height:90px;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    padding:10px;
-
-    text-decoration:none;
-}
-
-.home-sponsor-item img{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    display:block;
-
-    transition:.3s;
-}
-
-.home-sponsor-item:hover img{
-    transform:scale(1.08);
-}
 
 
 /*======================================

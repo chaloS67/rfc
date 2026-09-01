@@ -1,0 +1,33 @@
+  {% load static %}
+
+ <section id="galeria" class="home-galeria">
+
+        <div class="container">
+
+            <div class="section-title">
+              <img
+                    class="entrenadores-titulo"
+                    src="{% static 'web/img/titulos/galeria.png' %}"
+                    alt="Nuestros comienzos">
+            </div>
+
+            <div class="home-galeria-grid">
+
+                {% for foto in fotos %}
+
+                    <div class="home-galeria-item">
+
+                        <img
+                            class="foto-galeria"
+                            src="{% static 'web/img/galeria/'|add:foto %}"
+                            alt="Galería Rawson Fight Club">
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
