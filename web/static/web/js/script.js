@@ -185,3 +185,29 @@ comienzosIndicadores.forEach((indicador, index) => {
     });
 
 });
+
+const entrenadoresCarousel = document.getElementById("entrenadores-carousel");
+const entrenadoresPrev = document.getElementById("entrenadores-prev");
+const entrenadoresNext = document.getElementById("entrenadores-next");
+
+if(entrenadoresCarousel && entrenadoresPrev && entrenadoresNext){
+
+    entrenadoresNext.addEventListener("click", () => {
+
+        entrenadoresCarousel.scrollBy({
+            left:300,
+            behavior:"smooth"
+        });
+
+    });
+
+    entrenadoresPrev.addEventListener("click", () => {
+
+        entrenadoresCarousel.scrollBy({
+            left:-300,
+            behavior:"smooth"
+        });
+
+    });
+
+}

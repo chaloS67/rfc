@@ -1,0 +1,58 @@
+ {% load static %}
+
+ 
+ <section id="entrenadores" class="home-entrenadores">
+
+        <div class="container">
+
+            <img
+                    class="entrenadores-titulo"
+                    src="{% static 'web/img/titulos/nuestroscomienzos.png' %}"
+                    alt="Nuestros comienzos">
+
+            <div class="entrenadores-wrapper">
+
+            <button
+                class="entrenadores-flecha entrenadores-flecha-izq"
+                id="entrenadores-prev"
+                type="button">
+                ‹
+            </button>
+
+            <div class="entrenadores-carousel" id="entrenadores-carousel">
+
+                {% for entrenador in entrenadores %}
+
+                    <article class="entrenador-card">
+
+                        <img
+                            src="{% static 'web/img/entrenadores/' %}{{ entrenador.imagen }}"
+                            alt="{{ entrenador.nombre }}">
+
+                        <div class="entrenador-info">
+
+                            <h3>{{ entrenador.nombre }}</h3>
+
+                            <p>{{ entrenador.disciplina }}</p>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+            <button
+                class="entrenadores-flecha entrenadores-flecha-der"
+                id="entrenadores-next"
+                type="button">
+                ›
+            </button>
+
+        </div>
+
+    </div>
+
+
+    </section>

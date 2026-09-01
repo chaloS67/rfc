@@ -4,6 +4,8 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'web/css/home.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/home/nuestros-comienzos.css' %}">
+<link rel="stylesheet" href="{% static 'web/css/home/entrenadores.css' %}">
+
 {% endblock %}
 
 {% block content %}
@@ -76,44 +78,8 @@
     <!-- ======================================
     ENTRENADORES
     ======================================= -->
-
-    <section id="entrenadores" class="home-entrenadores">
-
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Entrenadores</h2>
-            </div>
-
-            <div class="entrenadores-carousel">
-
-                {% for entrenador in entrenadores %}
-
-                    <article class="entrenador-card">
-
-                        <img
-                            src="{% static 'web/img/entrenadores/' %}{{ entrenador.imagen }}"
-                            alt="{{ entrenador.nombre }}">
-
-                        <div class="entrenador-info">
-
-                            <h3>{{ entrenador.nombre }}</h3>
-
-                            <p>{{ entrenador.disciplina }}</p>
-
-                        </div>
-
-                    </article>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-    </section>
-
-
+    {% include "web/home/entrenadores.html" %}
+   
     <!-- ======================================
     REFERENTES
     ======================================= -->

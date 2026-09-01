@@ -60,19 +60,71 @@ def home(request):
 
     entrenadores = [
         {
-            "nombre": "Abraham Agüero",
-            "imagen": "abraham.svg",
+            
+            "imagen": "abraham.png",
             "disciplina": "Kickboxing",
         },
         {
-            "nombre": "Antonella Muñoz",
-            "imagen": "anto.svg",
+          
+            "imagen": "anto.png",
             "disciplina": "MMA femenino",
         },
         {
-            "nombre": "Omar Gutiérrez",
-            "imagen": "omar.svg",
+            
+            "imagen": "charly.png",
             "disciplina": "MMA / Wrestling",
+        },
+        {
+        
+            "imagen": "enzo.png",
+            "disciplina": "Kickboxing",
+        },
+        {
+        
+            "imagen": "julio.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "luciano.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "marino.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "matias.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "matias.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "maxi.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "omar.png",
+            "disciplina": "Kickboxing",
+        },
+
+        {
+        
+            "imagen": "rafa.png",
+            "disciplina": "Kickboxing",
         },
     ]
 
