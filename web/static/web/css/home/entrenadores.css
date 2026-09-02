@@ -2,7 +2,7 @@
     padding:90px 0;
 
     background:
-        url("../../img/backgrounds/bg-black.png")
+        url("../../img/backgrounds/capitanfondo.jpg")
         center / cover no-repeat;
 }
 
@@ -146,4 +146,85 @@ CARD ENTRENADOR
 
     letter-spacing:1px;
 }
+@media (max-width:768px){
+
+    .home-entrenadores{
+        padding:45px 0 20px;
+    }
+
+    .entrenadores-carousel{
+        gap:18px;
+
+        padding:10px 20px 10px;
+
+        scroll-snap-type:x mandatory;
+    }
+
+    .entrenador-card{
+        flex:0 0 220px;
+
+        min-height:330px;
+    }
+
+    .entrenador-card > img{
+        min-height:330px;
+    }
+
+    .entrenadores-flecha{
+        width:42px;
+        height:42px;
+
+        font-size:28px;
+    }
+
+    .entrenadores-flecha-izq{
+        left:5px;
+    }
+
+    .entrenadores-flecha-der{
+        right:5px;
+    }
+}
+
+@media (max-width:768px){
+
+    .home-entrenadores{
+        padding:45px 0 20px;
+    }
+
+    .entrenadores-carousel{
+        gap:18px;
+
+        padding:10px 20px 10px;
+
+        scroll-snap-type:x mandatory;
+    }
+
+    .entrenador-card{
+        flex:0 0 220px;
+
+        min-height:330px;
+    }
+
+    .entrenador-card > img{
+        min-height:330px;
+    }
+
+    .entrenadores-flecha{
+        width:42px;
+        height:42px;
+
+        font-size:28px;
+    }
+
+    .entrenadores-flecha-izq{
+        left:5px;
+    }
+
+    .entrenadores-flecha-der{
+        right:5px;
+    }
+}
+
+
 

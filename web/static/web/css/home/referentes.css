@@ -1,0 +1,80 @@
+/* ======================================
+REFERENTES HOME
+====================================== */
+
+.home-referentes{
+    padding:80px 0;
+
+    background:
+        url("../../img/backgrounds/naranja.jpg")
+        center / cover no-repeat;
+}
+
+
+/* TITULO */
+
+.referentes-titulo{
+    width:420px;
+    max-width:70%;
+    height:auto;
+
+    display:block;
+
+    margin-bottom:40px;
+}
+
+
+/* CARD */
+
+.referente-destacado{
+    width:30%;
+
+    display:flex;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.referente-destacado img{
+    width:100%;
+    max-width:1100px;
+    height:auto;
+
+    display:block;
+}
+
+
+/* ======================================
+RESPONSIVE
+====================================== */
+
+@media(max-width:768px){
+
+    .home-referentes{
+        padding:45px 0;
+    }
+
+    .referentes-titulo{
+        width:280px;
+        max-width:85%;
+        margin-bottom:25px;
+    }
+
+    .referente-destacado{
+        width:100%;
+        max-width:320px;
+
+        margin:0 auto;
+
+        display:flex;
+        justify-content:center;
+    }
+
+    .referente-destacado img{
+        width:100%;
+        max-width:100%;
+        height:auto;
+
+        display:block;
+    }
+}

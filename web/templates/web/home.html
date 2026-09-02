@@ -5,7 +5,10 @@
 <link rel="stylesheet" href="{% static 'web/css/home.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/home/nuestros-comienzos.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/home/entrenadores.css' %}">
+<link rel="stylesheet" href="{% static 'web/css/home/galeria-home.css' %}">
+<link rel="stylesheet" href="{% static 'web/css/home/referentes.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/home/sponsors.css' %}">
+
 
 {% endblock %}
 
@@ -21,44 +24,12 @@
 
    {% include "web/home/galeria-home.html" %}
 
+   {% include "web/home/referentes.html" %}
+
    {% include "web/home/sponsors.html" %}
 
-
-
-    
+  
    
-    <!-- ======================================
-    REFERENTES
-    ======================================= -->
-
-    <section id="referentes" class="home-referentes">
-
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Referentes</h2>
-            </div>
-
-            <article class="referente-destacado">
-
-                <img
-                    src="{% static 'web/img/entrenadores/rafa.svg' %}"
-                    alt="Rafa Proboste">
-
-                <div class="referente-info">
-
-                    <h3>Rafa Proboste</h3>
-
-                    <p>Campeón Sudamericano</p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
+   
 
 {% endblock %}

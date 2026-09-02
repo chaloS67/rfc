@@ -1,0 +1,138 @@
+/* ======================================
+FOOTER RFC
+====================================== */
+
+.footer-rfc{
+    width:100%;
+
+    background:#050505;
+    color:white;
+}
+
+
+/* CONTENIDO PRINCIPAL */
+
+.footer-contenido{
+    min-height:150px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+
+/* MARCA */
+
+.footer-marca{
+    display:flex;
+    align-items:center;
+
+    gap:18px;
+}
+
+.footer-marca img{
+    width:100px;
+    height:auto;
+
+    display:block;
+}
+
+.footer-marca span{
+    font-family:"League Spartan", sans-serif;
+    font-size:22px;
+    font-weight:700;
+
+    text-transform:uppercase;
+}
+
+
+/* REDES */
+
+.footer-redes{
+    display:flex;
+    align-items:center;
+
+    gap:18px;
+}
+
+.footer-redes a{
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--naranja-rfc);
+    border-radius:50%;
+
+    color:white;
+
+    font-size:22px;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.footer-redes a:hover{
+    background:var(--naranja-rfc);
+    border-color:var(--naranja-rfc);
+}
+
+
+/* COPYRIGHT */
+
+.footer-copy{
+    padding:14px 20px;
+
+    border-top:1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+}
+
+.footer-copy p{
+    margin:0;
+
+    color:#999;
+
+    font-family:"Inter", sans-serif;
+    font-size:14px;
+}
+
+
+/* ======================================
+MOBILE
+====================================== */
+
+@media(max-width:768px){
+
+    .footer-contenido{
+        min-height:auto;
+
+        flex-direction:column;
+        justify-content:center;
+
+        padding:35px 20px;
+
+        text-align:center;
+    }
+
+    .footer-marca{
+        flex-direction:column;
+    }
+
+    .footer-marca img{
+        width:85px;
+    }
+
+    .footer-marca span{
+        font-size:19px;
+    }
+
+}

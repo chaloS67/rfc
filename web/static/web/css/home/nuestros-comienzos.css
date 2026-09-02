@@ -140,3 +140,49 @@
 
     z-index:1;
 }
+
+@media (max-width:768px){
+
+    .comienzos-carousel{
+        min-height:100vh;
+    }
+
+    .comienzos-contenido{
+        width:88%;
+
+        padding-top:65px;
+    }
+
+    .comienzos-titulo{
+        width:300px;
+        max-width:85%;
+    }
+
+    .comienzos-linea{
+        margin-bottom:30px;
+    }
+
+    .comienzos-texto{
+        max-width:100%;
+
+        margin-left:0;
+        margin-right:0;
+    }
+
+    .comienzos-texto p{
+        font-size:18px;
+
+        line-height:1.4;
+
+        margin-bottom:18px;
+    }
+
+    .comienzos-indicadores{
+        bottom:18px;
+    }
+
+    .comienzos-indicador{
+        width:15px;
+        height:15px;
+    }
+}

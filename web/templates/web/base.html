@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'web/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/components/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/components/topbar.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/components/footer.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,22 +32,11 @@
 
    {% include "web/components/navbar.html" %}
 
+
+
     {% block content %}{% endblock %}
 
-    <footer>
-
-        <p>© Rawson Fight Club</p>
-
-        <div class="redes-footer">
-            <a href="https://www.instagram.com/rfc_clubgregoriano/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/share/17oW4tDJbC/" target="_blank">
-                <i class="fab fa-facebook"></i>
-            </a>
-        </div>
-
-    </footer>
+    {% include "web/components/footer.html" %}
 
     <div id="modal" class="modal">
         <span class="cerrar">&times;</span>
