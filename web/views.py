@@ -103,11 +103,6 @@ def home(request):
             "disciplina": "Kickboxing",
         },
 
-        {
-        
-            "imagen": "matias.png",
-            "disciplina": "Kickboxing",
-        },
 
         {
         
