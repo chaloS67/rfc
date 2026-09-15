@@ -1,30 +1,34 @@
 {% load static %}
 
-<div class="topbar">
-    <div class="container topbar-contenido">
+<a href="{% url 'registrar_socio' %}" class="topbar-link">
 
-        <img
-            src="{% static 'web/img/branding/hacetesocio.png' %}"
-            alt="RFC Hacete socio"
-            class="topbar-promo">
+    <div class="topbar">
 
-            <div class="topbar-precio">
-            <span class="precio">CONSULTE PRECIO</span>
-        
-        </div>
-
-        <div class="topbar-separador"></div>
-
-        <p class="topbar-texto">
-            Aprovechá hoy y obtené descuentos exclusivos 
-            en todas las actividades,eventos y productos.
-        </p>
+        <div class="container topbar-contenido">
 
             <img
-            src="{% static 'web/img/branding/rfcrabbit.png' %}"
-            alt=""
-            class="topbar-conejo">
+                src="{% static 'web/img/branding/hacetesocio.png' %}"
+                alt="RFC Hacete socio"
+                class="topbar-promo">
 
+            <div class="topbar-precio">
+                <span class="precio">CONSULTE PRECIO</span>
+            </div>
+
+            <div class="topbar-separador"></div>
+
+            <p class="topbar-texto">
+                Aprovechá hoy y obtené descuentos exclusivos
+                en todas las actividades, eventos y productos.
+            </p>
+
+            <img
+                src="{% static 'web/img/branding/rfcrabbit.png' %}"
+                alt=""
+                class="topbar-conejo">
+
+        </div>
 
     </div>
-</div>
+
+</a>

@@ -659,6 +659,13 @@ MOBILE
         display:none;
     }
 
+     .hero-slide.comunidad .hero-slide-bg{
+        object-fit:contain;
+        object-position:center;
+        background:#000;
+    }
+
+
 
       .hero-slide::after{
         background:

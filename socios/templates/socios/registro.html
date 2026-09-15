@@ -1,0 +1,170 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %}Hacete socio | Rawson Fight Club{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'socios/registro.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="registro-socio">
+
+    <div class="registro-socio-contenedor">
+
+        <div class="registro-cabecera">
+            <h1>HACETE SOCIO</h1>
+            <p>
+                Sumate a Rawson Fight Club y formá parte de nuestra comunidad.
+            </p>
+        </div>
+
+        <form method="POST" class="registro-formulario">
+
+            {% csrf_token %}
+
+            <div class="form-grid">
+
+                <div class="form-grupo">
+                    <label for="{{ form.nombre.id_for_label }}">
+                        Nombre
+                    </label>
+
+                    {{ form.nombre }}
+
+                    {% for error in form.nombre.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.apellido.id_for_label }}">
+                        Apellido
+                    </label>
+
+                    {{ form.apellido }}
+
+                    {% for error in form.apellido.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.dni.id_for_label }}">
+                        DNI
+                    </label>
+
+                    {{ form.dni }}
+
+                    {% for error in form.dni.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.fecha_nac.id_for_label }}">
+                        Fecha de nacimiento
+                    </label>
+
+                    {{ form.fecha_nac }}
+
+                    {% for error in form.fecha_nac.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.telefono.id_for_label }}">
+                        Teléfono / WhatsApp
+                    </label>
+
+                    {{ form.telefono }}
+
+                    {% for error in form.telefono.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.email.id_for_label }}">
+                        Email
+                    </label>
+
+                    {{ form.email }}
+
+                    {% for error in form.email.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-separador">
+                    <span>DATOS DEL RESPONSABLE</span>
+
+                    <p>
+                        Solo obligatorio para menores de 18 años.
+                    </p>
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.responsable.id_for_label }}">
+                        Nombre del responsable
+                    </label>
+
+                    {{ form.responsable }}
+
+                    {% for error in form.responsable.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="form-grupo">
+                    <label for="{{ form.telefono_responsable.id_for_label }}">
+                        Teléfono del responsable
+                    </label>
+
+                    {{ form.telefono_responsable }}
+
+                    {% for error in form.telefono_responsable.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+
+            {% if form.non_field_errors %}
+                <div class="form-error-general">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+
+            <div class="form-acciones">
+
+                <button type="submit" class="btn-socio">
+                    ENVIAR SOLICITUD
+                </button>
+
+                <p>
+                    Tus datos serán utilizados únicamente para gestionar
+                    tu solicitud de asociación.
+                </p>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

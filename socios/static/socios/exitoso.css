@@ -1,0 +1,122 @@
+/* ======================================
+PAGINA SOLICITUD EXITOSA
+====================================== */
+
+.socio-exitoso{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.92)
+        ),
+        url("../../web/img/backgrounds/bg-black.png")
+        center / cover no-repeat;
+}
+
+
+.socio-exitoso-card{
+    width:100%;
+    max-width:700px;
+
+    padding:55px 40px;
+
+    text-align:center;
+
+    background:rgba(15,15,15,.95);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+}
+
+
+.socio-exitoso-card h1{
+    margin:0 0 20px;
+
+    color:var(--naranja-rfc);
+
+    font-family:"League Spartan", sans-serif;
+    font-size:clamp(2.5rem, 6vw, 4.5rem);
+    font-weight:800;
+
+    line-height:.95;
+
+    text-transform:uppercase;
+}
+
+
+.socio-exitoso-card p{
+    max-width:520px;
+
+    margin:0 auto 30px;
+
+    color:#d0d0d0;
+
+    font-family:"Inter", sans-serif;
+    font-size:18px;
+
+    line-height:1.6;
+}
+
+
+.socio-exitoso-card a{
+    display:inline-block;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    background:var(--naranja-rfc);
+
+    color:white;
+
+    font-family:"League Spartan", sans-serif;
+    font-size:17px;
+    font-weight:800;
+
+    text-decoration:none;
+    text-transform:uppercase;
+
+    transition:.25s;
+}
+
+
+.socio-exitoso-card a:hover{
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+}
+
+
+/* ======================================
+MOBILE
+====================================== */
+
+@media(max-width:768px){
+
+    .socio-exitoso{
+        padding:40px 15px;
+    }
+
+    .socio-exitoso-card{
+        padding:40px 22px;
+    }
+
+    .socio-exitoso-card p{
+        font-size:16px;
+    }
+
+    .socio-exitoso-card a{
+        width:100%;
+    }
+
+}

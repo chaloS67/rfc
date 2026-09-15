@@ -1,0 +1,30 @@
+{% extends "web/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'socios/exitoso.css' %}">
+{% endblock %}
+
+<section class="socio-exitoso">
+
+    <div class="socio-exitoso-card">
+
+        <h1>SOLICITUD ENVIADA</h1>
+
+        <p>
+            Recibimos tus datos correctamente.
+            Tu solicitud quedó pendiente de revisión.
+        </p>
+
+        <a href="{% url 'home' %}">
+            VOLVER AL INICIO
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
