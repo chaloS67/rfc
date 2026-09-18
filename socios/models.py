@@ -37,4 +37,33 @@ class Socio(models.Model):
 
         def __str__(self):
             return f"{self.nombre} {self.apellido}"
-    
+
+class Pagos(models.Model):
+      
+      ESTADOS = [       
+            {"pendiente","Pendiente"},
+            {"aprobado", "Aprobado"},
+            {"rechazado","Rechazado"}
+      ]
+
+      socio = models.ForeignKey(
+            Socio,on_delete=models.CASCADE,
+            related_name="pagos"
+      )
+
+      comprobante = models.FileField(
+        upload_to="comprobante/"
+      )
+
+      estado = models.CharField(
+           max_length=20,
+           choices=ESTADOS,
+           default="pendiente"
+      )
+
+      fecha_envio= models.DateField(
+            auto_now_add=True
+      )
+
+      def __str__(self):
+        return f"Pago de {self.socio}"

@@ -1,9 +1,10 @@
 from django import forms
 from django.utils import timezone
-from .models import Socio
+from .models import Socio,Pagos
 
 
 class SocioForm(forms.ModelForm):
+
 
     class Meta:
         model = Socio
@@ -55,3 +56,11 @@ class SocioForm(forms.ModelForm):
                     )
 
         return cleaned_data
+
+class PagosForm(forms.ModelForm):
+
+    class Meta:
+        model = Pagos
+        fields = [
+            "comprobante"
+        ]

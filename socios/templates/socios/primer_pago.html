@@ -1,0 +1,85 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %}Primer pago | Rawson Fight Club{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'socios/css/primer_pago.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="primer-pago">
+
+    <div class="primer-pago-card">
+
+        <div class="primer-pago-cabecera">
+            <h1>PRIMER PAGO</h1>
+
+            <p>
+                Hola {{ socio.nombre }}. Tu solicitud fue registrada correctamente.
+            </p>
+
+            <p>
+                Realizá la transferencia y luego subí el comprobante.
+            </p>
+        </div>
+
+
+        <div class="datos-transferencia">
+
+            <h2>DATOS PARA TRANSFERIR</h2>
+
+            <p>
+                <span>Alias</span>
+                <strong>ACA-VA-EL-ALIAS</strong>
+            </p>
+
+            <p>
+                <span>Titular</span>
+                <strong>RAWSON FIGHT CLUB</strong>
+            </p>
+
+            <p>
+                <span>Monto</span>
+                <strong>$ XXXXX</strong>
+            </p>
+
+        </div>
+
+
+        <form
+            method="POST"
+            enctype="multipart/form-data"
+            class="pago-formulario">
+
+            {% csrf_token %}
+
+            <div class="form-grupo">
+
+                <label for="{{ form.comprobante.id_for_label }}">
+                    Subí tu comprobante
+                </label>
+
+                {{ form.comprobante }}
+
+                {% for error in form.comprobante.errors %}
+                    <span class="form-error">
+                        {{ error }}
+                    </span>
+                {% endfor %}
+
+            </div>
+
+
+            <button type="submit" class="btn-pago">
+                ENVIAR COMPROBANTE
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

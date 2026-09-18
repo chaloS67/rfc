@@ -1,0 +1,243 @@
+/* ======================================
+PRIMER PAGO RFC
+====================================== */
+
+.primer-pago{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    padding:70px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.92)
+        ),
+        url("../../web/img/backgrounds/bg-black.png")
+        center / cover no-repeat;
+}
+
+.primer-pago-card{
+    width:100%;
+    max-width:760px;
+
+    padding:50px 40px;
+
+    background:rgba(15,15,15,.95);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+
+/* CABECERA */
+
+.primer-pago-cabecera{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.primer-pago-cabecera h1{
+    margin:0 0 15px;
+
+    color:var(--naranja-rfc);
+
+    font-family:"League Spartan", sans-serif;
+    font-size:clamp(2.8rem, 6vw, 4.5rem);
+    font-weight:800;
+
+    line-height:.9;
+
+    text-transform:uppercase;
+}
+
+.primer-pago-cabecera p{
+    margin:8px 0;
+
+    color:#d0d0d0;
+
+    font-family:"Inter", sans-serif;
+    font-size:17px;
+
+    line-height:1.5;
+}
+
+
+/* DATOS TRANSFERENCIA */
+
+.datos-transferencia{
+    margin-bottom:35px;
+
+    padding:25px;
+
+    background:#181818;
+
+    border-left:4px solid var(--naranja-rfc);
+    border-radius:12px;
+}
+
+.datos-transferencia h2{
+    margin:0 0 20px;
+
+    color:white;
+
+    font-family:"League Spartan", sans-serif;
+    font-size:24px;
+
+    text-transform:uppercase;
+}
+
+.datos-transferencia p{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+
+    margin:12px 0;
+
+    color:#aaa;
+
+    font-family:"Inter", sans-serif;
+}
+
+.datos-transferencia strong{
+    color:white;
+    text-align:right;
+}
+
+
+/* FORMULARIO */
+
+.pago-formulario{
+    width:100%;
+}
+
+.form-grupo{
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.form-grupo label{
+    color:white;
+
+    font-family:"Inter", sans-serif;
+    font-size:14px;
+    font-weight:700;
+
+    text-transform:uppercase;
+}
+
+.form-grupo input[type="file"]{
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #333;
+    border-radius:10px;
+
+    background:#181818;
+
+    color:white;
+
+    font-family:"Inter", sans-serif;
+}
+
+.form-grupo input[type="file"]::file-selector-button{
+    margin-right:15px;
+
+    padding:10px 16px;
+
+    border:none;
+    border-radius:8px;
+
+    background:var(--naranja-rfc);
+
+    color:white;
+
+    font-family:"League Spartan", sans-serif;
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* ERRORES */
+
+.form-error{
+    color:#ff6b6b;
+
+    font-family:"Inter", sans-serif;
+    font-size:13px;
+}
+
+
+/* BOTON */
+
+.btn-pago{
+    width:100%;
+
+    margin-top:30px;
+
+    padding:16px 30px;
+
+    border:none;
+    border-radius:10px;
+
+    background:var(--naranja-rfc);
+
+    color:white;
+
+    font-family:"League Spartan", sans-serif;
+    font-size:19px;
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.btn-pago:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+
+
+/* ======================================
+MOBILE
+====================================== */
+
+@media(max-width:768px){
+
+    .primer-pago{
+        padding:45px 15px;
+    }
+
+    .primer-pago-card{
+        padding:32px 20px;
+    }
+
+    .primer-pago-cabecera p{
+        font-size:15px;
+    }
+
+    .datos-transferencia{
+        padding:20px;
+    }
+
+    .datos-transferencia p{
+        flex-direction:column;
+        gap:4px;
+    }
+
+    .datos-transferencia strong{
+        text-align:left;
+    }
+}
