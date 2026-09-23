@@ -3,41 +3,48 @@ from django.shortcuts import render
 
 SPONSORS = [
 
+
         {
-            "nombre":"morpho",
-            "logo":"morpho.png",
-            "link":"#"
+            "nombre":"Ayelenvalle",
+            "logo":"ayelenvalle.svg",
+            "link":"https://www.instagram.com/ayelenvalle_estetica/"
         },
 
         {
-            "nombre":"Red textil",
-            "logo":"redtextil.svg",
-            "link":"#"
+            "nombre":"colombia",
+            "logo":"colombia.svg",
+            "link":"https://www.instagram.com/colombia.bsh/"
         },
 
         {
-            "nombre":"Monkey",
-            "logo":"monkeyS.svg",
-            "link":"#"
-        },
-
-        {
-            "nombre":"Travesuras",
-            "logo":"travesuras.svg",
-             "link":"#"
+            "nombre":"Deportivo capital",
+            "logo":"deportivocapital.svg",
+             "link":"https://www.facebook.com/profile.php?id=61580159597802"
         },
 
         {
             "nombre":"ingenio",
-            "logo":"ingenio.png",
-            "link":"#"
+            "logo":"ingenio.svg",
+            "link":"https://www.instagram.com/ingenio.ia/   "
         },
 
         {
-            "nombre":"Sugar",
-            "logo":"sugara.svg",
-            "link":"#"
-        }
+            "nombre":"laflia",
+            "logo":"laflia.svg",
+            "link":"https://www.facebook.com/search/top?q=lavadero%20la%20flia"
+        },
+
+        {
+            "nombre":"morpho",
+            "logo":"morpho.svg",
+            "link":"https://www.instagram.com/morp.ho3d/"
+        },
+
+        {
+            "nombre":"teamaguero",
+            "logo":"teamaguero.svg",
+            "link":"https://www.instagram.com/af_team_aguero/"
+        },
 
 ]
 

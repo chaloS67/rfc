@@ -22,12 +22,9 @@ ETIQUETA SUPERIOR
 
 .sponsors-etiqueta{
     position:absolute;
-
-    top:22px;
+    top:-10px;
     left:50%;
-
     transform:translateX(-50%);
-
     z-index:10;
 }
 
@@ -407,13 +404,12 @@ MOBILE
 
 @media(max-width:600px){
 
-    .sponsors-etiqueta{
-        top:15px;
+      .sponsors-etiqueta{
+        top:-10px;
     }
 
     .sponsors-etiqueta span{
-        padding:10px 28px;
-
+        padding:10px 22px;
         font-size:16px;
     }
 
