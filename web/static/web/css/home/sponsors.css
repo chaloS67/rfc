@@ -243,13 +243,14 @@ FRANJA FINAL
     width:100%;
     min-height:20vh;
 
-    display:flex;
+    display:grid;
+    grid-template-columns:35% 65%;
+
     align-items:center;
-    justify-content:space-between;
 
     gap:40px;
 
-    padding:30px 8%;
+    padding:30px 0;
 
     background:#050505;
 
@@ -262,25 +263,25 @@ FRANJA FINAL
 .sponsors-footer-logo{
     width:190px;
     height:auto;
-
     display:block;
 
-    flex-shrink:0;
+    justify-self:center;
 }
 
 
 /* DIRECCION */
 
 .sponsors-footer-direccion{
+    width:100%;
+
     display:flex;
     align-items:center;
-    justify-content:flex-end;
+    justify-content:center;
 }
 
 .sponsors-footer-direccion-img{
     width:220px;
     height:auto;
-
     display:block;
 }
 
