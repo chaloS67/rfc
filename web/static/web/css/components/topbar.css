@@ -75,6 +75,26 @@
     pointer-events:none;
 }
 
+@media (max-width:1000px){
+
+    .topbar-contenido{
+        gap:18px;
+        padding:8px 20px;
+    }
+
+    .topbar-precio{
+        transform:none;
+    }
+
+    .topbar-texto{
+        display:none;
+    }
+
+    .topbar-conejo{
+        display:none;
+    }
+}
+
 @media (max-width: 768px){
 
     .topbar-contenido{
