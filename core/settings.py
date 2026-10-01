@@ -41,9 +41,12 @@ CSRF_TRUSTED_ORIGINS = [
     "https://www.rawsonfightclub.com",
 ]
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 # Mientras terminamos HTTPS podés dejarlo True.
 # Después del certificado lo cambiamos a False.
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
