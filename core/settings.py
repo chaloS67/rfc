@@ -31,9 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1",
 "localhost",
-"rawsonfigthclub.pythonanywhere.com",
-"rawsonfigthclub.com",
-"www.rawsonfigthclub.com",
+"rawsonfightclub.pythonanywhere.com",
+"rawsonfightclub.com",
+"www.rawsonfightclub.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
