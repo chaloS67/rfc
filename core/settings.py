@@ -49,7 +49,7 @@ SESSION_COOKIE_SECURE = True
 
 # Mientras terminamos HTTPS podés dejarlo True.
 # Después del certificado lo cambiamos a False.
-DEBUG = False
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # Application definition
 
@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'web'
+    'web',
+    'noticias'
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,6 @@ STATIC_URL = 'static/'
 
 STATICFILES_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"  
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

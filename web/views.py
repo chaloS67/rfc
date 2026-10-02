@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from noticias.models import Noticia
+
 
 
 SPONSORS = [
@@ -48,23 +50,43 @@ SPONSORS = [
 
 ]
 
-slides_home = [
-    {
-        "fondo": "homecarrusel1.png",
-        "overlay": "textobanda.svg",
-    },
-    {
-        "fondo": "homecarrusel2.png",
-        "overlay": "textocomunidad.svg",
-    },
-    {
-        "fondo": "homecarrusel3.png",
-        "overlay": "textofamilia.svg",
-    },
-]
+
 
 def home(request):
 
+    # Buscamos la última noticia publicada
+    ultima_noticia = (
+        Noticia.objects
+        .filter(publicada=True)
+        .order_by("-fecha_publicacion")
+        .first()
+    )
+
+    # Slides normales del carrusel
+    slides_home = [
+        {
+            "fondo": "homecarrusel1.png",
+            "overlay": "textobanda.svg",
+        },
+        {
+            "fondo": "homecarrusel2.png",
+            "overlay": "textocomunidad.svg",
+        },
+        {
+            "fondo": "homecarrusel3.png",
+            "overlay": "textofamilia.svg",
+        },
+    ]
+
+    # Si existe una noticia publicada,
+    # la agregamos como una slide más
+    if ultima_noticia:
+        slides_home.append({
+            "es_noticia": True,
+            "fondo_noticia": ultima_noticia.imagen,
+            "titulo_noticia": ultima_noticia.titulo,
+        })
+        
     entrenadores = [
         {
             
