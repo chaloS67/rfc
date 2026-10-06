@@ -85,6 +85,7 @@ def home(request):
             "es_noticia": True,
             "fondo_noticia": ultima_noticia.imagen,
             "titulo_noticia": ultima_noticia.titulo,
+            "noticia_id" : ultima_noticia.id,
         })
         
     entrenadores = [

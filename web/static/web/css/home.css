@@ -12,6 +12,62 @@ HOME
     width:100%;
 }
 
+.hero-noticia-contenido {
+    position: absolute;
+    z-index: 6;
+    left: 8%;
+    bottom: 90px; /* Queda justo por encima de los indicadores */
+    max-width: 580px;
+    padding: 24px 28px;
+    background: rgba(0, 0, 0, 0.75);
+    border-left: 4px solid var(--color-principal, #d90429);
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.hero-noticia-etiqueta {
+    background-color: var(--color-principal, #d90429);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+.hero-noticia-titulo {
+    color: #ffffff;
+    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.hero-noticia-boton {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    margin-top: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-noticia-boton:hover {
+    background-color: var(--color-principal, #d90429);
+    color: #ffffff;
+}
 
 /*======================================
 HERO - CARRUSEL
@@ -654,6 +710,20 @@ MOBILE
 ======================================*/
 
 @media(max-width:900px){
+
+    .hero-noticia-contenido {
+        left: 5%;
+        right: 5%;
+        bottom: 70px;
+        max-width: none;
+        padding: 16px 18px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero-noticia-titulo {
+        font-size: 1.25rem;
+    }
 
     .hero-slide::after{
         display:none;

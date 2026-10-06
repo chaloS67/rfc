@@ -13,6 +13,66 @@ HOME
 }
 
 
+/* Posicionamiento del bloque de noticia en el carrusel */
+.hero-noticia-contenido {
+    position: absolute;
+    z-index: 6;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    max-width: 45vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+/* Etiqueta superior */
+.hero-noticia-etiqueta {
+    background-color: var(--color-principal, #d90429);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+/* Título de la noticia */
+.hero-noticia-titulo {
+    color: #ffffff;
+    font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85);
+    margin: 0;
+}
+
+/* Botón Ver noticia */
+.hero-noticia-boton {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    margin-top: 4px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-noticia-boton:hover {
+    background-color: var(--color-principal, #d90429);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
 /*======================================
 HERO - CARRUSEL
 ======================================*/

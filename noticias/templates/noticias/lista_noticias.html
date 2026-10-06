@@ -1,21 +1,87 @@
-<h1>Noticias</h1>
+{% extends 'web/base.html' %}
+{% load static %}
 
-{% for noticia in noticias %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'noticias/css/noticias.css' %}">
+{% endblock %}
 
-    <article>
-        <h2>{{ noticia.titulo }}</h2>
+{% block content %}
+<main class="noticias-page">
 
-        <p>{{ noticia.fecha_publicacion }}</p>
+    <header class="noticias-hero-title">
+        <div class="section-title">
+            <h2>Noticias</h2>
+            <p class="noticias-subtitulo">Actualidad, eventos y novedades de Rawson Fight Club</p>
+        </div>
+    </header>
 
-        {% if noticia.imagen %}
-            <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}" width="300">
+    <div class="noticias-container">
+
+        {% if destacada %}
+            <!-- Noticia Principal Destacada -->
+            <section class="noticia-destacada-wrap">
+                <article class="noticia-destacada-card">
+                    <div class="destacada-img-box">
+                        {% if destacada.imagen %}
+                            <img src="{{ destacada.imagen.url }}" alt="{{ destacada.titulo }}">
+                        {% else %}
+                            <img src="{% static 'web/img/home/homecarrusel1.png' %}" alt="{{ destacada.titulo }}">
+                        {% endif %}
+                        <span class="badge-destacada">Destacada</span>
+                    </div>
+
+                    <div class="destacada-info">
+                        <span class="noticia-fecha">{{ destacada.fecha_publicacion|date:"d M Y" }}</span>
+                        <h3 class="destacada-titulo">{{ destacada.titulo }}</h3>
+                        <p class="destacada-texto">
+                            {{ destacada.contenido|truncatewords:45 }}
+                        </p>
+                        <a href="#" class="btn-rfc-noticia">
+                            Leer noticia completa &rarr;
+                        </a>
+                    </div>
+                </article>
+            </section>
         {% endif %}
 
-        <p>{{ noticia.contenido }}</p>
-    </article>
+        {% if noticias %}
+            <!-- Grilla de Noticias Secundarias -->
+            <section class="noticias-grid-section">
+                <h3 class="subtitulo-seccion-grid">Más Novedades</h3>
+                <div class="noticias-grid">
+                    {% for noticia in noticias %}
+                        <article class="noticia-card">
+                            <div class="noticia-img-wrap">
+                                {% if noticia.imagen %}
+                                    <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}" loading="lazy">
+                                {% else %}
+                                    <img src="{% static 'web/img/home/homecarrusel1.png' %}" alt="{{ noticia.titulo }}">
+                                {% endif %}
+                                <span class="noticia-fecha">{{ noticia.fecha_publicacion|date:"d M Y" }}</span>
+                            </div>
 
-{% empty %}
+                            <div class="noticia-cuerpo">
+                                <h4 class="noticia-titulo">{{ noticia.titulo }}</h4>
+                                <p class="noticia-extracto">
+                                    {{ noticia.contenido|truncatewords:20 }}
+                                </p>
+                                <a href="#" class="noticia-link">
+                                    Leer noticia <span>&rarr;</span>
+                                </a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
 
-    <p>No hay noticias publicadas.</p>
+        {% if not destacada and not noticias %}
+            <div class="noticias-vacio">
+                <p>No hay noticias publicadas por el momento.</p>
+            </div>
+        {% endif %}
 
-{% endfor %}
+    </div>
+
+</main>
+{% endblock %}

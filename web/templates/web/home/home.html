@@ -2,48 +2,54 @@
  
     <section id="inicio" class="home-hero">
 
-    <div class="hero-carousel">
+        <div class="hero-carousel">
 
-        <img
-            class="home-hero-logo-fijo"
-            src="{% static 'web/img/branding/logo-rfc.svg' %}"
-            alt="Rawson Fight Club">
+            <img
+                class="home-hero-logo-fijo"
+                src="{% static 'web/img/branding/logo-rfc.svg' %}"
+                alt="Rawson Fight Club">
 
-         <img
-            class="home-hero-recuadro"
-            src="{% static 'web/img/home/recuadro.svg' %}"
-            alt="Rawson Fight Club">
+            <img
+                class="home-hero-recuadro"
+                src="{% static 'web/img/home/recuadro.svg' %}"
+                alt="Rawson Fight Club">
 
-       {% for slide in slides_home %}
-
-            <div class="hero-slide
-                {% if forloop.first %}activo{% endif %}
+            {% for slide in slides_home %}
+            
+            <div class="hero-slide 
+                {% if forloop.first %}activo{% endif %} 
                 {% if forloop.last %}ultimo-slide{% endif %}">
+
 
                 {% if slide.es_noticia %}
 
-                    <img
-                        class="hero-slide-bg"
-                        src="{{ slide.fondo_noticia.url }}"
-                        alt="{{ slide.titulo_noticia }}">
+                    {# 1 - IMAGEN DE FONDO DE NOTICIA #}
+                    {% if slide.fondo_noticia %}
+                        <img 
+                            class="hero-slide-bg"
+                            src="{{ slide.fondo_noticia.url }}"
+                            alt = "{{ slide.titulo_noticia }}"
+                            >
+                    {% else %}
+                        {# Si no tiene imagen,ponemos una por defecto #}
+                        <img
+                            class="hero-slide-bg"
+                            src="{% static 'web/img/home/homecarrusel1.png' %}"
+                            alt="{{slide.titulo_noticia}}"
+                            >
+                    {% endif %}
 
+                    {# 2 - TEXTO DE LA NOTICIA #}
                     <div class="hero-noticia-contenido">
-
-                        <span class="hero-noticia-etiqueta">
-                            NOTICIAS
-                        </span>
-
-                        <h2>
-                            {{ slide.titulo_noticia }}
-                        </h2>
-
-                        <a href="{% url 'lista_noticias' %}" class="hero-noticia-boton">
-                            Ver noticia
+                        <span class="hero-noticia-etiqueta">ULTIMA NOTICIA</span>
+                        <h2 class="hero-noticia-titulo">{{slider.titulo_noticia}} </h2>
+                        <a href="{% url 'lista_noticias'%}" class="hero-noticia-boton"> 
+                            Ver noticia 
                         </a>
-
                     </div>
-
-                {% else %}
+                                    
+                 {% else %}
+                    {# SLIDER COMUNES #}
 
                     <img
                         class="hero-slide-bg"
@@ -55,27 +61,25 @@
                         src="{% static 'web/img/home/' %}{{ slide.overlay }}"
                         alt="Mensaje Rawson Fight Club">
 
-                {% endif %}
+               {% endif %}
+          </div>
 
-            </div>
+         {% endfor %}
 
-        {% endfor %}
+            <div class="hero-indicadores">
 
-        <div class="hero-indicadores">
+                {% for slide in slides_home %}
 
-            {% for slide in slides_home %}
+                    <button
+                        type="button"
+                        class="hero-indicador {% if forloop.first %}activo{% endif %}"
+                        data-index="{{ forloop.counter0 }}"
+                        aria-label="Ir al slide {{ forloop.counter }}">
+                    </button>
 
-                <button
-                    type="button"
-                    class="hero-indicador {% if forloop.first %}activo{% endif %}"
-                    data-index="{{ forloop.counter0 }}"
-                    aria-label="Ir al slide {{ forloop.counter }}">
-                </button>
+                {% endfor %}
 
-            {% endfor %}
-
-        </div>
-
+          </div>
     </div>
 
 </section>
