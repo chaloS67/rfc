@@ -16,9 +16,9 @@
 
             {% for slide in slides_home %}
             
-            <div class="hero-slide 
-                {% if forloop.first %}activo{% endif %} 
-                {% if forloop.last %}ultimo-slide{% endif %}">
+              <div class="hero-slide 
+              {% if forloop.first %}activo{% endif %} 
+              {% if forloop.last %}ultimo-slide{% endif %}">
 
 
                 {% if slide.es_noticia %}
@@ -42,10 +42,17 @@
                     {# 2 - TEXTO DE LA NOTICIA #}
                     <div class="hero-noticia-contenido">
                         <span class="hero-noticia-etiqueta">ULTIMA NOTICIA</span>
-                        <h2 class="hero-noticia-titulo">{{slider.titulo_noticia}} </h2>
-                        <a href="{% url 'lista_noticias'%}" class="hero-noticia-boton"> 
-                            Ver noticia 
-                        </a>
+                        <h2 class="hero-noticia-titulo">{{slide.titulo_noticia}} </h2>
+                        
+                        {% if slide.id_noticia %}
+                            <a href="{% url 'detalle_noticia' pk=slide.id_noticia %}" class="hero-noticia-boton"> 
+                                Ver noticia 
+                            </a>
+                        {% else %}
+                            <a href="{% url 'lista_noticias' %}" class="hero-noticia-boton"> 
+                                Ver noticias 
+                            </a>
+                        {% endif %}    
                     </div>
                                     
                  {% else %}
@@ -62,7 +69,7 @@
                         alt="Mensaje Rawson Fight Club">
 
                {% endif %}
-          </div>
+            </div>
 
          {% endfor %}
 

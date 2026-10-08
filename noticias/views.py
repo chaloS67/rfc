@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from .models import Noticia
 
 from .models import Noticia
@@ -21,4 +21,12 @@ def lista_noticias(request):
             "destacada": destacada,
             "noticias": noticias_resto,
         }
+    )
+
+def detalle_noticia(request,pk):
+    noticia = get_object_or_404(Noticia, pk=pk, publicada=True)
+    return render(
+        request,
+        "noticias/detalle_noticia.html",
+        {"noticia": noticia}
     )

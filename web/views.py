@@ -62,7 +62,7 @@ def home(request):
         .first()
     )
 
-    # Slides normales del carrusel
+    # Slides normales del carrusel Por ahroa estaticos
     slides_home = [
         {
             "fondo": "homecarrusel1.png",
@@ -85,7 +85,8 @@ def home(request):
             "es_noticia": True,
             "fondo_noticia": ultima_noticia.imagen,
             "titulo_noticia": ultima_noticia.titulo,
-            "noticia_id" : ultima_noticia.id,
+            "id_noticia" : ultima_noticia.id,
+            
         })
         
     entrenadores = [

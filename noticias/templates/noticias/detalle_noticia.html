@@ -1,0 +1,38 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'noticias/css/detalle.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="noticias-page">
+    <article class="noticia-detalle-container">
+        
+        <header class="detalle-header">
+            <a href="{% url 'lista_noticias' %}" class="btn-volver-noticias">
+                &larr; Volver a Noticias
+            </a>
+            <span class="noticia-fecha">{{ noticia.fecha_publicacion|date:"d M Y" }}</span>
+            <h1 class="detalle-titulo">{{ noticia.titulo }}</h1>
+        </header>
+
+        {% if noticia.imagen %}
+            <div class="detalle-img-wrap">
+                <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+            </div>
+        {% endif %}
+
+        <div class="detalle-cuerpo">
+            {{ noticia.contenido|linebreaks }}
+        </div>
+
+        <footer class="detalle-footer">
+            <a href="{% url 'lista_noticias' %}" class="btn-rfc-noticia">
+                &larr; Ver todas las novedades
+            </a>
+        </footer>
+
+    </article>
+</main>
+{% endblock %}
