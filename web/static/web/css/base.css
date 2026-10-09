@@ -43,9 +43,9 @@ SISTEMA DE DISEÑO (VARIABLES RFC)
 
     /* 3. Tipografías */
     /* Para títulos pesados tipo cartel deportivo */
-    --fuente-titulos: 'Impact', 'Montserrat', 'Bebas Neue', system-ui, sans-serif;
+    --fuente-titulos: 'Impact', 'Montserrat', 'Impact', system-ui, sans-serif;
     /* Para párrafos y lectura clara */
-    --fuente-cuerpo: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --fuente-cuerpo: 'Inter', system-ui, sans-serif;
 
     /* 4. Transiciones e interacción */
     --transicion: all 0.25s ease;
