@@ -6,7 +6,8 @@ class Noticia (models.Model):
     imagen= models.ImageField(upload_to="noticias/")
     fecha_publicacion= models.DateField(auto_now_add=True)
     publicada = models.BooleanField(default=True)
-    
+
+ 
 
     def __str__(self):
         return self.titulo

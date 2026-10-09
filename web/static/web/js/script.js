@@ -462,4 +462,60 @@ if(
         moverEntrenadores(-1);
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("entrenador-modal");
+    const btnCerrar = document.getElementById("modal-cerrar-btn");
+    const cards = document.querySelectorAll(".entrenador-card-clickable");
+
+    const modalImg = document.getElementById("modal-profe-img");
+    const modalNombre = document.getElementById("modal-profe-nombre");
+    const modalDisciplina = document.getElementById("modal-profe-disciplina");
+    const modalDias = document.getElementById("modal-profe-dias");
+    const modalHorarios = document.getElementById("modal-profe-horarios");
+
+    // Abrir modal con los datos de la tarjeta clickeada
+    cards.forEach(card => {
+        card.addEventListener("click", function () {
+            modalNombre.textContent = this.dataset.nombre || "";
+            modalDisciplina.textContent = this.dataset.disciplina || "";
+            modalDias.textContent = this.dataset.dias || "A coordinar";
+            modalHorarios.textContent = this.dataset.horarios || "A coordinar";
+
+            if (this.dataset.foto) {
+                modalImg.src = this.dataset.foto;
+                modalImg.style.display = "block";
+            } else {
+                modalImg.style.display = "none";
+            }
+
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Evita scroll de fondo
+        });
+    });
+
+    // Cerrar con botón X
+    btnCerrar.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+
+    // Cerrar haciendo clic fuera de la cajita modal
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+});
+
+    
+
 }

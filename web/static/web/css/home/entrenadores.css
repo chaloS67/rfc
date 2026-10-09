@@ -146,6 +146,171 @@ CARD ENTRENADOR
 
     letter-spacing:1px;
 }
+
+.entrenador-horarios {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+}
+
+.entrenador-horarios .horario-item {
+    margin: 3px 0;
+    color: #ccc;
+}
+
+.entrenador-horarios strong {
+    color: #fff;
+}
+
+/* Tarjeta interactiva */
+.entrenador-card-clickable {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entrenador-card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Cartelito flotante sutil al pasar el mouse */
+.entrenador-ver-mas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 18px 10px 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.entrenador-ver-mas span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    background: #d32f2f; /* Rojo RFC */
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.entrenador-card-clickable:hover .entrenador-ver-mas {
+    opacity: 1;
+}
+
+/* --- OVERLAY / POP-UP RFC --- */
+.modal-rfc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-rfc-contenido {
+    background: #151515;
+    border: 1px solid #333;
+    border-top: 3px solid #d32f2f;
+    border-radius: 10px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    animation: aparecerModal 0.2s ease-out;
+}
+
+@keyframes aparecerModal {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-rfc-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+}
+
+.modal-rfc-cerrar:hover {
+    color: #d32f2f;
+}
+
+.modal-rfc-cuerpo {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-rfc-img-wrap {
+    width: 100%;
+    max-height: 280px;
+    overflow: hidden;
+    background: #000;
+}
+
+.modal-rfc-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-rfc-info {
+    padding: 20px;
+    color: #f0f0f0;
+}
+
+.modal-rfc-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.badge-disciplina {
+    display: inline-block;
+    color: #d32f2f;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.modal-rfc-bloque {
+    background: #1f1f1f;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 3px solid #d32f2f;
+}
+
+.modal-linea {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #ddd;
+}
+
+.modal-linea strong {
+    color: #fff;
+}
 @media (max-width:768px){
 
     .home-entrenadores{
@@ -184,6 +349,8 @@ CARD ENTRENADOR
     .entrenadores-flecha-der{
         right:5px;
     }
+
+    
 }
 
 @media (max-width:768px){

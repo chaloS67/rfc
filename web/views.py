@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from noticias.models import Noticia
+from galeria.models import FotoGaleria
+from .models import Entrenador
 
 
 
@@ -154,21 +156,18 @@ def home(request):
         },
     ]
 
-    fotos = [
-        "img1.jpeg",
-        "img2.jpeg",
-        "img3.jpeg",
-        "img4.jpeg",
-        "img5.jpeg",
-        "img6.jpeg",
-    ]
+    # Galería dinámica
+    fotos_galeria = FotoGaleria.objects.filter(publicada=True).order_by("orden", "-fecha")
 
+    # Entrenadores desde la base de datos
+    entrenadores = Entrenador.objects.filter(activo=True).order_by("orden")
+    
     return render(
         request,
         "web/home.html",
         {
             "entrenadores": entrenadores,
-            "fotos": fotos,
+            "fotos_galeria": fotos_galeria,
             "sponsors": SPONSORS,
             "slides_home": slides_home,
         }
