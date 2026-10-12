@@ -32,20 +32,35 @@ DEBUG = True
 # SEGURIDAD / PRODUCCION
 # ======================================
 
-ALLOWED_HOSTS = ["127.0.0.1",
-"localhost",
-"rawsonfightclub.pythonanywhere.com",
-"rawsonfightclub.com",
-"www.rawsonfightclub.com",
+# Dominio de ngrok (solo el host, sin https://)
+# Usar ".ngrok-free.app" o ".ngrok-free.dev" permite cualquier túnel que levantes
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "rawsonfightclub.pythonanywhere.com",
+    "rawsonfightclub.com",
+    "www.rawsonfightclub.com",
+    ".ngrok-free.app",
+    ".ngrok-free.dev",
+    "reluctant-rover-suitor.ngrok-free.dev",
+    "*",
 ]
 
+# Orígenes de confianza para formularios y login (acá SÍ va https://)
 CSRF_TRUSTED_ORIGINS = [
     "https://rawsonfightclub.com",
     "https://www.rawsonfightclub.com",
+    "https://*.ngrok-free.app",
+    "https://*.ngrok-free.dev",
+    "https://reluctant-rover-suitor.ngrok-free.dev",
 ]
-
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# Las cookies seguras solo deben activarse en producción (cuando DEBUG es False)
+if not DEBUG:
+  CSRF_COOKIE_SECURE = True
+  SESSION_COOKIE_SECURE = True
+else:
+  CSRF_COOKIE_SECURE = False
+  SESSION_COOKIE_SECURE = False
 
 # Mientras terminamos HTTPS podés dejarlo True.
 # Después del certificado lo cambiamos a False.

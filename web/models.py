@@ -33,3 +33,18 @@ class Entrenador (models.Model):
 
     def __str__(self):
         return f"{self.nombre} ({self.disciplina})"
+
+class Sponsor(models.Model):
+    nombre= models.CharField(max_length=120)
+    logo = models.ImageField(upload_to="sponsor/",help_text='Logo del sponsor(PNG/SVG) recomendado')
+    link = models.URLField(blank=True, help_text='Enlace a su web,instagram o fb (opcional)')
+    orden= models.PositiveIntegerField(default=0,help_text="0 aparece primero,1 despues etc... ")
+    activo= models.BooleanField(default=True, help_text="Marcar para que se vea en la pagina")
+
+    class Meta:
+        verbose_name = "Sponsor"
+        verbose_name_plural = "Sponsors"
+        ordering = ["orden", "nombre"]
+
+    def __str__(self):
+        return self.nombre
