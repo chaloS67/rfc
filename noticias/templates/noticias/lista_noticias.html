@@ -36,9 +36,13 @@
                         <p class="destacada-texto">
                             {{ destacada.contenido|truncatewords:45 }}
                         </p>
-                        <a href="{% url 'detalle_noticia' pk=destacada.pk %}" class="btn-rfc-noticia">
-                            Leer noticia completa &rarr;
-                        </a>
+                        
+                        {# 1. CORRECCIÓN: Usar destacada.slug y proteger con if #}
+                        {% if destacada.slug %}
+                            <a href="{% url 'detalle_noticia' destacada.slug %}" class="btn-rfc-noticia">
+                                Leer noticia completa &rarr;
+                            </a>
+                        {% endif %}
                     </div>
                 </article>
             </section>
@@ -65,9 +69,17 @@
                                 <p class="noticia-extracto">
                                     {{ noticia.contenido|truncatewords:20 }}
                                 </p>
-                                <a href="{% url 'detalle_noticia' pk=noticia.pk%}" class="noticia-link">
-                                    Leer noticia <span>&rarr;</span>
-                                </a>
+
+                                {# 2. CORRECCIÓN: Envolver el enlace para que no rompa si falta el slug #}
+                                {% if noticia.slug %}
+                                    <a href="{% url 'detalle_noticia' noticia.slug %}" class="noticia-link">
+                                        Leer noticia <span>&rarr;</span>
+                                    </a>
+                                {% else %}
+                                    <span class="noticia-link" style="opacity: 0.5; cursor: default;">
+                                        Leer noticia <span>&rarr;</span>
+                                    </span>
+                                {% endif %}
                             </div>
                         </article>
                     {% endfor %}

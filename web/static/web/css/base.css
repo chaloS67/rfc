@@ -23,6 +23,64 @@ html, body {
 }
 
 /*======================================
+BOTÓN TRANSMISIÓN EN VIVO (INSTAGRAM)
+======================================*/
+.contenedor-live-bar {
+    width: 100%;
+    background-color: #0c0c0c;
+    text-align: center;
+    padding: 8px 15px;
+    border-bottom: 2px solid var(--naranja-rfc);
+}
+
+.btn-live-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--naranja-rfc);
+    color: var(--blanco-rfc);
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-family: var(--fuente-titulos);
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+.btn-live-ig:hover {
+    background-color: var(--naranja-claro-rfc);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 82, 29, 0.45);
+}
+
+/* Punto rojo titilante */
+.punto-live-animado {
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    animation: pulso-live 1.5s infinite;
+}
+
+@keyframes pulso-live {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+/*======================================
 SISTEMA DE DISEÑO (VARIABLES RFC)
 ======================================*/
 

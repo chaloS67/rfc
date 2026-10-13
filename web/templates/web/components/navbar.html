@@ -1,4 +1,14 @@
 {% load static %}
+
+{% if en_vivo %}
+    <div class="contenedor-live-bar">
+        <a href="{{ en_vivo.get_url_instagram }}" target="_blank" rel="noopener noreferrer" class="btn-live-ig">
+            <span class="punto-live-animado"></span>
+            <i class="fa-brands fa-instagram"></i>
+            <span>EN VIVO AHORA: @{{ en_vivo.usuario_instagram }}</span>
+        </a>
+    </div>
+{% endif %}
  
 <nav class="navbar">
 

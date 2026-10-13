@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from noticias.models import Noticia
 from galeria.models import FotoGaleria
-from .models import Entrenador,Sponsor
+from .models import Entrenador,Sponsor,TransmisionVivo
 
 
 def home(request):
@@ -13,6 +13,9 @@ def home(request):
         .order_by("-fecha_publicacion")
         .first()
     )
+
+    en_vivo = TransmisionVivo.objects.filter(en_vivo = True).first()
+
 
     # Slides normales del carrusel Por ahroa estaticos
     slides_home = [
@@ -37,6 +40,7 @@ def home(request):
             "es_noticia": True,
             "fondo_noticia": ultima_noticia.imagen,
             "titulo_noticia": ultima_noticia.titulo,
+            "slug_noticia": ultima_noticia.slug,
             "id_noticia" : ultima_noticia.id,
             
         })
@@ -58,6 +62,7 @@ def home(request):
             "fotos_galeria": fotos_galeria,
             "sponsors": sponsors,
             "slides_home": slides_home,
+            "en_vivo":en_vivo
         }
     )
 

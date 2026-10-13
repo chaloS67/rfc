@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Entrenador,Sponsor
+from .models import Entrenador,Sponsor, TransmisionVivo
+
+
+
+@admin.register(TransmisionVivo)
+class TransmisionVivoAdmin(admin.ModelAdmin):
+    list_display = ("titulo", "usuario_instagram", "en_vivo")
+    list_editable = ("en_vivo",)
 
 @admin.register(Entrenador)
 class EntrenadorAdmin(admin.ModelAdmin):

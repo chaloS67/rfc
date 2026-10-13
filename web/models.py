@@ -1,5 +1,35 @@
 from django.db import models
 
+from django.db import models
+
+class TransmisionVivo(models.Model):
+    titulo = models.CharField(
+        max_length=150, 
+        default="Peleas en Vivo", 
+        help_text="Ej: Torneo Rawson Fight Club - En vivo"
+    )
+    usuario_instagram = models.CharField(
+        max_length=100, 
+        default="rawsonfightclub",
+        help_text="Usuario de IG sin @ (ej: rawsonfightclub o el perfil de quien esté grabando)"
+    )
+    en_vivo = models.BooleanField(
+        default=False, 
+        help_text="Tildar para activar el botón en la web. Destildar al terminar."
+    )
+
+    class Meta:
+        verbose_name = "Transmisión en Vivo"
+        verbose_name_plural = "Transmisiones en Vivo"
+
+    def get_url_instagram(self):
+        usuario_limpio = self.usuario_instagram.strip().replace("@", "")
+        return f"https://www.instagram.com/{usuario_limpio}/"
+
+    def __str__(self):
+        estado = "🔴 EN VIVO" if self.en_vivo else "Inactivo"
+        return f"{self.titulo} - @{self.usuario_instagram} ({estado})"
+
 class Entrenador (models.Model):
     nombre = models.CharField(max_length=50)
     disciplina = models.CharField()

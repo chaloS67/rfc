@@ -40,8 +40,8 @@
                         <span class="hero-noticia-etiqueta">ULTIMA NOTICIA</span>
                         <h2 class="hero-noticia-titulo">{{slide.titulo_noticia}} </h2>
                         
-                        {% if slide.id_noticia %}
-                            <a href="{% url 'detalle_noticia' pk=slide.id_noticia %}" class="hero-noticia-boton"> 
+                        {% if slide.slug_noticia %}
+                            <a href="{% url 'detalle_noticia' slide.slug_noticia %}" class="hero-noticia-boton"> 
                                 Ver noticia 
                             </a>
                         {% else %}

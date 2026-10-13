@@ -23,8 +23,8 @@ def lista_noticias(request):
         }
     )
 
-def detalle_noticia(request,pk):
-    noticia = get_object_or_404(Noticia, pk=pk, publicada=True)
+def detalle_noticia(request,slug):
+    noticia = get_object_or_404(Noticia, slug=slug, publicada=True)
     return render(
         request,
         "noticias/detalle_noticia.html",
