@@ -6,53 +6,63 @@
         <span>SPONSORS</span>
     </div>
 
-    <!-- FRANJA SUPERIOR DE LOGOS -->
+    <!-- FRANJA SUPERIOR DE LOGOS (MARQUEE INFINITO) -->
     <div class="sponsors-marquee">
-
         <div class="sponsors-track">
 
+            <!-- Primer bucle -->
             {% for sponsor in sponsors %}
-                <a
-                    href="{{ sponsor.link }}"
-                    class="sponsor-slide"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <img
-                        src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
-                        alt="{{ sponsor.nombre }}">
-                </a>
+                {% if sponsor.link %}
+                    <a
+                        href="{{ sponsor.link }}"
+                        class="sponsor-slide"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        {% if sponsor.logo %}
+                            <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.nombre }}">
+                        {% endif %}
+                    </a>
+                {% else %}
+                    <div class="sponsor-slide">
+                        {% if sponsor.logo %}
+                            <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.nombre }}">
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% empty %}
+                <!-- Mensaje opcional por si no hay cargados aún -->
             {% endfor %}
 
+            <!-- Segundo bucle para el bucle continuo del marquee -->
             {% for sponsor in sponsors %}
-                <a
-                    href="{{ sponsor.link }}"
-                    class="sponsor-slide"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <img
-                        src="{% static 'web/img/sponsors/' %}{{ sponsor.logo }}"
-                        alt="{{ sponsor.nombre }}">
-                </a>
+                {% if sponsor.link %}
+                    <a
+                        href="{{ sponsor.link }}"
+                        class="sponsor-slide"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        {% if sponsor.logo %}
+                            <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.nombre }}">
+                        {% endif %}
+                    </a>
+                {% else %}
+                    <div class="sponsor-slide">
+                        {% if sponsor.logo %}
+                            <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.nombre }}">
+                        {% endif %}
+                    </div>
+                {% endif %}
             {% endfor %}
 
         </div>
-
     </div>
 
     <!-- BLOQUE CTA -->
-
-    
-
     <div class="sponsors-cta">
-
-
         <img
-        class="sponsors-linea"
-        src="{% static 'web/img/elementos/rfcline.png' %}"
-        alt="">
-
+            class="sponsors-linea"
+            src="{% static 'web/img/elementos/rfcline.png' %}"
+            alt="">
 
         <div class="sponsors-cta-logo">
             <img
@@ -61,30 +71,25 @@
         </div>
 
         <div class="sponsors-cta-texto">
-             <img
+            <img
                 src="{% static 'web/img/titulos/sumate.png' %}"
-                alt="Rawson Fight Club">
+                alt="Sumate a Rawson Fight Club">
         </div>
-
     </div>
 
     <!-- FRANJA FINAL -->
-   <div class="sponsors-footer">
-
-    <img
-        class="sponsors-footer-logo"
-        src="{% static 'web/img/elementos/gimnaciorawson.png' %}"
-        alt="Gimnasio Rawson Fight Club">
-
-    <div class="sponsors-footer-direccion">
-
+    <div class="sponsors-footer">
         <img
-            class="sponsors-footer-direccion-img"
-            src="{% static 'web/img/elementos/direccion.png' %}"
-            alt="Maestro Martini 577">
+            class="sponsors-footer-logo"
+            src="{% static 'web/img/elementos/gimnaciorawson.png' %}"
+            alt="Gimnasio Rawson Fight Club">
 
+        <div class="sponsors-footer-direccion">
+            <img
+                class="sponsors-footer-direccion-img"
+                src="{% static 'web/img/elementos/direccion.png' %}"
+                alt="Maestro Martini 577">
+        </div>
     </div>
-
-</div>
 
 </section>

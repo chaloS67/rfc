@@ -75,6 +75,7 @@
     pointer-events:none;
 }
 
+<<<<<<< HEAD
 .topbar-link{
     display:block;
 
@@ -108,24 +109,17 @@
 }
 
 @media (max-width: 768px){
+=======
+@media (max-width:1000px){
+>>>>>>> main
 
     .topbar-contenido{
-        min-height:auto;
-        padding:10px 20px;
-
-        gap:12px;
+        gap:18px;
+        padding:8px 20px;
     }
 
-    .topbar-promo{
-        height:24px;
-    }
-
-    .precio{
-        font-size:16px;
-    }
-
-    .mes{
-        font-size:14px;
+    .topbar-precio{
+        transform:none;
     }
 
     .topbar-texto{
@@ -133,12 +127,53 @@
     }
 
     .topbar-conejo{
-        height:90px;
-        right:-25px;
+        display:none;
+    }
+}
+
+@media (max-width: 768px){
+
+    .topbar-contenido{
+        width:100%;
+        min-height:48px;
+
+        padding:8px 12px;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        gap:10px;
     }
 
-      .topbar-conejo{
+    .topbar-promo{
+        height:22px;
+        width:auto;
+
+        max-width:55%;
+
+        object-fit:contain;
+        flex-shrink:1;
+    }
+
+    .topbar-precio{
+        transform:none;   /* MUY IMPORTANTE */
+
+        flex-shrink:0;
+
+        gap:2px;
+    }
+
+    .precio{
+        font-size:15px;
+        white-space:nowrap;
+    }
+
+    .topbar-texto{
         display:none;
     }
 
+    .topbar-conejo{
+        display:none;
+    }
 }

@@ -11,26 +11,54 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(%he18s%dyxi+#fyp0z3!^gjs580zjn03az8-&_2i#ud5nx(x9'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1",
-"localhost",
-"rawsonfigthclub.pythonanywhere.com",
-"reluctant-rover-suitor.ngrok-free.dev"
+# ======================================
+# SEGURIDAD / PRODUCCION
+# ======================================
+
+# Mientras terminamos HTTPS podés dejarlo True.
+# Después del certificado lo cambiamos a False.
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+# Dominio de ngrok (solo el host, sin https://)
+# Usar ".ngrok-free.app" o ".ngrok-free.dev" permite cualquier túnel que levantes
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "rawsonfightclub.pythonanywhere.com",
+    "rawsonfightclub.com",
+    "www.rawsonfightclub.com",
 ]
 
+# Orígenes de confianza para formularios y login (acá SÍ va https://)
+CSRF_TRUSTED_ORIGINS = [
+    "https://rawsonfightclub.com",
+    "https://www.rawsonfightclub.com",
+   
+]
+# Las cookies seguras solo deben activarse en producción (cuando DEBUG es False)
+if not DEBUG:
+  CSRF_COOKIE_SECURE = True
+  SESSION_COOKIE_SECURE = True
+else:
+  CSRF_COOKIE_SECURE = False
+  SESSION_COOKIE_SECURE = False
 
 # Application definition
 
@@ -43,6 +71,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
     'socios'
+    'noticias',
+    'galeria'
 ]
 
 MIDDLEWARE = [
@@ -111,9 +141,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "America/Argentina/Catamarca"
 
 USE_I18N = True
 

@@ -1,16 +1,14 @@
- {% load static %}
+{% load static %}
 
- 
- <section id="entrenadores" class="home-entrenadores">
+<section id="entrenadores" class="home-entrenadores">
+    <div class="container">
 
-        <div class="container">
+        <img
+            class="entrenadores-titulo"
+            src="{% static 'web/img/titulos/profesores.png' %}"
+            alt="Nuestros profesores">
 
-                <img
-                        class="entrenadores-titulo"
-                        src="{% static 'web/img/titulos/profesores.png' %}"
-                        alt="Nuestros comienzos">
-
-            <div class="entrenadores-wrapper">
+        <div class="entrenadores-wrapper">
 
             <button
                 class="entrenadores-flecha entrenadores-flecha-izq"
@@ -22,23 +20,30 @@
             <div class="entrenadores-carousel" id="entrenadores-carousel">
 
                 {% for entrenador in entrenadores %}
+                    <article 
+                        class="entrenador-card entrenador-card-clickable"
+                        data-nombre="{{ entrenador.nombre }}"
+                        data-disciplina="{{ entrenador.disciplina }}"
+                        data-dias="{{ entrenador.dias|default:'' }}"
+                        data-horarios="{{ entrenador.horarios|default:'' }}"
+                        data-foto="{% if entrenador.foto %}{{ entrenador.foto.url }}{% endif %}">
 
-                    <article class="entrenador-card">
+                        {% if entrenador.foto %}
+                            <img
+                                src="{{ entrenador.foto.url }}"
+                                alt="{{ entrenador.nombre }}">
+                        {% endif %}
 
-                        <img
-                            src="{% static 'web/img/entrenadores/' %}{{ entrenador.imagen }}"
-                            alt="{{ entrenador.nombre }}">
-
-                        <div class="entrenador-info">
-
-                            <h3>{{ entrenador.nombre }}</h3>
-
-                            <p>{{ entrenador.disciplina }}</p>
-
+                        <!-- Indicador visual sutil de que es clickeable -->
+                        <div class="entrenador-ver-mas">
+                            <span>Ver horarios y días</span>
                         </div>
 
                     </article>
-
+                {% empty %}
+                    <p style="color: #aaa; text-align: center; width: 100%; padding: 20px;">
+                        Próximamente entrenadores y horarios.
+                    </p>
                 {% endfor %}
 
             </div>
@@ -54,5 +59,30 @@
 
     </div>
 
+    <!-- VENTANA MODAL (POP-UP) -->
+    <div id="entrenador-modal" class="modal-rfc-overlay" style="display: none;">
+        <div class="modal-rfc-contenido">
+            <button class="modal-rfc-cerrar" id="modal-cerrar-btn" type="button">&times;</button>
+            
+            <div class="modal-rfc-cuerpo">
+                <div class="modal-rfc-img-wrap">
+                    <img id="modal-profe-img" src="" alt="Profesor">
+                </div>
+                
+                <div class="modal-rfc-info">
+                    <h3 id="modal-profe-nombre"></h3>
+                    <span id="modal-profe-disciplina" class="badge-disciplina"></span>
 
-    </section>
+                    <div class="modal-rfc-bloque">
+                        <p class="modal-linea">
+                            <strong>Días:</strong> <span id="modal-profe-dias"></span>
+                        </p>
+                        <p class="modal-linea">
+                            <strong>Horarios:</strong> <span id="modal-profe-horarios"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

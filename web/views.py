@@ -1,187 +1,81 @@
 from django.shortcuts import render
+from noticias.models import Noticia
+from galeria.models import FotoGaleria
+from .models import Entrenador,Sponsor,TransmisionVivo
 
-
-SPONSORS = [
-
-        {
-            "nombre":"morpho",
-            "logo":"morpho.png",
-            "link":"#"
-        },
-
-        {
-            "nombre":"Red textil",
-            "logo":"redtextil.svg",
-            "link":"#"
-        },
-
-        {
-            "nombre":"Monkey",
-            "logo":"monkeyS.svg",
-            "link":"#"
-        },
-
-        {
-            "nombre":"Travesuras",
-            "logo":"travesuras.svg",
-             "link":"#"
-        },
-
-        {
-            "nombre":"ingenio",
-            "logo":"ingenio.png",
-            "link":"#"
-        },
-
-        {
-            "nombre":"Sugar",
-            "logo":"sugara.svg",
-            "link":"#"
-        }
-
-]
-
-slides_home = [
-    {
-        "fondo": "homecarrusel1.png",
-        "overlay": "textobanda.svg",
-    },
-    {
-        "fondo": "homecarrusel2.png",
-        "overlay": "textocomunidad.svg",
-    },
-    {
-        "fondo": "homecarrusel3.png",
-        "overlay": "textofamilia.svg",
-    },
-]
 
 def home(request):
 
-    entrenadores = [
-        {
-            
-            "imagen": "abraham.png",
-            "disciplina": "Kickboxing",
-        },
-        {
-          
-            "imagen": "anto.png",
-            "disciplina": "MMA femenino",
-        },
-        {
-            
-            "imagen": "charly.png",
-            "disciplina": "MMA / Wrestling",
-        },
-        {
-        
-            "imagen": "enzo.png",
-            "disciplina": "Kickboxing",
-        },
-        {
-        
-            "imagen": "julio.png",
-            "disciplina": "Kickboxing",
-        },
+    # Buscamos la última noticia publicada
+    ultima_noticia = (
+        Noticia.objects
+        .filter(publicada=True)
+        .order_by("-fecha_publicacion")
+        .first()
+    )
 
-        {
-        
-            "imagen": "luciano.png",
-            "disciplina": "Kickboxing",
-        },
-
-        {
-        
-            "imagen": "marino.png",
-            "disciplina": "Kickboxing",
-        },
-
-        {
-        
-            "imagen": "matias.png",
-            "disciplina": "Kickboxing",
-        },
+    en_vivo = TransmisionVivo.objects.filter(en_vivo = True).first()
 
 
+    # Slides normales del carrusel Por ahroa estaticos
+    slides_home = [
         {
-        
-            "imagen": "maxi.png",
-            "disciplina": "Kickboxing",
+            "fondo": "homecarrusel1.png",
+            "overlay": "textobanda.svg",
         },
-
         {
-        
-            "imagen": "omar.png",
-            "disciplina": "Kickboxing",
+            "fondo": "homecarrusel2.png",
+            "overlay": "textocomunidad.svg",
         },
-
         {
-        
-            "imagen": "rafa.png",
-            "disciplina": "Kickboxing",
+            "fondo": "homecarrusel3.png",
+            "overlay": "textofamilia.svg",
         },
     ]
 
-    fotos = [
-        "img1.jpeg",
-        "img2.jpeg",
-        "img3.jpeg",
-        "img4.jpeg",
-        "img5.jpeg",
-        "img6.jpeg",
-    ]
+    # Si existe una noticia publicada,
+    # la agregamos como una slide más
+    if ultima_noticia:
+        slides_home.append({
+            "es_noticia": True,
+            "fondo_noticia": ultima_noticia.imagen,
+            "titulo_noticia": ultima_noticia.titulo,
+            "slug_noticia": ultima_noticia.slug,
+            "id_noticia" : ultima_noticia.id,
+            
+        })
 
+    # Galería dinámica
+    fotos_galeria = FotoGaleria.objects.filter(publicada=True).order_by("orden", "-fecha")
+
+    # Entrenadores desde la base de datos
+    entrenadores = Entrenador.objects.filter(activo=True).order_by("orden")
+
+    # Sponsors dinámicos de la base de datos
+    sponsors = Sponsor.objects.filter(activo=True).order_by("orden")
+    
     return render(
         request,
         "web/home.html",
         {
             "entrenadores": entrenadores,
-            "fotos": fotos,
-            "sponsors": SPONSORS,
+            "fotos_galeria": fotos_galeria,
+            "sponsors": sponsors,
             "slides_home": slides_home,
+            "en_vivo":en_vivo
         }
     )
-
-
-def actividades(request):
-    actividades = [
-        "abrham.jpeg",
-        "antonella.jpeg",
-        "charly.jpeg",
-        "enzo.jpeg",
-        "felipe.jpeg",
-        "julio.jpeg",
-        "marino.jpeg",
-        "maxi.jpeg",
-        "melisa.jpeg",
-        "omar_lucha.jpeg",
-        "omar_mma.jpeg",
-        "proboste.jpeg",
-    ]
-    return render(request, "web/actividades.html", {"actividades": actividades})
-
-
-def galeria(request):
-    fotos = [
-        "img1.jpeg",
-        "img2.jpeg",
-        "img3.jpeg",
-        "img4.jpeg",
-        "img5.jpeg",
-        "img6.jpeg",
-        "img7.jpeg",
-    ]
-    return render(request, "web/galeria.html", {"fotos": fotos})
-
 
 def historia(request):
     return render(request, "web/historia.html")
 
 def sponsors(request):
-
-    return render(request,"web/sponsors.html",{
-        "sponsors": SPONSORS
-    }
-)
+    sponsors_list = Sponsor.objects.filter(activo=True).order_by("orden")
+    return render(
+        request,
+        "web/sponsors.html",
+        {
+            "sponsors": sponsors_list
+        }
+    )
  

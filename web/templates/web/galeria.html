@@ -3,32 +3,26 @@
 
 {% block content %}
 
-<section class="section galeria">
+<section id="galeria" style="padding: 40px; background: #222; color: #fff;">
+    <h2>Sección Galería RFC</h2>
+    
+    <p>Cantidad de fotos recibidas: <strong>{{ foto_galeria|length }}</strong></p>
 
-    <div class="container">
-
-        <h1>Galería RFC</h1>
-
-
-        <div class="galeria-grid">
-
-            {% for foto in fotos %}
-
-                <div class="galeria-card">
-
-                    <img
-                        class="foto-galeria"
-                        src="{% static 'web/img/galeria/'|add:foto %}"
-                        alt="Galería RFC">
-
-                </div>
-
-            {% endfor %}
-
+    {% for f in foto_galeria %}
+        <div style="margin: 15px 0; border: 1px solid red; padding: 10px;">
+            <p>ID: {{ f.id }} | Título: {{ f.titulo }}</p>
+            <p>Ruta archivo: {{ f.imagen }}</p>
+            {% if f.imagen %}
+                <img src="{{ f.imagen.url }}" alt="{{ f.titulo }}" style="max-width: 200px; display: block;">
+            {% else %}
+                <p>Sin imagen adjunta</p>
+            {% endif %}
         </div>
-
-    </div>
-
+    {% empty %}
+        <p style="color: yellow; font-size: 20px;">
+            LA VARIABLE foto_galeria LLEGA VACÍA DESDE LA VISTA.
+        </p>
+    {% endfor %}
 </section>
 
 

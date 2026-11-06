@@ -13,13 +13,13 @@
 
             <div class="home-galeria-grid">
 
-                {% for foto in fotos %}
+                {% for foto in fotos_galeria %}
 
                     <div class="home-galeria-item">
 
                         <img
                             class="foto-galeria"
-                            src="{% static 'web/img/galeria/'|add:foto %}"
+                            src="{{ foto.imagen.url }}" 
                             alt="Galería Rawson Fight Club">
 
                     </div>

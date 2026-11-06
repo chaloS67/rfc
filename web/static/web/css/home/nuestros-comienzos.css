@@ -1,17 +1,20 @@
 .home-comienzos{
     position:relative;
-
     width:100%;
-   
     padding:0;
-
     overflow:hidden;
 }
+
 .comienzos-carousel{
     position:relative;
     width:100%;
     min-height:100vh;
 }
+
+
+/* ======================================
+SLIDES
+====================================== */
 
 .comienzos-slide{
     position:absolute;
@@ -41,15 +44,31 @@
     z-index:0;
 }
 
+.comienzos-slide::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:1;
+}
+
+
+/* ======================================
+CONTENIDO
+====================================== */
+
 .comienzos-contenido{
     position:relative;
-
     z-index:2;
 
     width:min(1000px, 85%);
     margin:0 auto;
 
     padding-top:100px;
+    padding-bottom:90px;
 }
 
 .comienzos-titulo{
@@ -57,7 +76,6 @@
     max-width:70%;
 
     height:auto;
-
     display:block;
 
     margin-bottom:5px;
@@ -93,16 +111,63 @@
     line-height:1.35;
 }
 
-.comienzos-indicadores{
+
+/* ======================================
+NAVEGACION INFERIOR
+====================================== */
+
+.comienzos-navegacion{
     position:absolute;
 
     left:50%;
-    bottom:25px;
+    bottom:22px;
 
     transform:translateX(-50%);
 
-    z-index:20;
+    z-index:30;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:18px;
+}
+
+
+/* FLECHAS */
+
+.comienzos-flecha{
+    width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    border:1px solid var(--naranja-rfc);
+    border-radius:50%;
+
+    background:rgba(0,0,0,.45);
+    color:white;
+
+    font-size:24px;
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.comienzos-flecha:hover{
+    background:var(--naranja-rfc);
+}
+
+
+/* INDICADORES */
+
+.comienzos-indicadores{
     display:flex;
     align-items:center;
     justify-content:center;
@@ -130,27 +195,22 @@
     background:white;
 }
 
-.comienzos-slide::after{
-    content:"";
 
-    position:absolute;
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    z-index:1;
-}
+/* ======================================
+MOBILE
+====================================== */
 
 @media (max-width:768px){
 
     .comienzos-carousel{
-        min-height:100vh;
+        min-height:clamp(620px, 85vh, 760px);
     }
 
     .comienzos-contenido{
         width:88%;
 
-        padding-top:65px;
+        padding-top:90px;
+        padding-bottom:100px;
     }
 
     .comienzos-titulo{
@@ -171,18 +231,95 @@
 
     .comienzos-texto p{
         font-size:18px;
-
         line-height:1.4;
 
         margin-bottom:18px;
     }
 
-    .comienzos-indicadores{
+    .comienzos-navegacion{
         bottom:18px;
+        gap:14px;
+    }
+
+    .comienzos-flecha{
+        width:32px;
+        height:32px;
+
+        font-size:22px;
     }
 
     .comienzos-indicador{
         width:15px;
         height:15px;
+    }
+}
+
+
+/* ======================================
+CELULARES CHICOS
+====================================== */
+
+@media (max-width:380px) and (max-height:650px){
+
+    .comienzos-contenido{
+        padding-top:45px;
+        padding-bottom:100px;
+    }
+
+    .comienzos-titulo{
+        max-width:80%;
+    }
+
+    .comienzos-texto p{
+        font-size:17px;
+        line-height:1.35;
+
+        margin-bottom:14px;
+    }
+}
+
+
+/* ======================================
+TABLET
+====================================== */
+
+@media (min-width:769px) and (max-width:950px){
+
+    .comienzos-carousel{
+        min-height:clamp(650px, 85vh, 780px);
+    }
+
+    .comienzos-contenido{
+        width:88%;
+
+        padding-top:70px;
+        padding-bottom:100px;
+    }
+
+    .comienzos-titulo{
+        width:340px;
+        max-width:80%;
+    }
+
+    .comienzos-linea{
+        margin-bottom:35px;
+    }
+
+    .comienzos-texto{
+        max-width:100%;
+
+        margin-left:0;
+        margin-right:0;
+    }
+
+    .comienzos-texto p{
+        font-size:20px;
+        line-height:1.4;
+
+        margin-bottom:20px;
+    }
+
+    .comienzos-navegacion{
+        bottom:20px;
     }
 }
