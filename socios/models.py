@@ -1,7 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Socio(models.Model):
 
+        usuario = models.OneToOneField(
+             User,
+             on_delete=models.CASCADE,
+             related_name="socio",
+             null=True,
+             blank=True,
+             help_text="Cuenta de usuario para inicio de sesion en la web"
+        )
         nombre = models.CharField(max_length=100)
         apellido = models.CharField(max_length=100)
         dni = models.CharField(
@@ -41,9 +50,9 @@ class Socio(models.Model):
 class Pagos(models.Model):
       
       ESTADOS = [       
-            {"pendiente","Pendiente"},
-            {"aprobado", "Aprobado"},
-            {"rechazado","Rechazado"}
+            ('pendiente','Pendiente'),
+            ('aprobado', 'Aprobado'),
+            ('rechazado','Rechazado'),
       ]
 
       socio = models.ForeignKey(
