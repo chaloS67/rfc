@@ -20,26 +20,35 @@
             <div class="entrenadores-carousel" id="entrenadores-carousel">
 
                 {% for entrenador in entrenadores %}
-                    <article 
-                        class="entrenador-card entrenador-card-clickable"
-                        data-nombre="{{ entrenador.nombre }}"
-                        data-disciplina="{{ entrenador.disciplina }}"
-                        data-dias="{{ entrenador.dias|default:'' }}"
-                        data-horarios="{{ entrenador.horarios|default:'' }}"
-                        data-foto="{% if entrenador.foto %}{{ entrenador.foto.url }}{% endif %}">
+                <article
+                    class="entrenador-card entrenador-card-clickable"
+                    data-nombre="{{ entrenador.nombre }}"
+                    data-foto="{% if entrenador.foto %}{{ entrenador.foto.url }}{% endif %}">
 
-                        {% if entrenador.foto %}
-                            <img
-                                src="{{ entrenador.foto.url }}"
-                                alt="{{ entrenador.nombre }}">
-                        {% endif %}
+                    {% if entrenador.foto %}
+                        <img
+                            src="{{ entrenador.foto.url }}"
+                            alt="{{ entrenador.nombre }}">
+                    {% endif %}
 
-                        <!-- Indicador visual sutil de que es clickeable -->
-                        <div class="entrenador-ver-mas">
-                            <span>Ver horarios y días</span>
-                        </div>
+                    <!-- Datos de las disciplinas y horarios -->
+                    <div class="entrenador-horarios-data" hidden>
+                        {% for horario in entrenador.disciplinas_horarios.all %}
+                            <div
+                                class="entrenador-horario"
+                                data-disciplina="{{ horario.disciplina }}"
+                                data-dias="{{ horario.dias }}"
+                                data-horarios="{{ horario.horarios }}"
+                                data-info="{{ horario.info_adicional }}">
+                            </div>
+                        {% endfor %}
+                    </div>
 
-                    </article>
+                    <div class="entrenador-ver-mas">
+                        <span>Ver horarios y días</span>
+                    </div>
+
+                </article>
                 {% empty %}
                     <p style="color: #aaa; text-align: center; width: 100%; padding: 20px;">
                         Próximamente entrenadores y horarios.
@@ -71,9 +80,8 @@
                 
                 <div class="modal-rfc-info">
                     <h3 id="modal-profe-nombre"></h3>
-                    <span id="modal-profe-disciplina" class="badge-disciplina"></span>
-
-                    <div class="modal-rfc-bloque">
+                    <div id="modal-profe-horarios" class="modal-rfc-bloque">
+<                   </div>
                         <p class="modal-linea">
                             <strong>Días:</strong> <span id="modal-profe-dias"></span>
                         </p>

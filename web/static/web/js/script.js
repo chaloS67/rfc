@@ -410,77 +410,90 @@ function manejarSwipeComienzos(){
 
 
 /* ======================================
-6. CARRUSEL ENTRENADORES
+6. CARRUSEL ENTRENADORES Y MODAL
 ====================================== */
 
-const entrenadoresCarousel =
-    document.getElementById("entrenadores-carousel");
+document.addEventListener("DOMContentLoaded", function () {
 
-const entrenadoresPrev =
-    document.getElementById("entrenadores-prev");
+    // ELEMENTOS DEL CARRUSEL
+    const entrenadoresCarousel =
+        document.getElementById("entrenadores-carousel");
 
-const entrenadoresNext =
-    document.getElementById("entrenadores-next");
+    const entrenadoresPrev =
+        document.getElementById("entrenadores-prev");
 
-if(
-    entrenadoresCarousel &&
-    entrenadoresPrev &&
-    entrenadoresNext
-){
+    const entrenadoresNext =
+        document.getElementById("entrenadores-next");
 
-    function moverEntrenadores(direccion){
 
-        const tarjeta =
-            entrenadoresCarousel.querySelector(".entrenador-card");
+    // MOVER CARRUSEL
+    if (entrenadoresCarousel && entrenadoresPrev && entrenadoresNext) {
 
-        if(!tarjeta){
-            return;
+        function moverEntrenadores(direccion) {
+
+            const tarjeta =
+                entrenadoresCarousel.querySelector(".entrenador-card");
+
+            if (!tarjeta) return;
+
+            const estilos = getComputedStyle(entrenadoresCarousel);
+            const gap = parseFloat(estilos.gap) || 0;
+            const distancia = tarjeta.offsetWidth + gap;
+
+            entrenadoresCarousel.scrollBy({
+                left: distancia * direccion,
+                behavior: "smooth"
+            });
         }
 
-        const estilos =
-            getComputedStyle(entrenadoresCarousel);
+        entrenadoresNext.addEventListener("click", () => {
+            moverEntrenadores(1);
+        });
 
-        const gap =
-            parseFloat(estilos.gap) || 0;
-
-        const distancia =
-            tarjeta.offsetWidth + gap;
-
-        entrenadoresCarousel.scrollBy({
-            left: distancia * direccion,
-            behavior: "smooth"
+        entrenadoresPrev.addEventListener("click", () => {
+            moverEntrenadores(-1);
         });
     }
 
 
-    entrenadoresNext.addEventListener("click", () => {
-        moverEntrenadores(1);
-    });
-
-
-    entrenadoresPrev.addEventListener("click", () => {
-        moverEntrenadores(-1);
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
+    // ELEMENTOS DEL MODAL
     const modal = document.getElementById("entrenador-modal");
     const btnCerrar = document.getElementById("modal-cerrar-btn");
+
     const cards = document.querySelectorAll(".entrenador-card-clickable");
 
     const modalImg = document.getElementById("modal-profe-img");
     const modalNombre = document.getElementById("modal-profe-nombre");
-    const modalDisciplina = document.getElementById("modal-profe-disciplina");
-    const modalDias = document.getElementById("modal-profe-dias");
     const modalHorarios = document.getElementById("modal-profe-horarios");
 
-    // Abrir modal con los datos de la tarjeta clickeada
-    cards.forEach(card => {
-        card.addEventListener("click", function () {
-            modalNombre.textContent = this.dataset.nombre || "";
-            modalDisciplina.textContent = this.dataset.disciplina || "";
-            modalDias.textContent = this.dataset.dias || "A coordinar";
-            modalHorarios.textContent = this.dataset.horarios || "A coordinar";
 
+    // CREAR UNA LÍNEA DE INFORMACIÓN
+    function agregarLinea(contenedor, etiqueta, valor) {
+
+        const p = document.createElement("p");
+        p.className = "modal-linea";
+
+        const strong = document.createElement("strong");
+        strong.textContent = etiqueta + " ";
+
+        const span = document.createElement("span");
+        span.textContent = valor || "A coordinar";
+
+        p.appendChild(strong);
+        p.appendChild(span);
+
+        contenedor.appendChild(p);
+    }
+
+
+    // ABRIR MODAL
+    cards.forEach(card => {
+
+        card.addEventListener("click", function () {
+
+            modalNombre.textContent = this.dataset.nombre || "";
+
+            // CARGAR FOTO
             if (this.dataset.foto) {
                 modalImg.src = this.dataset.foto;
                 modalImg.style.display = "block";
@@ -488,34 +501,70 @@ if(
                 modalImg.style.display = "none";
             }
 
+            // LIMPIAR HORARIOS ANTERIORES
+            modalHorarios.innerHTML = "";
+
+            // OBTENER TODAS LAS DISCIPLINAS DEL ENTRENADOR
+            const horarios = this.querySelectorAll(".entrenador-horario");
+
+            if (horarios.length === 0) {
+                modalHorarios.textContent = "Horarios próximamente.";
+            }
+
+            // RECORRER DISCIPLINAS
+            horarios.forEach(horario => {
+
+                const bloque = document.createElement("div");
+                bloque.className = "modal-rfc-horario-item";
+
+                // DISCIPLINA
+                const disciplina = document.createElement("span");
+                disciplina.className = "badge-disciplina";
+                disciplina.textContent = horario.dataset.disciplina;
+
+                bloque.appendChild(disciplina);
+
+                // DÍAS Y HORARIOS
+                agregarLinea(bloque, "Días:", horario.dataset.dias);
+                agregarLinea(bloque, "Horarios:", horario.dataset.horarios);
+
+                // INFORMACIÓN ADICIONAL
+                if (horario.dataset.info) {
+                    agregarLinea(bloque, "Información:", horario.dataset.info);
+                }
+
+                modalHorarios.appendChild(bloque);
+            });
+
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; // Evita scroll de fondo
+            document.body.style.overflow = "hidden";
         });
     });
 
-    // Cerrar con botón X
-    btnCerrar.addEventListener("click", function () {
+
+    // CERRAR MODAL
+    function cerrarModal() {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
-    });
+    }
 
-    // Cerrar haciendo clic fuera de la cajita modal
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    });
+    if (btnCerrar && modal) {
 
-    // Cerrar con tecla Escape
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.style.display === "flex") {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    });
+        btnCerrar.addEventListener("click", cerrarModal);
+
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                cerrarModal();
+            }
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && modal.style.display === "flex") {
+                cerrarModal();
+            }
+        });
+    }
+
 });
-
     
 
-}

@@ -30,29 +30,9 @@ class TransmisionVivo(models.Model):
         estado = "🔴 EN VIVO" if self.en_vivo else "Inactivo"
         return f"{self.titulo} - @{self.usuario_instagram} ({estado})"
 
-class Entrenador (models.Model):
+class Entrenador(models.Model):
     nombre = models.CharField(max_length=50)
-    disciplina = models.CharField()
-    foto = models.ImageField(upload_to="entrenadores/")
-
-    #Informacion adicional de clases 
-    dias = models.CharField(
-        max_length=150,
-        blank=True,
-        help_text="Ej: Lunes,Miercoles y viernes"
-    )
-    horarios = models.CharField(
-        max_length=150,
-        blank=True,
-        help_text="Ej : 19:00 a 20:30"
-    )
-
-    info_adicional = models.CharField(
-        max_length=200,
-        blank=True,
-        help_text="Ej: Todos los niveles / Mixto / Turno tarde"
-    )
-
+    foto = models.ImageField(upload_to="entrenadores/", help_text="Placa gráfica del profe")
     orden = models.PositiveIntegerField(default=0, help_text="0 aparece primero, 1 después, etc.")
     activo = models.BooleanField(default=True, help_text="Marcar para que se vea en la web")
 
@@ -62,7 +42,29 @@ class Entrenador (models.Model):
         ordering = ["orden", "nombre"]
 
     def __str__(self):
-        return f"{self.nombre} ({self.disciplina})"
+        return self.nombre
+
+
+class HorarioEntrenador(models.Model):
+    entrenador = models.ForeignKey(
+        Entrenador, 
+        on_delete=models.CASCADE, 
+        related_name="disciplinas_horarios",
+        help_text="Profesor al que corresponde esta actividad"
+    )
+    disciplina = models.CharField(max_length=120, help_text="Ej: Kickboxing / Jiu-Jitsu")
+    dias = models.CharField(max_length=150, blank=True, help_text="Ej: Lunes, Miércoles y Viernes")
+    horarios = models.CharField(max_length=150, blank=True, help_text="Ej: 19:00 a 20:30 hs")
+    info_adicional = models.CharField(max_length=200, blank=True, help_text="Ej: Turno Mañana / Todos los niveles")
+    orden = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        verbose_name = "Disciplina y Horario"
+        verbose_name_plural = "Disciplinas y Horarios"
+        ordering = ["orden"]
+
+    def __str__(self):
+        return f"{self.entrenador.nombre} - {self.disciplina} ({self.horarios})"
 
 class Sponsor(models.Model):
     nombre= models.CharField(max_length=120)
