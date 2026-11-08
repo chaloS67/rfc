@@ -8,17 +8,16 @@ from .forms import SocioForm
 class SocioAdmin(admin.ModelAdmin):
 
     form = SocioForm
-    list_display = (
+    list_display = [
             "nombre",
-            "estado"
-        )
+            "estado",
+            "numero_socio"
+        ]   
 
     list_filter = (
             "estado",
+            
         )
-    
-
-    
 
 
 @admin.register(Pagos)
@@ -27,10 +26,12 @@ class PagosAdmin(admin.ModelAdmin):
         "socio",
         "estado",
         "fecha_envio",
+        "ver_comprobante"
     )
 
     list_filter = (
         "estado",
+        
     )
 
     search_fields = (

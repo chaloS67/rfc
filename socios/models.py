@@ -14,7 +14,6 @@ class Socio(models.Model):
              related_name="socio",
              null=True,
              blank=True,
-             default='pendiente',
              help_text="Cuenta de usuario para inicio de sesion en la web"
         )
         nombre = models.CharField(max_length=100)
@@ -45,10 +44,9 @@ class Socio(models.Model):
         default='pendiente'
         )
 
-        numero_socios = models.PositiveIntegerField(
+        numero_socio = models.TextField(
             unique=True,
-            null=True,
-            blank=True
+            
                 
         )
 
@@ -83,13 +81,25 @@ class Pagos(models.Model):
       )
 
       def save(self, *args, **kwargs):
-        # 1. Guardamos el pago en la base de datos
         super().save(*args, **kwargs)
 
-        # 2. Si el pago fue aprobado, cambiamos el estado del Socio a 'activo'
-        if self.estado == 'aprobado' and self.socio:
+        if self.estado == 'aprobado' and getattr(self, 'socio', None):
             self.socio.estado = 'activo'
-            self.socio.save()
 
-      def __str__(self):
-        return f"Pago de {self.socio}"
+            # --- NUEVA LÓGICA DE ASIGNACIÓN AUTOMÁTICA DE NÚMERO ---
+            if not self.socio.numero_socio:
+                # Buscamos al socio que tenga el número más alto actualmente
+                ultimo_socio = Socio.objects.exclude(numero_socio__isnull=True)\
+                                            .exclude(numero_socio__exact='')\
+                                            .order_by('-numero_socio').first()
+                
+                if ultimo_socio and ultimo_socio.numero_socio:
+                    nuevo_numero = ultimo_socio.numero_socio + 1
+                else:
+                    nuevo_numero = 1  # Si es el primer socio histórico del club, arranca en 1
+
+                # Lo guardamos con formato de 3 o 4 dígitos (ej: 001, 002, 145)
+                self.socio.numero_socio = str(nuevo_numero).zfill(3)
+
+            # Guardamos todos los cambios en el socio
+            self.socio.save()

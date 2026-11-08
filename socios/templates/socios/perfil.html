@@ -1,0 +1,46 @@
+{% extends 'web/base.html' %} 
+
+{% block content %}
+<div class="container" style="margin-top: 100px; min-height: 60vh;">
+    
+    <h2>Panel de Autogestión</h2>
+    
+    {% if socio.estado == 'activo' %}
+        <!-- ESTADO VERDE: Todo habilitado -->
+        <div class="alert alert-success">
+            <h4>¡Bienvenido {{ socio.nombre }}! Tu cuota está al día.</h4>
+        </div>
+        
+        <div class="beneficios-activos">
+            <h3>Tu Credencial Digital</h3>
+            <p>DNI: {{ socio.dni }}</p>
+            <p>Estado: ACTIVO</p>
+            <!-- Acá irán a futuro QR, Reglamentos o beneficios -->
+        </div>
+
+    {% elif socio.estado == 'pendiente' %}
+        <!-- ESTADO AMARILLO: Sala de espera -->
+        <div class="alert alert-warning">
+            <h4>Cuenta en revisión</h4>
+            <p>El staff del club está verificando tu último comprobante. Se habilitarán tus beneficios apenas sea aprobado.</p>
+        </div>
+
+    {% else %}
+        <!-- ESTADO ROJO/INACTIVO: Requiere pago -->
+        <div class="alert alert-danger">
+            <h4>Membresía Vencida o Inactiva</h4>
+            <p>Por favor, adjuntá el comprobante de transferencia para regularizar tu mes.</p>
+        </div>
+        
+        <!-- Tu formulario que ya armaste va acá adentro -->
+        <div class="formulario-pago-nuevo">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form_pago.comprobante }}
+                <button type="submit">Enviar Pago</button>
+            </form>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

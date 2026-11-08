@@ -1,0 +1,13 @@
+{% extends 'web/base.html' %} 
+
+{% block content %}
+<div class="container" style="margin-top: 100px; min-height: 60vh;">
+    <h2>Iniciar Sesión</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+</div>
+{% endblock %}

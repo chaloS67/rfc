@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .forms import SocioForm,PagosForm
 from .models import Socio,Pagos
 
+
+
+
 # Create your views here.
 def registrar_socio(request):
 

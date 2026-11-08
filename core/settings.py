@@ -160,3 +160,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+# Rutas de redirección para el sistema de usuarios
+LOGIN_REDIRECT_URL = '/socios/perfil/'  # Ajustalo a la ruta exacta de tu panel inteligente
+LOGOUT_REDIRECT_URL = '/'
